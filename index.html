@@ -6,235 +6,195 @@
   <title>Delray Beach Rowing Club</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <style>
-    :root {
-      --navy: #0d1f3c; --deep-navy: #071228; --gold: #c9a84c; --gold-light: #e8c97a;
-      --crimson: #8b1a1a; --cream: #f5f0e8; --white: #ffffff; --water: #1a4a6e;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { font-family:"Cormorant Garamond",serif; background:var(--deep-navy); color:var(--cream); overflow-x:hidden; }
-
+    :root{--navy:#0d1f3c;--deep-navy:#071228;--gold:#c9a84c;--gold-light:#e8c97a;--crimson:#8b1a1a;--cream:#f5f0e8;--white:#ffffff;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:"Cormorant Garamond",serif;background:var(--deep-navy);color:var(--cream);overflow-x:hidden;}
     /* NAV */
-    nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 5vw; height:72px; background:rgba(7,18,40,0.92); backdrop-filter:blur(12px); border-bottom:1px solid rgba(201,168,76,0.25); }
-    .nav-brand { font-family:"Playfair Display",serif; font-size:1.1rem; font-weight:700; color:var(--gold); letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap; }
-    .nav-links { display:flex; gap:2.5rem; list-style:none; }
-    .nav-links a { font-family:"Montserrat",sans-serif; font-size:0.72rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--cream); text-decoration:none; position:relative; transition:color 0.3s; }
-    .nav-links a::after { content:""; position:absolute; bottom:-4px; left:0; width:0; height:1px; background:var(--gold); transition:width 0.3s ease; }
-    .nav-links a:hover { color:var(--gold); }
-    .nav-links a:hover::after { width:100%; }
-
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;height:72px;background:rgba(7,18,40,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.25);}
+    .nav-brand{font-family:"Playfair Display",serif;font-size:1.1rem;font-weight:700;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;}
+    .nav-links{display:flex;gap:2.5rem;list-style:none;}
+    .nav-links a{font-family:"Montserrat",sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--cream);text-decoration:none;position:relative;transition:color 0.3s;}
+    .nav-links a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s ease;}
+    .nav-links a:hover{color:var(--gold);}
+    .nav-links a:hover::after{width:100%;}
     /* HAMBURGER */
-    .nav-hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; width:40px; height:40px; background:none; border:none; cursor:pointer; padding:4px; }
-    .nav-hamburger span { display:block; width:24px; height:2px; background:var(--gold); border-radius:2px; transition:all 0.35s ease; transform-origin:center; }
-    .nav-hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
-    .nav-hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
-
+    .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;padding:4px;}
+    .nav-hamburger span{display:block;width:24px;height:2px;background:var(--gold);border-radius:2px;transition:all 0.35s ease;transform-origin:center;}
+    .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+    .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
     /* MOBILE MENU */
-    .mobile-menu { position:fixed; inset:0; z-index:90; background:rgba(7,18,40,0.98); backdrop-filter:blur(16px); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2.5rem; opacity:0; pointer-events:none; transition:opacity 0.4s ease; }
-    .mobile-menu.open { opacity:1; pointer-events:all; }
-    .mobile-menu a { font-family:"Playfair Display",serif; font-size:2rem; font-weight:700; color:var(--cream); text-decoration:none; transform:translateY(20px); opacity:0; transition:color 0.3s, transform 0.4s ease, opacity 0.4s ease; }
-    .mobile-menu.open a { transform:translateY(0); opacity:1; }
-    .mobile-menu.open a:nth-child(1) { transition-delay:0.08s; }
-    .mobile-menu.open a:nth-child(2) { transition-delay:0.16s; }
-    .mobile-menu.open a:nth-child(3) { transition-delay:0.24s; }
-    .mobile-menu.open a:nth-child(4) { transition-delay:0.32s; }
-    .mobile-menu a:hover { color:var(--gold); }
-    .mobile-menu-social { display:flex; gap:2rem; margin-top:0.5rem; opacity:0; transform:translateY(20px); transition:opacity 0.4s ease 0.4s, transform 0.4s ease 0.4s; }
-    .mobile-menu.open .mobile-menu-social { opacity:1; transform:translateY(0); }
-    .mobile-menu-social a svg { width:28px; height:28px; fill:rgba(201,168,76,0.7); transition:fill 0.3s; display:block; }
-    .mobile-menu-social a:hover svg { fill:var(--gold); }
-
+    .mobile-menu{position:fixed;inset:0;z-index:90;background:rgba(7,18,40,0.98);backdrop-filter:blur(16px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;pointer-events:none;transition:opacity 0.4s ease;}
+    .mobile-menu.open{opacity:1;pointer-events:all;}
+    .mobile-menu a{font-family:"Playfair Display",serif;font-size:2rem;font-weight:700;color:var(--cream);text-decoration:none;transform:translateY(20px);opacity:0;transition:color 0.3s,transform 0.4s ease,opacity 0.4s ease;}
+    .mobile-menu.open a{transform:translateY(0);opacity:1;}
+    .mobile-menu.open a:nth-child(1){transition-delay:0.08s;}
+    .mobile-menu.open a:nth-child(2){transition-delay:0.16s;}
+    .mobile-menu.open a:nth-child(3){transition-delay:0.24s;}
+    .mobile-menu.open a:nth-child(4){transition-delay:0.32s;}
+    .mobile-menu a:hover{color:var(--gold);}
+    .mobile-menu-social{display:flex;gap:2rem;margin-top:0.5rem;opacity:0;transform:translateY(20px);transition:opacity 0.4s ease 0.4s,transform 0.4s ease 0.4s;}
+    .mobile-menu.open .mobile-menu-social{opacity:1;transform:translateY(0);}
+    .mobile-menu-social a svg{width:28px;height:28px;fill:rgba(201,168,76,0.7);transition:fill 0.3s;display:block;}
+    .mobile-menu-social a:hover svg{fill:var(--gold);}
     /* HERO */
-    .hero { position:relative; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; overflow:hidden; padding:100px 5vw 60px; }
-    .hero-bg { position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(26,74,110,0.5) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 50% 0%,rgba(13,31,60,0.8) 0%,transparent 60%),linear-gradient(180deg,#071228 0%,#0d1f3c 40%,#0a1828 100%); z-index:0; }
-    .waves { position:absolute; bottom:0; left:0; right:0; height:180px; overflow:hidden; z-index:1; }
-    .wave { position:absolute; bottom:0; width:200%; height:100%; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 180'%3E%3Cpath fill='%230a1828' fill-opacity='1' d='M0,64L48,80C96,96,192,128,288,122.7C384,117,480,75,576,64C672,53,768,75,864,90.7C960,107,1056,117,1152,112C1248,107,1344,85,1392,74.7L1440,64L1440,320L0,320Z'/%3E%3C/svg%3E") repeat-x bottom; background-size:50% 100%; animation:wave-anim 12s linear infinite; opacity:0.6; }
-    .wave:nth-child(2) { animation-duration:8s; animation-direction:reverse; opacity:0.3; bottom:-20px; }
-    @keyframes wave-anim { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-    .stars { position:absolute; inset:0; z-index:0; }
-    .star { position:absolute; width:2px; height:2px; background:white; border-radius:50%; animation:twinkle var(--d,3s) ease-in-out infinite alternate; opacity:var(--o,0.5); }
-    @keyframes twinkle { from{opacity:var(--o,0.5)} to{opacity:0.1} }
-    .hero-content { position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; }
-    .deco-line { display:flex; align-items:center; gap:1rem; margin-bottom:2rem; animation:fadeInDown 1s ease 0.2s both; }
-    .deco-line span { display:block; width:60px; height:1px; background:linear-gradient(90deg,transparent,var(--gold)); }
-    .deco-line span:last-child { background:linear-gradient(90deg,var(--gold),transparent); }
-    .hero-logo { width:clamp(180px,28vw,320px); height:auto; filter:drop-shadow(0 8px 40px rgba(201,168,76,0.4)); animation:floatLogo 6s ease-in-out infinite, fadeInUp 1s ease 0.4s both; margin-bottom:2rem; }
-    @keyframes floatLogo { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-    .hero-title { font-family:"Playfair Display",serif; font-size:clamp(2.4rem,5.5vw,5rem); font-weight:900; color:var(--white); line-height:1.05; animation:fadeInUp 1s ease 0.6s both; text-shadow:0 4px 30px rgba(0,0,0,0.5); }
-    .hero-title em { font-style:italic; color:var(--gold); }
-    .hero-subtitle { font-family:"Montserrat",sans-serif; font-size:0.75rem; font-weight:300; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold-light); margin-top:1rem; animation:fadeInUp 1s ease 0.8s both; }
-    .hero-tagline { font-size:1.25rem; font-weight:300; color:rgba(245,240,232,0.7); margin-top:1.5rem; max-width:500px; line-height:1.7; animation:fadeInUp 1s ease 1s both; }
-    .hero-cta { display:flex; gap:1rem; margin-top:2.5rem; animation:fadeInUp 1s ease 1.2s both; flex-wrap:wrap; justify-content:center; }
-    .btn-primary { display:inline-block; padding:0.9rem 2.4rem; background:linear-gradient(135deg,var(--gold) 0%,#a07830 100%); color:var(--deep-navy); font-family:"Montserrat",sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; text-decoration:none; border:none; cursor:pointer; transition:all 0.3s ease; clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); }
-    .btn-primary:hover { transform:translateY(-3px); box-shadow:0 12px 35px rgba(201,168,76,0.4); filter:brightness(1.1); }
-    .btn-outline { display:inline-block; padding:0.9rem 2.4rem; background:transparent; color:var(--cream); font-family:"Montserrat",sans-serif; font-size:0.72rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; text-decoration:none; border:1px solid rgba(201,168,76,0.5); cursor:pointer; transition:all 0.3s ease; clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); }
-    .btn-outline:hover { border-color:var(--gold); background:rgba(201,168,76,0.1); transform:translateY(-3px); }
-    .hero-contact { position:relative; z-index:2; display:flex; gap:2rem; margin-top:3.5rem; align-items:center; animation:fadeInUp 1s ease 1.4s both; }
-    .contact-item { display:flex; align-items:center; gap:0.6rem; color:rgba(245,240,232,0.65); text-decoration:none; font-family:"Montserrat",sans-serif; font-size:0.7rem; letter-spacing:0.08em; transition:color 0.3s; }
-    .contact-item:hover { color:var(--gold); }
-    .contact-item svg { width:20px; height:20px; fill:currentColor; transition:transform 0.3s; }
-    .contact-item:hover svg { transform:scale(1.2); }
-    .contact-sep { width:1px; height:24px; background:rgba(201,168,76,0.25); }
-
+    .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:100px 5vw 60px;}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(26,74,110,0.5) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 50% 0%,rgba(13,31,60,0.8) 0%,transparent 60%),linear-gradient(180deg,#071228 0%,#0d1f3c 40%,#0a1828 100%);z-index:0;}
+    .waves{position:absolute;bottom:0;left:0;right:0;height:180px;overflow:hidden;z-index:1;}
+    .wave{position:absolute;bottom:0;width:200%;height:100%;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 180'%3E%3Cpath fill='%230a1828' fill-opacity='1' d='M0,64L48,80C96,96,192,128,288,122.7C384,117,480,75,576,64C672,53,768,75,864,90.7C960,107,1056,117,1152,112C1248,107,1344,85,1392,74.7L1440,64L1440,320L0,320Z'/%3E%3C/svg%3E") repeat-x bottom;background-size:50% 100%;animation:wave-anim 12s linear infinite;opacity:0.6;}
+    .wave:nth-child(2){animation-duration:8s;animation-direction:reverse;opacity:0.3;bottom:-20px;}
+    @keyframes wave-anim{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .stars{position:absolute;inset:0;z-index:0;}
+    .star{position:absolute;background:white;border-radius:50%;animation:twinkle var(--d,3s) ease-in-out infinite alternate;opacity:var(--o,0.5);}
+    @keyframes twinkle{from{opacity:var(--o,0.5)}to{opacity:0.1}}
+    .hero-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;}
+    .hero-logo{width:clamp(180px,28vw,320px);height:auto;filter:drop-shadow(0 8px 40px rgba(201,168,76,0.4));animation:floatLogo 6s ease-in-out infinite,fadeInUp 1s ease 0.4s both;margin-bottom:2rem;}
+    @keyframes floatLogo{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    .hero-title{font-family:"Playfair Display",serif;font-size:clamp(2.4rem,5.5vw,5rem);font-weight:900;color:var(--white);line-height:1.05;animation:fadeInUp 1s ease 0.6s both;text-shadow:0 4px 30px rgba(0,0,0,0.5);}
+    .hero-title em{font-style:italic;color:var(--gold);}
+    .hero-subtitle{font-family:"Montserrat",sans-serif;font-size:0.75rem;font-weight:300;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold-light);margin-top:1rem;animation:fadeInUp 1s ease 0.8s both;}
+    .hero-tagline{font-size:1.25rem;font-weight:300;color:rgba(245,240,232,0.7);margin-top:1.5rem;max-width:500px;line-height:1.7;animation:fadeInUp 1s ease 1s both;}
+    .hero-cta{display:flex;gap:1rem;margin-top:2.5rem;animation:fadeInUp 1s ease 1.2s both;flex-wrap:wrap;justify-content:center;}
+    .btn-primary{display:inline-block;padding:0.9rem 2.4rem;background:linear-gradient(135deg,var(--gold) 0%,#a07830 100%);color:var(--deep-navy);font-family:"Montserrat",sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:all 0.3s ease;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(201,168,76,0.4);filter:brightness(1.1);}
+    .btn-outline{display:inline-block;padding:0.9rem 2.4rem;background:transparent;color:var(--cream);font-family:"Montserrat",sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(201,168,76,0.5);cursor:pointer;transition:all 0.3s ease;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);}
+    .btn-outline:hover{border-color:var(--gold);background:rgba(201,168,76,0.1);transform:translateY(-3px);}
+    .hero-contact{position:relative;z-index:2;display:flex;gap:2rem;margin-top:3.5rem;align-items:center;animation:fadeInUp 1s ease 1.4s both;}
+    .contact-item{display:flex;align-items:center;gap:0.6rem;color:rgba(245,240,232,0.65);text-decoration:none;font-family:"Montserrat",sans-serif;font-size:0.7rem;letter-spacing:0.08em;transition:color 0.3s;}
+    .contact-item:hover{color:var(--gold);}
+    .contact-item svg{width:20px;height:20px;fill:currentColor;transition:transform 0.3s;}
+    .contact-item:hover svg{transform:scale(1.2);}
+    .contact-sep{width:1px;height:24px;background:rgba(201,168,76,0.25);}
     /* SECTIONS */
-    section { padding:100px 5vw; max-width:1200px; margin:0 auto; }
-    .section-header { text-align:center; margin-bottom:4rem; }
-    .section-tag { font-family:"Montserrat",sans-serif; font-size:0.65rem; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:1rem; }
-    .section-title { font-family:"Playfair Display",serif; font-size:clamp(2rem,4vw,3.2rem); color:var(--white); font-weight:700; }
-    .section-title em { color:var(--gold); font-style:italic; }
-    .section-rule { width:80px; height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin:1.5rem auto 0; }
-
+    section{padding:100px 5vw;max-width:1200px;margin:0 auto;}
+    .section-header{text-align:center;margin-bottom:4rem;}
+    .section-tag{font-family:"Montserrat",sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1rem;}
+    .section-title{font-family:"Playfair Display",serif;font-size:clamp(2rem,4vw,3.2rem);color:var(--white);font-weight:700;}
+    .section-title em{color:var(--gold);font-style:italic;}
+    .section-rule{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.5rem auto 0;}
     /* ABOUT */
-    #about { max-width:1200px; }
-    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
-    .about-text p { font-size:1.15rem; line-height:1.9; color:rgba(245,240,232,0.8); margin-bottom:1.5rem; }
-    .about-text p strong { color:var(--gold); }
-    .about-stats { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
-    .stat-card { background:rgba(201,168,76,0.06); border:1px solid rgba(201,168,76,0.2); padding:2rem 1.5rem; text-align:center; position:relative; overflow:hidden; transition:all 0.3s; }
-    .stat-card::before { content:""; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--crimson),var(--gold)); transform:scaleX(0); transition:transform 0.4s; }
-    .stat-card:hover { background:rgba(201,168,76,0.1); }
-    .stat-card:hover::before { transform:scaleX(1); }
-    .stat-num { font-family:"Playfair Display",serif; font-size:3rem; font-weight:900; color:var(--gold); line-height:1; }
-    .stat-label { font-family:"Montserrat",sans-serif; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(245,240,232,0.6); margin-top:0.5rem; }
-
+    #about{max-width:1200px;}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+    .about-text p{font-size:1.15rem;line-height:1.9;color:rgba(245,240,232,0.8);margin-bottom:1.5rem;}
+    .about-text p strong{color:var(--gold);}
+    .about-stats{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+    .stat-card{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);padding:2rem 1.5rem;text-align:center;position:relative;overflow:hidden;transition:all 0.3s;}
+    .stat-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--crimson),var(--gold));transform:scaleX(0);transition:transform 0.4s;}
+    .stat-card:hover{background:rgba(201,168,76,0.1);}
+    .stat-card:hover::before{transform:scaleX(1);}
+    .stat-num{font-family:"Playfair Display",serif;font-size:3rem;font-weight:900;color:var(--gold);line-height:1;}
+    .stat-label{font-family:"Montserrat",sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.6);margin-top:0.5rem;}
     /* JOIN */
-    .join-inner { max-width:1200px; margin:0 auto; }
-    .membership-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:1rem; }
-    .mem-card { border:1px solid rgba(201,168,76,0.2); padding:3rem 2rem; text-align:center; position:relative; overflow:hidden; transition:all 0.4s; background:rgba(255,255,255,0.02); }
-    .mem-card.featured { border-color:var(--gold); background:rgba(201,168,76,0.06); }
-    .mem-card.featured::before { content:"Most Popular"; position:absolute; top:16px; right:-28px; background:var(--gold); color:var(--deep-navy); font-family:"Montserrat",sans-serif; font-size:0.6rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:4px 36px; transform:rotate(40deg); }
-    .mem-card:hover { transform:translateY(-8px); border-color:var(--gold); box-shadow:0 20px 50px rgba(0,0,0,0.4); }
-    .mem-icon { font-size:2.5rem; margin-bottom:1.5rem; }
-    .mem-title { font-family:"Playfair Display",serif; font-size:1.5rem; color:var(--white); margin-bottom:0.5rem; }
-    .mem-price { font-family:"Montserrat",sans-serif; font-size:2.5rem; font-weight:700; color:var(--gold); margin:1rem 0; }
-    .mem-price span { font-size:1rem; font-weight:300; color:rgba(245,240,232,0.5); }
-    .mem-features { list-style:none; margin:1.5rem 0 2rem; }
-    .mem-features li { font-size:0.95rem; color:rgba(245,240,232,0.7); padding:0.5rem 0; border-bottom:1px solid rgba(255,255,255,0.05); }
-    .mem-features li::before { content:"✦ "; color:var(--gold); font-size:0.6rem; }
-
+    .join-inner{max-width:1200px;margin:0 auto;}
+    .membership-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:1rem;}
+    .mem-card{border:1px solid rgba(201,168,76,0.2);padding:3rem 2rem;text-align:center;position:relative;overflow:hidden;transition:all 0.4s;background:rgba(255,255,255,0.02);}
+    .mem-card.featured{border-color:var(--gold);background:rgba(201,168,76,0.06);}
+    .mem-card.featured::before{content:"Most Popular";position:absolute;top:16px;right:-28px;background:var(--gold);color:var(--deep-navy);font-family:"Montserrat",sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 36px;transform:rotate(40deg);}
+    .mem-card:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:0 20px 50px rgba(0,0,0,0.4);}
+    .mem-icon{font-size:2.5rem;margin-bottom:1.5rem;}
+    .mem-title{font-family:"Playfair Display",serif;font-size:1.5rem;color:var(--white);margin-bottom:0.5rem;}
+    .mem-price{font-family:"Montserrat",sans-serif;font-size:2.5rem;font-weight:700;color:var(--gold);margin:1rem 0;}
+    .mem-price span{font-size:1rem;font-weight:300;color:rgba(245,240,232,0.5);}
+    .mem-features{list-style:none;margin:1.5rem 0 2rem;}
+    .mem-features li{font-size:0.95rem;color:rgba(245,240,232,0.7);padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+    .mem-features li::before{content:"\2726 ";color:var(--gold);font-size:0.6rem;}
     /* DONATE */
-    #donate { max-width:1200px; }
-    .donate-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
-    .donate-text p { font-size:1.1rem; line-height:1.9; color:rgba(245,240,232,0.75); margin-bottom:1.5rem; }
-    .donate-amounts { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2rem 0; }
-    .amount-btn { padding:1rem; border:1px solid rgba(201,168,76,0.35); background:transparent; color:var(--cream); font-family:"Playfair Display",serif; font-size:1.4rem; cursor:pointer; transition:all 0.3s; }
-    .amount-btn:hover,.amount-btn.active { background:var(--gold); color:var(--deep-navy); border-color:var(--gold); font-weight:700; }
-    .donate-impact { background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.2); padding:2.5rem; }
-    .impact-title { font-family:"Playfair Display",serif; font-size:1.3rem; color:var(--gold); margin-bottom:1.5rem; }
-    .impact-item { display:flex; gap:1rem; margin-bottom:1.5rem; align-items:flex-start; }
-    .impact-dot { width:8px; height:8px; min-width:8px; background:var(--gold); margin-top:8px; }
-    .impact-item p { font-size:1rem; color:rgba(245,240,232,0.75); line-height:1.7; }
-
+    #donate{max-width:1200px;}
+    .donate-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+    .donate-text p{font-size:1.1rem;line-height:1.9;color:rgba(245,240,232,0.75);margin-bottom:1.5rem;}
+    .donate-impact{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.2);padding:2.5rem;}
+    .impact-title{font-family:"Playfair Display",serif;font-size:1.3rem;color:var(--gold);margin-bottom:1.5rem;}
+    .impact-item{display:flex;gap:1rem;margin-bottom:1.5rem;align-items:flex-start;}
+    .impact-dot{width:8px;height:8px;min-width:8px;background:var(--gold);margin-top:8px;}
+    .impact-item p{font-size:1rem;color:rgba(245,240,232,0.75);line-height:1.7;}
     /* INDOOR */
-    .indoor-inner { max-width:1200px; margin:0 auto; }
-    .programs-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2rem; }
-    .program-card { background:rgba(255,255,255,0.02); border:1px solid rgba(201,168,76,0.15); padding:2.5rem; position:relative; overflow:hidden; transition:all 0.4s; }
-    .program-card::after { content:""; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--crimson),var(--gold)); transform:scaleX(0); transform-origin:left; transition:transform 0.4s; }
-    .program-card:hover { border-color:rgba(201,168,76,0.4); background:rgba(201,168,76,0.04); transform:translateY(-4px); }
-    .program-card:hover::after { transform:scaleX(1); }
-    .program-icon { font-size:2.5rem; margin-bottom:1rem; }
-    .program-title { font-family:"Playfair Display",serif; font-size:1.4rem; color:var(--white); margin-bottom:0.8rem; }
-    .program-text { font-size:1rem; color:rgba(245,240,232,0.65); line-height:1.8; }
-    .program-tag { display:inline-block; margin-top:1rem; font-family:"Montserrat",sans-serif; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(201,168,76,0.35); padding:4px 12px; }
-
+    .indoor-inner{max-width:1200px;margin:0 auto;}
+    .programs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;}
+    .program-card{background:rgba(255,255,255,0.02);border:1px solid rgba(201,168,76,0.15);padding:2.5rem;position:relative;overflow:hidden;transition:all 0.4s;}
+    .program-card::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--crimson),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
+    .program-card:hover{border-color:rgba(201,168,76,0.4);background:rgba(201,168,76,0.04);transform:translateY(-4px);}
+    .program-card:hover::after{transform:scaleX(1);}
+    .program-icon{font-size:2.5rem;margin-bottom:1rem;}
+    .program-title{font-family:"Playfair Display",serif;font-size:1.4rem;color:var(--white);margin-bottom:0.8rem;}
+    .program-text{font-size:1rem;color:rgba(245,240,232,0.65);line-height:1.8;}
+    .program-tag{display:inline-block;margin-top:1rem;font-family:"Montserrat",sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,0.35);padding:4px 12px;}
+    /* CAROUSEL */
+    .carousel-section{padding:100px 5vw;border-top:1px solid rgba(201,168,76,0.15);}
+    .carousel-inner{max-width:1200px;margin:0 auto;}
+    .carousel-wrapper{position:relative;overflow:hidden;border:1px solid rgba(201,168,76,0.3);box-shadow:0 20px 60px rgba(0,0,0,0.5);}
+    .carousel-track{display:flex;transition:transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);}
+    .carousel-slide{min-width:100%;position:relative;overflow:hidden;}
+    .carousel-slide img{width:100%;height:520px;object-fit:cover;display:block;filter:brightness(0.9);transition:filter 0.4s;}
+    .carousel-slide:hover img{filter:brightness(1);}
+    .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(7,18,40,0.7);border:1px solid rgba(201,168,76,0.5);color:var(--gold);width:52px;height:52px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s;z-index:10;backdrop-filter:blur(4px);}
+    .carousel-btn:hover{background:rgba(201,168,76,0.2);border-color:var(--gold);}
+    .carousel-btn-prev{left:1rem;}
+    .carousel-btn-next{right:1rem;}
+    .carousel-btn svg{width:22px;height:22px;fill:var(--gold);}
+    .carousel-dots{display:flex;justify-content:center;gap:0.75rem;margin-top:1.5rem;}
+    .carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(201,168,76,0.3);border:none;cursor:pointer;transition:all 0.3s;padding:0;}
+    .carousel-dot.active{background:var(--gold);transform:scale(1.3);}
     /* MAP */
-    .map-section { padding:100px 5vw; border-top:1px solid rgba(201,168,76,0.15); }
-    .map-inner { max-width:1200px; margin:0 auto; }
-    .map-grid { display:grid; grid-template-columns:1fr 1.6fr; gap:4rem; align-items:start; margin-top:1rem; }
-    .map-info { display:flex; flex-direction:column; gap:2rem; }
-    .map-info-card { background:rgba(201,168,76,0.05); border:1px solid rgba(201,168,76,0.2); padding:2rem 1.8rem; position:relative; overflow:hidden; transition:border-color 0.3s; }
-    .map-info-card:hover { border-color:rgba(201,168,76,0.5); }
-    .map-info-card::before { content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(180deg,var(--crimson),var(--gold)); }
-    .map-info-icon { font-size:1.5rem; margin-bottom:0.8rem; }
-    .map-info-title { font-family:"Montserrat",sans-serif; font-size:0.65rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:0.6rem; }
-    .map-info-text { font-size:1.05rem; color:rgba(245,240,232,0.8); line-height:1.7; }
-    .map-info-text a { color:var(--gold); text-decoration:none; }
-    .map-info-text a:hover { text-decoration:underline; }
-    .map-container { border:1px solid rgba(201,168,76,0.3); overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.5); position:relative; }
-    .map-container iframe { display:block; width:100%; height:460px; border:none; filter:saturate(0.85) contrast(1.1); }
-    .map-container::after { content:""; position:absolute; inset:0; pointer-events:none; box-shadow:inset 0 0 0 1px rgba(201,168,76,0.3); }
-
+    .map-section{padding:100px 5vw;border-top:1px solid rgba(201,168,76,0.15);}
+    .map-inner{max-width:1200px;margin:0 auto;}
+    .map-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:4rem;align-items:start;margin-top:1rem;}
+    .map-info{display:flex;flex-direction:column;gap:2rem;}
+    .map-info-card{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.2);padding:2rem 1.8rem;position:relative;overflow:hidden;transition:border-color 0.3s;}
+    .map-info-card:hover{border-color:rgba(201,168,76,0.5);}
+    .map-info-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--crimson),var(--gold));}
+    .map-info-icon{font-size:1.5rem;margin-bottom:0.8rem;}
+    .map-info-title{font-family:"Montserrat",sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
+    .map-info-text{font-size:1.05rem;color:rgba(245,240,232,0.8);line-height:1.7;}
+    .map-info-text a{color:var(--gold);text-decoration:none;}
+    .map-info-text a:hover{text-decoration:underline;}
+    .map-container{border:1px solid rgba(201,168,76,0.3);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5);}
+    .map-container iframe{display:block;width:100%;height:460px;border:none;}
     /* FOOTER */
-    footer { background:#040c1a; border-top:1px solid rgba(201,168,76,0.15); padding:3rem 5vw; text-align:center; }
-    .footer-logo { font-family:"Playfair Display",serif; font-size:1.2rem; color:var(--gold); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1rem; }
-    .footer-text { font-size:0.85rem; color:rgba(245,240,232,0.35); font-family:"Montserrat",sans-serif; letter-spacing:0.05em; }
-
+    footer{background:#040c1a;border-top:1px solid rgba(201,168,76,0.15);padding:3rem 5vw;text-align:center;}
+    .footer-logo{font-family:"Playfair Display",serif;font-size:1.2rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;}
+    .footer-text{font-size:0.85rem;color:rgba(245,240,232,0.35);font-family:"Montserrat",sans-serif;letter-spacing:0.05em;}
     /* ANIMATIONS */
-    @keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
-    @keyframes fadeInDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
-    .reveal { opacity:0; transform:translateY(40px); transition:opacity 0.8s ease, transform 0.8s ease; }
-    .reveal.visible { opacity:1; transform:translateY(0); }
-
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
     /* RESPONSIVE */
-    @media (max-width:768px) {
-      .nav-links { display:none; }
-      .nav-hamburger { display:flex; }
-      .nav-brand { font-size:0.85rem; }
-      .hero { padding:90px 6vw 80px; }
-      .hero-logo { width:clamp(140px,55vw,220px); margin-bottom:1.5rem; }
-      .hero-title { font-size:clamp(2rem,9vw,3rem); }
-      .hero-subtitle { font-size:0.62rem; letter-spacing:0.2em; }
-      .hero-tagline { font-size:1rem; margin-top:1rem; }
-      .hero-cta { gap:0.75rem; margin-top:2rem; }
-      .btn-primary,.btn-outline { padding:0.85rem 1.6rem; font-size:0.68rem; }
-      .hero-contact { flex-wrap:wrap; justify-content:center; gap:0.75rem; margin-top:2rem; }
-      .contact-sep { display:none; }
-      .contact-item { width:48px; height:48px; justify-content:center; border:1px solid rgba(201,168,76,0.3); border-radius:50%; gap:0; }
-      .contact-item .contact-text { display:none; }
-      .contact-item svg { width:22px; height:22px; }
-      section { padding:60px 6vw; }
-      #join { padding:60px 6vw !important; }
-      #indoor { padding:60px 6vw !important; }
-      .map-section { padding:60px 6vw; }
-      .section-header { margin-bottom:2.5rem; }
-      .section-title { font-size:clamp(1.7rem,7vw,2.4rem); }
-      .about-grid { grid-template-columns:1fr; gap:2.5rem; }
-      .about-text p { font-size:1.05rem; }
-      .about-stats { grid-template-columns:1fr 1fr; gap:1rem; }
-      .stat-num { font-size:2.2rem; }
-      .stat-card { padding:1.2rem 0.8rem; }
-      .membership-cards { grid-template-columns:1fr; gap:1.5rem; }
-      .mem-card { padding:2rem 1.5rem; }
-      .mem-card.featured::before { display:none; }
-      .donate-grid { grid-template-columns:1fr; gap:2rem; }
-      .donate-amounts { grid-template-columns:repeat(3,1fr); gap:0.6rem; }
-      .amount-btn { font-size:1.1rem; padding:0.75rem 0.3rem; }
-      .donate-impact { padding:1.5rem; }
-      .programs-grid { grid-template-columns:1fr; gap:1.5rem; }
-      .program-card { padding:2rem 1.5rem; }
-      .map-grid { grid-template-columns:1fr; gap:2rem; }
-      .map-container iframe { height:300px; }
-      footer { padding:2rem 6vw; }
-      footer .footer-social { flex-wrap:wrap; gap:1rem; }
-    }
-    @media (max-width:380px) {
-      .hero-title { font-size:1.8rem; }
-      .donate-amounts { grid-template-columns:repeat(2,1fr); }
+    @media(max-width:768px){
+      .nav-links{display:none;}.nav-hamburger{display:flex;}.nav-brand{font-size:0.85rem;}
+      .hero{padding:90px 6vw 80px;}.hero-logo{width:clamp(140px,55vw,220px);}
+      .hero-title{font-size:clamp(2rem,9vw,3rem);}.hero-tagline{font-size:1rem;}
+      .hero-contact{flex-wrap:wrap;justify-content:center;gap:0.75rem;margin-top:2rem;}
+      .contact-sep{display:none;}
+      .contact-item{width:48px;height:48px;justify-content:center;border:1px solid rgba(201,168,76,0.3);border-radius:50%;gap:0;}
+      .contact-item .contact-text{display:none;}.contact-item svg{width:22px;height:22px;}
+      section{padding:60px 6vw;}
+      #join{padding:60px 6vw !important;}#indoor{padding:60px 6vw !important;}
+      .carousel-section{padding:60px 6vw;}.map-section{padding:60px 6vw;}
+      .section-title{font-size:clamp(1.7rem,7vw,2.4rem);}
+      .about-grid{grid-template-columns:1fr;gap:2.5rem;}
+      .about-stats{grid-template-columns:1fr 1fr;gap:1rem;}.stat-num{font-size:2.2rem;}.stat-card{padding:1.2rem 0.8rem;}
+      .membership-cards{grid-template-columns:1fr;gap:1.5rem;}.mem-card{padding:2rem 1.5rem;}.mem-card.featured::before{display:none;}
+      .donate-grid{grid-template-columns:1fr;gap:2rem;}.donate-impact{padding:1.5rem;}
+      .programs-grid{grid-template-columns:1fr;gap:1.5rem;}.program-card{padding:2rem 1.5rem;}
+      .carousel-slide img{height:260px;}.carousel-btn{width:40px;height:40px;}
+      .map-grid{grid-template-columns:1fr;gap:2rem;}.map-container iframe{height:300px;}
+      footer{padding:2rem 6vw;}
     }
   </style>
 </head>
 <body>
 
-  <!-- MOBILE MENU OVERLAY -->
+  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#about" onclick="closeMobileMenu()">About</a>
     <a href="#join" onclick="closeMobileMenu()">Join Us</a>
     <a href="#donate" onclick="closeMobileMenu()">Donate</a>
     <a href="#indoor" onclick="closeMobileMenu()">Indoor Rowing</a>
     <div class="mobile-menu-social">
-      <a href="mailto:info@delrayrowingclub.com" aria-label="Email">
-        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-      </a>
-      <a href="tel:+15551234567" aria-label="Phone">
-        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-      </a>
-      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-        <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
-      </a>
-      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-      </a>
+      <a href="mailto:info&#64;delrayrowingclub.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+      <a href="tel:+15551234567" aria-label="Phone"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
     </div>
   </div>
 
@@ -258,7 +218,7 @@
     <div class="stars" id="stars"></div>
     <div class="waves"><div class="wave"></div><div class="wave"></div></div>
     <div class="hero-content">
-<img src="logo-club.png" alt="Delray Beach Rowing Club Logo" class="hero-logo"/>
+      <img src="logo-club.png" alt="Delray Beach Rowing Club Logo" class="hero-logo"/>
       <h1 class="hero-title">Delray Beach<br/><em>Rowing Club</em></h1>
       <p class="hero-subtitle">Delray Beach &middot; Est. 2023 &middot; Where Champions Are Born</p>
       <p class="hero-tagline">Forging athletes, building community, and honoring the timeless tradition of rowing on the waters of South Florida.</p>
@@ -268,9 +228,9 @@
       </div>
     </div>
     <div class="hero-contact">
-      <a href="mailto:info@delrayrowingclub.com" class="contact-item">
+      <a href="mailto:info&#64;delrayrowingclub.com" class="contact-item">
         <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        <span class="contact-text">info@delrayrowingclub.com</span>
+        <span class="contact-text">info&#64;delrayrowingclub.com</span>
       </a>
       <div class="contact-sep"></div>
       <a href="tel:+15551234567" class="contact-item">
@@ -320,9 +280,7 @@
         <span class="section-tag">Membership</span>
         <h2 class="section-title">Choose Your <em>Journey</em></h2>
         <div class="section-rule"></div>
-        <p style="margin-top:1.5rem;color:rgba(245,240,232,0.6);font-size:1.05rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.8;">
-          Whether you're a seasoned competitor or just discovering the oar, there's a place for you on our roster.
-        </p>
+        <p style="margin-top:1.5rem;color:rgba(245,240,232,0.6);font-size:1.05rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.8;">Whether you're a seasoned competitor or just discovering the oar, there's a place for you on our roster.</p>
       </div>
       <div class="membership-cards">
         <div class="mem-card reveal">
@@ -330,37 +288,27 @@
           <div class="mem-title">Novice</div>
           <div class="mem-price">$49<span>/month</span></div>
           <ul class="mem-features">
-            <li>Learn-to-row clinics</li>
-            <li>2 sessions per week</li>
-            <li>Equipment provided</li>
-            <li>Club events access</li>
+            <li>Learn-to-row clinics</li><li>2 sessions per week</li><li>Equipment provided</li><li>Club events access</li>
           </ul>
-          <a href="mailto:info@delrayrowingclub.com" class="btn-outline" style="display:inline-block;">Get Started</a>
+          <a href="mailto:info&#64;delrayrowingclub.com" class="btn-outline" style="display:inline-block;">Get Started</a>
         </div>
         <div class="mem-card featured reveal">
           <div class="mem-icon">&#x1F3C6;</div>
           <div class="mem-title">Competitive</div>
           <div class="mem-price">$89<span>/month</span></div>
           <ul class="mem-features">
-            <li>Unlimited training sessions</li>
-            <li>Regatta entry support</li>
-            <li>Video stroke analysis</li>
-            <li>Gym &amp; erg access</li>
-            <li>Priority boat booking</li>
+            <li>Unlimited training sessions</li><li>Regatta entry support</li><li>Video stroke analysis</li><li>Gym &amp; erg access</li><li>Priority boat booking</li>
           </ul>
-          <a href="mailto:info@delrayrowingclub.com" class="btn-primary" style="display:inline-block;">Join Now</a>
+          <a href="mailto:info&#64;delrayrowingclub.com" class="btn-primary" style="display:inline-block;">Join Now</a>
         </div>
         <div class="mem-card reveal">
           <div class="mem-icon">&#x2693;</div>
           <div class="mem-title">Masters</div>
           <div class="mem-price">$69<span>/month</span></div>
           <ul class="mem-features">
-            <li>Masters-specific coaching</li>
-            <li>Flexible scheduling</li>
-            <li>Social &amp; touring rows</li>
-            <li>Masters regattas</li>
+            <li>Masters-specific coaching</li><li>Flexible scheduling</li><li>Social &amp; touring rows</li><li>Masters regattas</li>
           </ul>
-          <a href="mailto:info@delrayrowingclub.com" class="btn-outline" style="display:inline-block;">Get Started</a>
+          <a href="mailto:info&#64;delrayrowingclub.com" class="btn-outline" style="display:inline-block;">Get Started</a>
         </div>
       </div>
     </div>
@@ -377,15 +325,7 @@
       <div class="donate-text reveal">
         <p>Your donation directly fuels our mission to make rowing accessible to all South Florida youth, maintain world-class equipment, and send our athletes to compete on the national stage.</p>
         <p>Every dollar raised goes toward building a stronger, more inclusive club &mdash; one stroke at a time.</p>
-        <div class="donate-amounts">
-          <button class="amount-btn" onclick="setAmount(this)">$25</button>
-          <button class="amount-btn active" onclick="setAmount(this)">$50</button>
-          <button class="amount-btn" onclick="setAmount(this)">$100</button>
-          <button class="amount-btn" onclick="setAmount(this)">$250</button>
-          <button class="amount-btn" onclick="setAmount(this)">$500</button>
-          <button class="amount-btn" onclick="setAmount(this)">Custom</button>
-        </div>
-        <a href="mailto:info@delrayrowingclub.com?subject=Donation" class="btn-primary" style="display:inline-block;">Donate Now</a>
+        <a href="https://www.paypal.com/ncp/payment/99WVY2Z36ZKXC" target="_blank" class="btn-primary" style="display:inline-block;margin-top:1.5rem;">Donate Now</a>
       </div>
       <div class="donate-impact reveal">
         <h3 class="impact-title">Your Impact</h3>
@@ -404,9 +344,7 @@
         <span class="section-tag">Erg Training</span>
         <h2 class="section-title">Indoor <em>Rowing</em> Programs</h2>
         <div class="section-rule"></div>
-        <p style="margin-top:1.5rem;color:rgba(245,240,232,0.6);font-size:1.05rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.8;">
-          No water? No problem. Our indoor rowing facility is open year-round with state-of-the-art Concept2 ergometers and expert instruction.
-        </p>
+        <p style="margin-top:1.5rem;color:rgba(245,240,232,0.6);font-size:1.05rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.8;">No water? No problem. Our indoor rowing facility is open year-round with state-of-the-art Concept2 ergometers and expert instruction.</p>
       </div>
       <div class="programs-grid">
         <div class="program-card reveal">
@@ -435,7 +373,42 @@
         </div>
       </div>
       <div style="text-align:center;margin-top:3rem;" class="reveal">
-        <a href="mailto:info@delrayrowingclub.com?subject=Indoor Rowing" class="btn-primary">Reserve Your Erg</a>
+        <a href="mailto:info&#64;delrayrowingclub.com?subject=Indoor%20Rowing" class="btn-primary">Reserve Your Erg</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHOTO CAROUSEL -->
+  <div class="carousel-section">
+    <div class="carousel-inner">
+      <div class="section-header reveal">
+        <span class="section-tag">On The Water</span>
+        <h2 class="section-title">Life at the <em>Club</em></h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="carousel-wrapper reveal">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide">
+            <img src="remo1.avif" alt="Rowing competition"/>
+          </div>
+          <div class="carousel-slide">
+            <img src="remo2.avif" alt="Rowing heats"/>
+          </div>
+          <div class="carousel-slide">
+            <img src="remo3.avif" alt="Women's quad heat"/>
+          </div>
+        </div>
+        <button class="carousel-btn carousel-btn-prev" onclick="moveCarousel(-1)" aria-label="Previous">
+          <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </button>
+        <button class="carousel-btn carousel-btn-next" onclick="moveCarousel(1)" aria-label="Next">
+          <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </button>
+      </div>
+      <div class="carousel-dots">
+        <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+        <button class="carousel-dot" onclick="goToSlide(1)"></button>
+        <button class="carousel-dot" onclick="goToSlide(2)"></button>
       </div>
     </div>
   </div>
@@ -453,39 +426,25 @@
           <div class="map-info-card reveal">
             <div class="map-info-icon">&#x1F4CD;</div>
             <div class="map-info-title">Address</div>
-            <div class="map-info-text">
-              950 NW 9th St<br/>
-              Delray Beach, FL 33444<br/>
-              United States
-            </div>
+            <div class="map-info-text">950 NW 9th St<br/>Delray Beach, FL 33444<br/>United States</div>
             <a href="https://maps.google.com/?q=950+NW+9th+St,+Delray+Beach,+FL+33444" target="_blank" class="btn-primary" style="display:inline-block;margin-top:1.2rem;">Get Directions</a>
           </div>
           <div class="map-info-card reveal">
             <div class="map-info-icon">&#x1F550;</div>
             <div class="map-info-title">Training Hours</div>
-            <div class="map-info-text">
-              Mon &ndash; Fri: 5:30 AM &ndash; 8:00 PM<br/>
-              Saturday: 6:00 AM &ndash; 2:00 PM<br/>
-              Sunday: 7:00 AM &ndash; 12:00 PM
-            </div>
+            <div class="map-info-text">Mon &ndash; Fri: 5:30 AM &ndash; 8:00 PM<br/>Saturday: 6:00 AM &ndash; 2:00 PM<br/>Sunday: 7:00 AM &ndash; 12:00 PM</div>
           </div>
           <div class="map-info-card reveal">
             <div class="map-info-icon">&#x1F4DE;</div>
             <div class="map-info-title">Contact</div>
             <div class="map-info-text">
               <a href="tel:+15551234567">(555) 123-4567</a><br/>
-              <a href="mailto:info@delrayrowingclub.com">info@delrayrowingclub.com</a>
+              <a href="mailto:info&#64;delrayrowingclub.com">info&#64;delrayrowingclub.com</a>
             </div>
           </div>
         </div>
         <div class="map-container reveal">
-          <iframe
-            width="100%"
-            height="460"
-            style="border:0;display:block;"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
+          <iframe width="100%" height="460" style="border:0;display:block;" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
             src="https://maps.google.com/maps?q=950+NW+9th+St,+Delray+Beach,+FL+33444&t=&z=16&ie=UTF8&iwloc=&output=embed">
           </iframe>
         </div>
@@ -497,8 +456,8 @@
   <footer>
     <div class="footer-logo">Delray Beach Rowing Club</div>
     <p class="footer-text">Delray Beach &middot; Est. 2023 &middot; All rights reserved &copy; 2025</p>
-    <div class="footer-social" style="display:flex;justify-content:center;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap;">
-      <a href="mailto:info@delrayrowingclub.com" class="contact-item" style="font-size:0.65rem;">
+    <div style="display:flex;justify-content:center;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap;">
+      <a href="mailto:info&#64;delrayrowingclub.com" class="contact-item" style="font-size:0.65rem;">
         <svg style="width:16px;height:16px;fill:rgba(201,168,76,0.6);" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
         <span class="contact-text">Email</span>
       </a>
@@ -514,34 +473,19 @@
   </footer>
 
   <script>
-    function toggleMenu() {
-      const menu = document.getElementById("mobileMenu");
-      const btn = document.getElementById("hamburger");
-      const isOpen = menu.classList.toggle("open");
-      btn.classList.toggle("open");
-      document.body.style.overflow = isOpen ? "hidden" : "";
-    }
-    function closeMobileMenu() {
-      document.getElementById("mobileMenu").classList.remove("open");
-      document.getElementById("hamburger").classList.remove("open");
-      document.body.style.overflow = "";
-    }
-    const starsEl = document.getElementById("stars");
-    for (let i = 0; i < 80; i++) {
-      const s = document.createElement("div");
-      s.className = "star";
-      s.style.cssText = "left:"+Math.random()*100+"%;top:"+Math.random()*70+"%;--d:"+(2+Math.random()*4)+"s;--o:"+(0.2+Math.random()*0.6)+";animation-delay:"+(Math.random()*4)+"s;width:"+(1+Math.random()*2)+"px;height:"+(1+Math.random()*2)+"px;";
-      starsEl.appendChild(s);
-    }
-    const reveals = document.querySelectorAll(".reveal");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add("visible"), i * 80); });
-    }, { threshold: 0.12 });
-    reveals.forEach(r => observer.observe(r));
-    function setAmount(btn) {
-      document.querySelectorAll(".amount-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-    }
+    function toggleMenu(){var m=document.getElementById("mobileMenu"),b=document.getElementById("hamburger"),o=m.classList.toggle("open");b.classList.toggle("open");document.body.style.overflow=o?"hidden":"";}
+    function closeMobileMenu(){document.getElementById("mobileMenu").classList.remove("open");document.getElementById("hamburger").classList.remove("open");document.body.style.overflow="";}
+    var starsEl=document.getElementById("stars");
+    for(var i=0;i<80;i++){var s=document.createElement("div");s.className="star";s.style.left=(Math.random()*100)+"%";s.style.top=(Math.random()*70)+"%";s.style.setProperty("--d",(2+Math.random()*4)+"s");s.style.setProperty("--o",(0.2+Math.random()*0.6));s.style.animationDelay=(Math.random()*4)+"s";s.style.width=s.style.height=(1+Math.random()*2)+"px";starsEl.appendChild(s);}
+    var reveals=document.querySelectorAll(".reveal");
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add("visible");},i*80);});},{threshold:0.12});
+    reveals.forEach(function(r){obs.observe(r);});
+    var ci=0,ct=3,ca;
+    function updateCarousel(){document.getElementById("carouselTrack").style.transform="translateX(-"+(ci*100)+"%)";document.querySelectorAll(".carousel-dot").forEach(function(d,i){d.classList.toggle("active",i===ci);});}
+    function moveCarousel(d){ci=(ci+d+ct)%ct;updateCarousel();resetAuto();}
+    function goToSlide(i){ci=i;updateCarousel();resetAuto();}
+    function resetAuto(){clearInterval(ca);ca=setInterval(function(){moveCarousel(1);},5000);}
+    ca=setInterval(function(){moveCarousel(1);},5000);
   </script>
 </body>
 </html>
