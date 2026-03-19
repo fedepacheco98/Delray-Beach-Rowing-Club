@@ -1,44 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Delray Beach Rowing Club</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <style>
     :root{--navy:#0d1f3c;--deep-navy:#071228;--gold:#c9a84c;--gold-light:#e8c97a;--crimson:#8b1a1a;--cream:#f5f0e8;--white:#ffffff;}
-    *{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
+    *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
     body{font-family:"Cormorant Garamond",serif;background:var(--deep-navy);color:var(--cream);overflow-x:hidden;}
-    /* NAV */
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;height:72px;background:rgba(7,18,40,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.25);}
     .nav-brand{font-family:"Playfair Display",serif;font-size:1.1rem;font-weight:700;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;}
     .nav-links{display:flex;gap:2.5rem;list-style:none;}
     .nav-links a{font-family:"Montserrat",sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--cream);text-decoration:none;position:relative;transition:color 0.3s;}
     .nav-links a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s ease;}
-    .nav-links a:hover{color:var(--gold);}
-    .nav-links a:hover::after{width:100%;}
-    /* HAMBURGER */
+    .nav-links a:hover{color:var(--gold);}.nav-links a:hover::after{width:100%;}
     .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;padding:4px;}
     .nav-hamburger span{display:block;width:24px;height:2px;background:var(--gold);border-radius:2px;transition:all 0.35s ease;transform-origin:center;}
     .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
     .nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
     .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-    /* MOBILE MENU */
     .mobile-menu{position:fixed;inset:0;z-index:90;background:rgba(7,18,40,0.98);backdrop-filter:blur(16px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;pointer-events:none;transition:opacity 0.4s ease;}
     .mobile-menu.open{opacity:1;pointer-events:all;}
     .mobile-menu a{font-family:"Playfair Display",serif;font-size:2rem;font-weight:700;color:var(--cream);text-decoration:none;transform:translateY(20px);opacity:0;transition:color 0.3s,transform 0.4s ease,opacity 0.4s ease;}
     .mobile-menu.open a{transform:translateY(0);opacity:1;}
-    .mobile-menu.open a:nth-child(1){transition-delay:0.08s;}
-    .mobile-menu.open a:nth-child(2){transition-delay:0.16s;}
-    .mobile-menu.open a:nth-child(3){transition-delay:0.24s;}
-    .mobile-menu.open a:nth-child(4){transition-delay:0.32s;}
+    .mobile-menu.open a:nth-child(1){transition-delay:0.08s;}.mobile-menu.open a:nth-child(2){transition-delay:0.16s;}
+    .mobile-menu.open a:nth-child(3){transition-delay:0.24s;}.mobile-menu.open a:nth-child(4){transition-delay:0.32s;}
     .mobile-menu a:hover{color:var(--gold);}
     .mobile-menu-social{display:flex;gap:2rem;margin-top:0.5rem;opacity:0;transform:translateY(20px);transition:opacity 0.4s ease 0.4s,transform 0.4s ease 0.4s;}
     .mobile-menu.open .mobile-menu-social{opacity:1;transform:translateY(0);}
     .mobile-menu-social a svg{width:28px;height:28px;fill:rgba(201,168,76,0.7);transition:fill 0.3s;display:block;}
     .mobile-menu-social a:hover svg{fill:var(--gold);}
-    /* HERO */
     .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:100px 5vw 60px;}
     .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(26,74,110,0.5) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 50% 0%,rgba(13,31,60,0.8) 0%,transparent 60%),linear-gradient(180deg,#071228 0%,#0d1f3c 40%,#0a1828 100%);z-index:0;}
     .waves{position:absolute;bottom:0;left:0;right:0;height:180px;overflow:hidden;z-index:1;}
@@ -66,14 +58,12 @@
     .contact-item svg{width:20px;height:20px;fill:currentColor;transition:transform 0.3s;}
     .contact-item:hover svg{transform:scale(1.2);}
     .contact-sep{width:1px;height:24px;background:rgba(201,168,76,0.25);}
-    /* SECTIONS */
     section{padding:100px 5vw;max-width:1200px;margin:0 auto;}
     .section-header{text-align:center;margin-bottom:4rem;}
     .section-tag{font-family:"Montserrat",sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1rem;}
     .section-title{font-family:"Playfair Display",serif;font-size:clamp(2rem,4vw,3.2rem);color:var(--white);font-weight:700;}
     .section-title em{color:var(--gold);font-style:italic;}
     .section-rule{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.5rem auto 0;}
-    /* ABOUT */
     #about{max-width:1200px;}
     .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
     .about-text p{font-size:1.15rem;line-height:1.9;color:rgba(245,240,232,0.8);margin-bottom:1.5rem;}
@@ -81,11 +71,9 @@
     .about-stats{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
     .stat-card{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);padding:2rem 1.5rem;text-align:center;position:relative;overflow:hidden;transition:all 0.3s;}
     .stat-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--crimson),var(--gold));transform:scaleX(0);transition:transform 0.4s;}
-    .stat-card:hover{background:rgba(201,168,76,0.1);}
-    .stat-card:hover::before{transform:scaleX(1);}
+    .stat-card:hover{background:rgba(201,168,76,0.1);}.stat-card:hover::before{transform:scaleX(1);}
     .stat-num{font-family:"Playfair Display",serif;font-size:3rem;font-weight:900;color:var(--gold);line-height:1;}
     .stat-label{font-family:"Montserrat",sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.6);margin-top:0.5rem;}
-    /* JOIN */
     .join-inner{max-width:1200px;margin:0 auto;}
     .membership-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:1rem;}
     .mem-card{border:1px solid rgba(201,168,76,0.2);padding:3rem 2rem;text-align:center;position:relative;overflow:hidden;transition:all 0.4s;background:rgba(255,255,255,0.02);}
@@ -99,7 +87,6 @@
     .mem-features{list-style:none;margin:1.5rem 0 2rem;}
     .mem-features li{font-size:0.95rem;color:rgba(245,240,232,0.7);padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);}
     .mem-features li::before{content:"\2726 ";color:var(--gold);font-size:0.6rem;}
-    /* DONATE */
     #donate{max-width:1200px;}
     .donate-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
     .donate-text p{font-size:1.1rem;line-height:1.9;color:rgba(245,240,232,0.75);margin-bottom:1.5rem;}
@@ -108,7 +95,6 @@
     .impact-item{display:flex;gap:1rem;margin-bottom:1.5rem;align-items:flex-start;}
     .impact-dot{width:8px;height:8px;min-width:8px;background:var(--gold);margin-top:8px;}
     .impact-item p{font-size:1rem;color:rgba(245,240,232,0.75);line-height:1.7;}
-    /* INDOOR */
     .indoor-inner{max-width:1200px;margin:0 auto;}
     .programs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;}
     .program-card{background:rgba(255,255,255,0.02);border:1px solid rgba(201,168,76,0.15);padding:2.5rem;position:relative;overflow:hidden;transition:all 0.4s;}
@@ -119,7 +105,6 @@
     .program-title{font-family:"Playfair Display",serif;font-size:1.4rem;color:var(--white);margin-bottom:0.8rem;}
     .program-text{font-size:1rem;color:rgba(245,240,232,0.65);line-height:1.8;}
     .program-tag{display:inline-block;margin-top:1rem;font-family:"Montserrat",sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,0.35);padding:4px 12px;}
-    /* CAROUSEL */
     .carousel-section{padding:100px 5vw;border-top:1px solid rgba(201,168,76,0.15);}
     .carousel-inner{max-width:1200px;margin:0 auto;}
     .carousel-wrapper{position:relative;overflow:hidden;border:1px solid rgba(201,168,76,0.3);box-shadow:0 20px 60px rgba(0,0,0,0.5);}
@@ -127,15 +112,13 @@
     .carousel-slide{min-width:100%;position:relative;overflow:hidden;}
     .carousel-slide img{width:100%;height:520px;object-fit:cover;display:block;filter:brightness(0.9);transition:filter 0.4s;}
     .carousel-slide:hover img{filter:brightness(1);}
-    .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(7,18,40,0.7);border:1px solid rgba(201,168,76,0.5);color:var(--gold);width:52px;height:52px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s;z-index:10;backdrop-filter:blur(4px);}
+    .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(7,18,40,0.7);border:1px solid rgba(201,168,76,0.5);width:52px;height:52px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s;z-index:10;backdrop-filter:blur(4px);}
     .carousel-btn:hover{background:rgba(201,168,76,0.2);border-color:var(--gold);}
-    .carousel-btn-prev{left:1rem;}
-    .carousel-btn-next{right:1rem;}
+    .carousel-btn-prev{left:1rem;}.carousel-btn-next{right:1rem;}
     .carousel-btn svg{width:22px;height:22px;fill:var(--gold);}
     .carousel-dots{display:flex;justify-content:center;gap:0.75rem;margin-top:1.5rem;}
     .carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(201,168,76,0.3);border:none;cursor:pointer;transition:all 0.3s;padding:0;}
     .carousel-dot.active{background:var(--gold);transform:scale(1.3);}
-    /* MAP */
     .map-section{padding:100px 5vw;border-top:1px solid rgba(201,168,76,0.15);}
     .map-inner{max-width:1200px;margin:0 auto;}
     .map-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:4rem;align-items:start;margin-top:1rem;}
@@ -146,19 +129,32 @@
     .map-info-icon{font-size:1.5rem;margin-bottom:0.8rem;}
     .map-info-title{font-family:"Montserrat",sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
     .map-info-text{font-size:1.05rem;color:rgba(245,240,232,0.8);line-height:1.7;}
-    .map-info-text a{color:var(--gold);text-decoration:none;}
-    .map-info-text a:hover{text-decoration:underline;}
+    .map-info-text a{color:var(--gold);text-decoration:none;}.map-info-text a:hover{text-decoration:underline;}
     .map-container{border:1px solid rgba(201,168,76,0.3);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5);}
     .map-container iframe{display:block;width:100%;height:460px;border:none;}
-    /* FOOTER */
+    .contact-section{padding:100px 5vw;border-top:1px solid rgba(201,168,76,0.15);}
+    .contact-inner{max-width:1200px;margin:0 auto;}
+    .contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start;margin-top:1rem;}
+    .contact-info p{font-size:1.1rem;line-height:1.9;color:rgba(245,240,232,0.75);margin-bottom:2rem;}
+    .contact-info-item{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;color:rgba(245,240,232,0.75);font-size:1rem;}
+    .contact-info-item svg{width:20px;height:20px;fill:var(--gold);flex-shrink:0;}
+    .contact-info-item a{color:var(--gold);text-decoration:none;}.contact-info-item a:hover{text-decoration:underline;}
+    .contact-form{display:flex;flex-direction:column;gap:1.2rem;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+    .form-group{display:flex;flex-direction:column;gap:0.5rem;}
+    .form-group label{font-family:"Montserrat",sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);}
+    .form-group input,.form-group textarea,.form-group select{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.25);color:var(--cream);font-family:"Cormorant Garamond",serif;font-size:1.05rem;padding:0.85rem 1rem;outline:none;transition:border-color 0.3s;resize:none;}
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold);background:rgba(201,168,76,0.05);}
+    .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(245,240,232,0.3);}
+    .form-group select option{background:var(--deep-navy);color:var(--cream);}
+    .form-success{display:none;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.4);padding:1.5rem;text-align:center;}
+    .form-success p{color:var(--gold);font-size:1.1rem;}
     footer{background:#040c1a;border-top:1px solid rgba(201,168,76,0.15);padding:3rem 5vw;text-align:center;}
     .footer-logo{font-family:"Playfair Display",serif;font-size:1.2rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;}
     .footer-text{font-size:0.85rem;color:rgba(245,240,232,0.35);font-family:"Montserrat",sans-serif;letter-spacing:0.05em;}
-    /* ANIMATIONS */
     @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
     .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease;}
     .reveal.visible{opacity:1;transform:translateY(0);}
-    /* RESPONSIVE */
     @media(max-width:768px){
       .nav-links{display:none;}.nav-hamburger{display:flex;}.nav-brand{font-size:0.85rem;}
       .hero{padding:90px 6vw 80px;}.hero-logo{width:clamp(140px,55vw,220px);}
@@ -169,7 +165,7 @@
       .contact-item .contact-text{display:none;}.contact-item svg{width:22px;height:22px;}
       section{padding:60px 6vw;}
       #join{padding:60px 6vw !important;}#indoor{padding:60px 6vw !important;}
-      .carousel-section{padding:60px 6vw;}.map-section{padding:60px 6vw;}
+      .carousel-section{padding:60px 6vw;}.map-section{padding:60px 6vw;}.contact-section{padding:60px 6vw;}
       .section-title{font-size:clamp(1.7rem,7vw,2.4rem);}
       .about-grid{grid-template-columns:1fr;gap:2.5rem;}
       .about-stats{grid-template-columns:1fr 1fr;gap:1rem;}.stat-num{font-size:2.2rem;}.stat-card{padding:1.2rem 0.8rem;}
@@ -178,13 +174,13 @@
       .programs-grid{grid-template-columns:1fr;gap:1.5rem;}.program-card{padding:2rem 1.5rem;}
       .carousel-slide img{height:260px;}.carousel-btn{width:40px;height:40px;}
       .map-grid{grid-template-columns:1fr;gap:2rem;}.map-container iframe{height:300px;}
+      .contact-grid{grid-template-columns:1fr;gap:3rem;}.form-row{grid-template-columns:1fr;}
       footer{padding:2rem 6vw;}
     }
   </style>
 </head>
 <body>
 
-  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#about" onclick="closeMobileMenu()">About</a>
     <a href="#join" onclick="closeMobileMenu()">Join Us</a>
@@ -198,7 +194,6 @@
     </div>
   </div>
 
-  <!-- NAV -->
   <nav>
     <div class="nav-brand">Delray Beach Rowing Club</div>
     <ul class="nav-links">
@@ -212,13 +207,12 @@
     </button>
   </nav>
 
-  <!-- HERO -->
   <div class="hero">
     <div class="hero-bg"></div>
     <div class="stars" id="stars"></div>
     <div class="waves"><div class="wave"></div><div class="wave"></div></div>
     <div class="hero-content">
-      <img src="logo-club-nuevo1.png" alt="Delray Beach Rowing Club Logo" class="hero-logo"/>
+      <img src="logo-club-nuevo1" alt="Delray Beach Rowing Club Logo" class="hero-logo"/>
       <h1 class="hero-title">Delray Beach<br/><em>Rowing Club</em></h1>
       <p class="hero-subtitle">Delray Beach &middot; Est. 2023 &middot; Where Champions Are Born</p>
       <p class="hero-tagline">Forging athletes, building community, and honoring the timeless tradition of rowing on the waters of South Florida.</p>
@@ -250,7 +244,6 @@
     </div>
   </div>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="section-header reveal">
       <span class="section-tag">Our Story</span>
@@ -273,7 +266,6 @@
     </div>
   </section>
 
-  <!-- JOIN US -->
   <div id="join" style="padding:100px 5vw;border-top:1px solid rgba(201,168,76,0.15);border-bottom:1px solid rgba(201,168,76,0.15);">
     <div class="join-inner">
       <div class="section-header reveal">
@@ -314,7 +306,6 @@
     </div>
   </div>
 
-  <!-- DONATE -->
   <section id="donate">
     <div class="section-header reveal">
       <span class="section-tag">Support the Club</span>
@@ -337,7 +328,6 @@
     </div>
   </section>
 
-  <!-- INDOOR ROWING -->
   <div id="indoor" style="padding:100px 5vw;border-top:1px solid rgba(201,168,76,0.15);">
     <div class="indoor-inner">
       <div class="section-header reveal">
@@ -378,7 +368,6 @@
     </div>
   </div>
 
-  <!-- PHOTO CAROUSEL -->
   <div class="carousel-section">
     <div class="carousel-inner">
       <div class="section-header reveal">
@@ -388,15 +377,9 @@
       </div>
       <div class="carousel-wrapper reveal">
         <div class="carousel-track" id="carouselTrack">
-          <div class="carousel-slide">
-            <img src="remo1.avif" alt="Rowing competition"/>
-          </div>
-          <div class="carousel-slide">
-            <img src="remo2.avif" alt="Rowing heats"/>
-          </div>
-          <div class="carousel-slide">
-            <img src="remo3.avif" alt="Women's quad heat"/>
-          </div>
+          <div class="carousel-slide"><img src="remo1.avif" alt="Rowing competition"/></div>
+          <div class="carousel-slide"><img src="remo2.avif" alt="Rowing heats"/></div>
+          <div class="carousel-slide"><img src="remo3.avif" alt="Women quad heat"/></div>
         </div>
         <button class="carousel-btn carousel-btn-prev" onclick="moveCarousel(-1)" aria-label="Previous">
           <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
@@ -413,7 +396,6 @@
     </div>
   </div>
 
-  <!-- LOCATION MAP -->
   <div class="map-section">
     <div class="map-inner">
       <div class="section-header reveal">
@@ -452,7 +434,69 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <div class="contact-section">
+    <div class="contact-inner">
+      <div class="section-header reveal">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Contact <em>Us</em></h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <p>Have questions about memberships, programs, or events? We'd love to hear from you. Fill out the form and we'll get back to you as soon as possible.</p>
+          <div class="contact-info-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>950 NW 9th St, Delray Beach, FL 33444</span>
+          </div>
+          <div class="contact-info-item">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <a href="tel:+15551234567">(555) 123-4567</a>
+          </div>
+          <div class="contact-info-item">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <a href="mailto:info&#64;delrayrowingclub.com">info&#64;delrayrowingclub.com</a>
+          </div>
+        </div>
+        <div class="reveal">
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/TU_ENDPOINT_AQUI" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="first_name" placeholder="John" required/>
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="last_name" placeholder="Doe" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="femail">Email</label>
+              <input type="email" id="femail" name="email" placeholder="john@example.com" required/>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject">
+                <option value="">Select a topic...</option>
+                <option value="Membership">Membership</option>
+                <option value="Indoor Rowing">Indoor Rowing</option>
+                <option value="Donation">Donation</option>
+                <option value="General Inquiry">General Inquiry</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell us how we can help you..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width:100%;text-align:center;padding:1rem;">Send Message</button>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <p>&#x2714; Message sent! We'll get back to you shortly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-logo">Delray Beach Rowing Club</div>
     <p class="footer-text">Delray Beach &middot; Est. 2023 &middot; All rights reserved &copy; 2025</p>
@@ -472,7 +516,7 @@
     </div>
   </footer>
 
-  <script>
+  <script type="text/javascript">
     function toggleMenu(){var m=document.getElementById("mobileMenu"),b=document.getElementById("hamburger"),o=m.classList.toggle("open");b.classList.toggle("open");document.body.style.overflow=o?"hidden":"";}
     function closeMobileMenu(){document.getElementById("mobileMenu").classList.remove("open");document.getElementById("hamburger").classList.remove("open");document.body.style.overflow="";}
     var starsEl=document.getElementById("stars");
@@ -486,6 +530,8 @@
     function goToSlide(i){ci=i;updateCarousel();resetAuto();}
     function resetAuto(){clearInterval(ca);ca=setInterval(function(){moveCarousel(1);},5000);}
     ca=setInterval(function(){moveCarousel(1);},5000);
+    var form=document.getElementById("contactForm");
+    if(form){form.addEventListener("submit",function(e){e.preventDefault();var data=new FormData(form);fetch(form.action,{method:"POST",body:data,headers:{"Accept":"application/json"}}).then(function(r){if(r.ok){form.style.display="none";document.getElementById("formSuccess").style.display="block";}else{alert("Error sending. Please try again.");}}).catch(function(){alert("Error sending. Please try again.");});});}
   </script>
 </body>
 </html>
