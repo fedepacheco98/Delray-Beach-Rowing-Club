@@ -6,7 +6,17 @@
   <title>Delray Beach Rowing Club</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <style>
-    :root{--navy:#0d1f3c;--deep-navy:#071228;--gold:#c9a84c;--gold-light:#e8c97a;--crimson:#8b1a1a;--cream:#f5f0e8;--white:#ffffff;}
+    :root{
+    --navy:#1a3a5c;
+    --deep-navy:#0a2240;
+    --gold:#c8a84b;
+    --gold-light:#d4bc7a;
+    --crimson:#1a5276;
+    --cream:#f0f6fb;
+    --white:#ffffff;
+    --celeste:#75b2dd;
+    --celeste-dark:#2e86c1;
+  }
     *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
     body{font-family:"Cormorant Garamond",serif;background:var(--deep-navy);color:var(--cream);overflow-x:hidden;}
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;height:72px;background:rgba(7,18,40,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.25);}
@@ -29,12 +39,12 @@
     .mobile-menu a:hover{color:var(--gold);}
     .mobile-menu-social{display:flex;gap:2rem;margin-top:0.5rem;opacity:0;transform:translateY(20px);transition:opacity 0.4s ease 0.4s,transform 0.4s ease 0.4s;}
     .mobile-menu.open .mobile-menu-social{opacity:1;transform:translateY(0);}
-    .mobile-menu-social a svg{width:28px;height:28px;fill:rgba(201,168,76,0.7);transition:fill 0.3s;display:block;}
+    .mobile-menu-social a svg{width:28px;height:28px;fill:rgba(117,178,221,0.8);transition:fill 0.3s;display:block;}
     .mobile-menu-social a:hover svg{fill:var(--gold);}
     .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:100px 5vw 60px;}
-    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(26,74,110,0.5) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 50% 0%,rgba(13,31,60,0.8) 0%,transparent 60%),linear-gradient(180deg,#071228 0%,#0d1f3c 40%,#0a1828 100%);z-index:0;}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(117,178,221,0.25) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 50% 0%,rgba(10,34,64,0.9) 0%,transparent 60%),linear-gradient(180deg,#0a2240 0%,#1a3a5c 40%,#0d2d4a 100%);z-index:0;}
     .waves{position:absolute;bottom:0;left:0;right:0;height:180px;overflow:hidden;z-index:1;}
-    .wave{position:absolute;bottom:0;width:200%;height:100%;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 180'%3E%3Cpath fill='%230a1828' fill-opacity='1' d='M0,64L48,80C96,96,192,128,288,122.7C384,117,480,75,576,64C672,53,768,75,864,90.7C960,107,1056,117,1152,112C1248,107,1344,85,1392,74.7L1440,64L1440,320L0,320Z'/%3E%3C/svg%3E") repeat-x bottom;background-size:50% 100%;animation:wave-anim 12s linear infinite;opacity:0.6;}
+    .wave{position:absolute;bottom:0;width:200%;height:100%;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 180'%3E%3Cpath fill='%230a2240' fill-opacity='1' d='M0,64L48,80C96,96,192,128,288,122.7C384,117,480,75,576,64C672,53,768,75,864,90.7C960,107,1056,117,1152,112C1248,107,1344,85,1392,74.7L1440,64L1440,320L0,320Z'/%3E%3C/svg%3E") repeat-x bottom;background-size:50% 100%;animation:wave-anim 12s linear infinite;opacity:0.6;}
     .wave:nth-child(2){animation-duration:8s;animation-direction:reverse;opacity:0.3;bottom:-20px;}
     @keyframes wave-anim{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     .stars{position:absolute;inset:0;z-index:0;}
@@ -70,7 +80,7 @@
     .about-text p strong{color:var(--gold);}
     .about-stats{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
     .stat-card{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);padding:2rem 1.5rem;text-align:center;position:relative;overflow:hidden;transition:all 0.3s;}
-    .stat-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--crimson),var(--gold));transform:scaleX(0);transition:transform 0.4s;}
+    .stat-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--celeste-dark),var(--gold));transform:scaleX(0);transition:transform 0.4s;}
     .stat-card:hover{background:rgba(201,168,76,0.1);}.stat-card:hover::before{transform:scaleX(1);}
     .stat-num{font-family:"Playfair Display",serif;font-size:3rem;font-weight:900;color:var(--gold);line-height:1;}
     .stat-label{font-family:"Montserrat",sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.6);margin-top:0.5rem;}
@@ -90,7 +100,7 @@
     #donate{max-width:1200px;}
     .donate-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
     .donate-text p{font-size:1.1rem;line-height:1.9;color:rgba(245,240,232,0.75);margin-bottom:1.5rem;}
-    .donate-impact{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.2);padding:2.5rem;}
+    .donate-impact{background:rgba(117,178,221,0.06);border:1px solid rgba(117,178,221,0.2);padding:2.5rem;}
     .impact-title{font-family:"Playfair Display",serif;font-size:1.3rem;color:var(--gold);margin-bottom:1.5rem;}
     .impact-item{display:flex;gap:1rem;margin-bottom:1.5rem;align-items:flex-start;}
     .impact-dot{width:8px;height:8px;min-width:8px;background:var(--gold);margin-top:8px;}
@@ -98,7 +108,7 @@
     .indoor-inner{max-width:1200px;margin:0 auto;}
     .programs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;}
     .program-card{background:rgba(255,255,255,0.02);border:1px solid rgba(201,168,76,0.15);padding:2.5rem;position:relative;overflow:hidden;transition:all 0.4s;}
-    .program-card::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--crimson),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
+    .program-card::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--celeste-dark),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
     .program-card:hover{border-color:rgba(201,168,76,0.4);background:rgba(201,168,76,0.04);transform:translateY(-4px);}
     .program-card:hover::after{transform:scaleX(1);}
     .program-icon{font-size:2.5rem;margin-bottom:1rem;}
@@ -107,7 +117,7 @@
     .program-tag{display:inline-block;margin-top:1rem;font-family:"Montserrat",sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,0.35);padding:4px 12px;}
     .carousel-section{padding:100px 5vw;border-top:1px solid rgba(201,168,76,0.15);}
     .carousel-inner{max-width:1200px;margin:0 auto;}
-    .carousel-wrapper{position:relative;overflow:hidden;border:1px solid rgba(201,168,76,0.3);box-shadow:0 20px 60px rgba(0,0,0,0.5);}
+    .carousel-wrapper{position:relative;overflow:hidden;border:1px solid rgba(117,178,221,0.35);box-shadow:0 20px 60px rgba(0,0,0,0.5);}
     .carousel-track{display:flex;transition:transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);}
     .carousel-slide{min-width:100%;position:relative;overflow:hidden;}
     .carousel-slide img{width:100%;height:520px;object-fit:cover;display:block;filter:brightness(0.9);transition:filter 0.4s;}
@@ -125,12 +135,12 @@
     .map-info{display:flex;flex-direction:column;gap:2rem;}
     .map-info-card{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.2);padding:2rem 1.8rem;position:relative;overflow:hidden;transition:border-color 0.3s;}
     .map-info-card:hover{border-color:rgba(201,168,76,0.5);}
-    .map-info-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--crimson),var(--gold));}
+    .map-info-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--celeste-dark),var(--gold));}
     .map-info-icon{font-size:1.5rem;margin-bottom:0.8rem;}
     .map-info-title{font-family:"Montserrat",sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
     .map-info-text{font-size:1.05rem;color:rgba(245,240,232,0.8);line-height:1.7;}
     .map-info-text a{color:var(--gold);text-decoration:none;}.map-info-text a:hover{text-decoration:underline;}
-    .map-container{border:1px solid rgba(201,168,76,0.3);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5);}
+    .map-container{border:1px solid rgba(117,178,221,0.35);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5);}
     .map-container iframe{display:block;width:100%;height:460px;border:none;}
     .contact-section{padding:100px 5vw;border-top:1px solid rgba(201,168,76,0.15);}
     .contact-inner{max-width:1200px;margin:0 auto;}
@@ -144,24 +154,25 @@
     .form-group{display:flex;flex-direction:column;gap:0.5rem;}
     .form-group label{font-family:"Montserrat",sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);}
     .form-group input,.form-group textarea,.form-group select{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.25);color:var(--cream);font-family:"Cormorant Garamond",serif;font-size:1.05rem;padding:0.85rem 1rem;outline:none;transition:border-color 0.3s;resize:none;}
-    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold);background:rgba(201,168,76,0.05);}
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--celeste);background:rgba(117,178,221,0.06);}
     .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(245,240,232,0.3);}
     .form-group select option{background:var(--deep-navy);color:var(--cream);}
     .form-success{display:none;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.4);padding:1.5rem;text-align:center;}
     .form-success p{color:var(--gold);font-size:1.1rem;}
-    footer{background:#040c1a;border-top:1px solid rgba(201,168,76,0.15);padding:3rem 5vw;text-align:center;}
+    footer{background:#061527;border-top:1px solid rgba(201,168,76,0.15);padding:3rem 5vw;text-align:center;}
     .footer-logo{font-family:"Playfair Display",serif;font-size:1.2rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;}
     .footer-text{font-size:0.85rem;color:rgba(245,240,232,0.35);font-family:"Montserrat",sans-serif;letter-spacing:0.05em;}
     @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-    .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease;}
-    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal{opacity:1;transform:translateY(0);transition:opacity 0.8s ease,transform 0.8s ease;}
+    .reveal.animate{opacity:0;transform:translateY(40px);}
+    .reveal.animate.visible{opacity:1;transform:translateY(0);}
     @media(max-width:768px){
       .nav-links{display:none;}.nav-hamburger{display:flex;}.nav-brand{font-size:0.85rem;}
       .hero{padding:90px 6vw 80px;}.hero-logo{width:clamp(140px,55vw,220px);}
       .hero-title{font-size:clamp(2rem,9vw,3rem);}.hero-tagline{font-size:1rem;}
       .hero-contact{flex-wrap:wrap;justify-content:center;gap:0.75rem;margin-top:2rem;}
       .contact-sep{display:none;}
-      .contact-item{width:48px;height:48px;justify-content:center;border:1px solid rgba(201,168,76,0.3);border-radius:50%;gap:0;}
+      .contact-item{width:48px;height:48px;justify-content:center;border:1px solid rgba(117,178,221,0.35);border-radius:50%;gap:0;}
       .contact-item .contact-text{display:none;}.contact-item svg{width:22px;height:22px;}
       section{padding:60px 6vw;}
       #join{padding:60px 6vw !important;}#indoor{padding:60px 6vw !important;}
@@ -187,7 +198,7 @@
     <a href="#donate" onclick="closeMobileMenu()">Donate</a>
     <a href="#indoor" onclick="closeMobileMenu()">Indoor Rowing</a>
     <div class="mobile-menu-social">
-      <a href="mailto:info&#64;delrayrowingclub.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+      <a href="/cdn-cgi/l/email-protection#c8a1a6aea7eeebfefcf3acada4baa9b1baa7bfa1a6afaba4bdaae6aba7a5" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
       <a href="tel:+15551234567" aria-label="Phone"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
       <a href="https://facebook.com" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
       <a href="https://instagram.com" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
@@ -212,7 +223,7 @@
     <div class="stars" id="stars"></div>
     <div class="waves"><div class="wave"></div><div class="wave"></div></div>
     <div class="hero-content">
-      <img src="remo-club-prueba.png" alt="Delray Beach Rowing Club Logo" class="hero-logo"/>
+      <img src="remo-nuevo-prueba.png" alt="Delray Beach Rowing Club Logo" class="hero-logo"/>
       <h1 class="hero-title">Delray Beach<br/><em>Rowing Club</em></h1>
       <p class="hero-subtitle">Delray Beach &middot; Est. 2023 &middot; Where Champions Are Born</p>
       <p class="hero-tagline">Forging athletes, building community, and honoring the timeless tradition of rowing on the waters of South Florida.</p>
@@ -222,7 +233,7 @@
       </div>
     </div>
     <div class="hero-contact">
-      <a href="mailto:info&#64;delrayrowingclub.com" class="contact-item">
+      <a href="/cdn-cgi/l/email-protection#2f46414940090c191b144b4a435d4e565d40584641484c435a4d014c4042" class="contact-item">
         <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
         <span class="contact-text">info&#64;delrayrowingclub.com</span>
       </a>
@@ -282,7 +293,7 @@
           <ul class="mem-features">
             <li>Learn-to-row clinics</li><li>2 sessions per week</li><li>Equipment provided</li><li>Club events access</li>
           </ul>
-          <a href="mailto:info&#64;delrayrowingclub.com" class="btn-outline" style="display:inline-block;">Get Started</a>
+          <a href="/cdn-cgi/l/email-protection#3950575f561f1a0f0d025d5c554b58404b564e50575e5a554c5b175a5654" class="btn-outline" style="display:inline-block;">Get Started</a>
         </div>
         <div class="mem-card featured reveal">
           <div class="mem-icon">&#x1F3C6;</div>
@@ -291,7 +302,7 @@
           <ul class="mem-features">
             <li>Unlimited training sessions</li><li>Regatta entry support</li><li>Video stroke analysis</li><li>Gym &amp; erg access</li><li>Priority boat booking</li>
           </ul>
-          <a href="mailto:info&#64;delrayrowingclub.com" class="btn-primary" style="display:inline-block;">Join Now</a>
+          <a href="/cdn-cgi/l/email-protection#f1989f979ed7d2c7c5ca95949d839088839e86989f96929d8493df929e9c" class="btn-primary" style="display:inline-block;">Join Now</a>
         </div>
         <div class="mem-card reveal">
           <div class="mem-icon">&#x2693;</div>
@@ -300,7 +311,7 @@
           <ul class="mem-features">
             <li>Masters-specific coaching</li><li>Flexible scheduling</li><li>Social &amp; touring rows</li><li>Masters regattas</li>
           </ul>
-          <a href="mailto:info&#64;delrayrowingclub.com" class="btn-outline" style="display:inline-block;">Get Started</a>
+          <a href="/cdn-cgi/l/email-protection#b6dfd8d0d9909580828dd2d3dac4d7cfc4d9c1dfd8d1d5dac3d498d5d9db" class="btn-outline" style="display:inline-block;">Get Started</a>
         </div>
       </div>
     </div>
@@ -363,7 +374,7 @@
         </div>
       </div>
       <div style="text-align:center;margin-top:3rem;" class="reveal">
-        <a href="mailto:info&#64;delrayrowingclub.com?subject=Indoor%20Rowing" class="btn-primary">Reserve Your Erg</a>
+        <a href="/cdn-cgi/l/email-protection#127b7c747d343124262976777e60736b607d657b7c75717e67703c717d7f2d616770787771662f5b7c767d7d60372022407d657b7c75" class="btn-primary">Reserve Your Erg</a>
       </div>
     </div>
   </div>
@@ -421,7 +432,7 @@
             <div class="map-info-title">Contact</div>
             <div class="map-info-text">
               <a href="tel:+15551234567">(555) 123-4567</a><br/>
-              <a href="mailto:info&#64;delrayrowingclub.com">info&#64;delrayrowingclub.com</a>
+              <a href="/cdn-cgi/l/email-protection#70191e161f565346444b14151c021109021f07191e17131c05125e131f1d">info&#64;delrayrowingclub.com</a>
             </div>
           </div>
         </div>
@@ -454,7 +465,7 @@
           </div>
           <div class="contact-info-item">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            <a href="mailto:info&#64;delrayrowingclub.com">info&#64;delrayrowingclub.com</a>
+            <a href="/cdn-cgi/l/email-protection#046d6a626b222732303f60616876657d766b736d6a63676871662a676b69">info&#64;delrayrowingclub.com</a>
           </div>
         </div>
         <div class="reveal">
@@ -500,38 +511,35 @@
   <footer>
     <div class="footer-logo">Delray Beach Rowing Club</div>
     <p class="footer-text">Delray Beach &middot; Est. 2023 &middot; All rights reserved &copy; 2025</p>
+    <p class="footer-text" style="margin-top:0.6rem;">Delray Beach Rowing Club is a registered 501(c)(3) nonprofit.</p>
+    <p class="footer-text" style="margin-top:0.3rem;">FDACS Reg. #CH-71184 &nbsp;|&nbsp; EIN: 85-1617747</p>
     <div style="display:flex;justify-content:center;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap;">
-      <a href="mailto:info&#64;delrayrowingclub.com" class="contact-item" style="font-size:0.65rem;">
-        <svg style="width:16px;height:16px;fill:rgba(201,168,76,0.6);" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      <a href="/cdn-cgi/l/email-protection#d0b9beb6bff6f3e6e4ebb4b5bca2b1a9a2bfa7b9beb7b3bca5b2feb3bfbd" class="contact-item" style="font-size:0.65rem;">
+        <svg style="width:16px;height:16px;fill:rgba(117,178,221,0.7);" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
         <span class="contact-text">Email</span>
       </a>
       <a href="https://facebook.com" target="_blank" class="contact-item" style="font-size:0.65rem;">
-        <svg style="width:16px;height:16px;fill:rgba(201,168,76,0.6);" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+        <svg style="width:16px;height:16px;fill:rgba(117,178,221,0.7);" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
         <span class="contact-text">Facebook</span>
       </a>
       <a href="https://instagram.com" target="_blank" class="contact-item" style="font-size:0.65rem;">
-        <svg style="width:16px;height:16px;fill:rgba(201,168,76,0.6);" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        <svg style="width:16px;height:16px;fill:rgba(117,178,221,0.7);" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
         <span class="contact-text">Instagram</span>
       </a>
     </div>
   </footer>
 
-  <script type="text/javascript">
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">
     function toggleMenu(){var m=document.getElementById("mobileMenu"),b=document.getElementById("hamburger"),o=m.classList.toggle("open");b.classList.toggle("open");document.body.style.overflow=o?"hidden":"";}
     function closeMobileMenu(){document.getElementById("mobileMenu").classList.remove("open");document.getElementById("hamburger").classList.remove("open");document.body.style.overflow="";}
     var starsEl=document.getElementById("stars");
     for(var i=0;i<80;i++){var s=document.createElement("div");s.className="star";s.style.left=(Math.random()*100)+"%";s.style.top=(Math.random()*70)+"%";s.style.setProperty("--d",(2+Math.random()*4)+"s");s.style.setProperty("--o",(0.2+Math.random()*0.6));s.style.animationDelay=(Math.random()*4)+"s";s.style.width=s.style.height=(1+Math.random()*2)+"px";starsEl.appendChild(s);}
     var reveals=document.querySelectorAll(".reveal");
+    reveals.forEach(function(r){r.classList.add("animate");});
     var obs=new IntersectionObserver(function(entries){entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add("visible");},i*80);});},{threshold:0.12});
     reveals.forEach(function(r){obs.observe(r);});
     var ci=0,ct=3,ca;
     function updateCarousel(){document.getElementById("carouselTrack").style.transform="translateX(-"+(ci*100)+"%)";document.querySelectorAll(".carousel-dot").forEach(function(d,i){d.classList.toggle("active",i===ci);});}
     function moveCarousel(d){ci=(ci+d+ct)%ct;updateCarousel();resetAuto();}
     function goToSlide(i){ci=i;updateCarousel();resetAuto();}
-    function resetAuto(){clearInterval(ca);ca=setInterval(function(){moveCarousel(1);},5000);}
-    ca=setInterval(function(){moveCarousel(1);},5000);
-    var form=document.getElementById("contactForm");
-    if(form){form.addEventListener("submit",function(e){e.preventDefault();var data=new FormData(form);fetch(form.action,{method:"POST",body:data,headers:{"Accept":"application/json"}}).then(function(r){if(r.ok){form.style.display="none";document.getElementById("formSuccess").style.display="block";}else{alert("Error sending. Please try again.");}}).catch(function(){alert("Error sending. Please try again.");});});}
-  </script>
-</body>
-</html>
+    function resetAuto(){clearInterval(ca);ca=se
