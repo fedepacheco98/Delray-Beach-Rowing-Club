@@ -36,6 +36,7 @@
     .mobile-menu.open a{transform:translateY(0);opacity:1;}
     .mobile-menu.open a:nth-child(1){transition-delay:0.08s;}.mobile-menu.open a:nth-child(2){transition-delay:0.16s;}
     .mobile-menu.open a:nth-child(3){transition-delay:0.24s;}.mobile-menu.open a:nth-child(4){transition-delay:0.32s;}
+    .mobile-menu.open a:nth-child(5){transition-delay:0.40s;}
     .mobile-menu a:hover{color:var(--gold);}
     .mobile-menu-social{display:flex;gap:2rem;margin-top:0.5rem;opacity:0;transform:translateY(20px);transition:opacity 0.4s ease 0.4s,transform 0.4s ease 0.4s;}
     .mobile-menu.open .mobile-menu-social{opacity:1;transform:translateY(0);}
@@ -146,23 +147,26 @@
     .map-info-text a{color:var(--gold);text-decoration:none;}.map-info-text a:hover{text-decoration:underline;}
     .map-container{border:1px solid rgba(117,178,221,0.35);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5);}
     .map-container iframe{display:block;width:100%;height:460px;border:none;}
-    .contact-section{padding:100px 5vw;border-top:1px solid rgba(201,168,76,0.15);}
+    
+    .contact-section{padding:100px 5vw;border-top:1px solid rgba(117,178,221,0.15);}
     .contact-inner{max-width:1200px;margin:0 auto;}
     .contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start;margin-top:1rem;}
-    .contact-info p{font-size:1.1rem;line-height:1.9;color:rgba(245,240,232,0.75);margin-bottom:2rem;}
-    .contact-info-item{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;color:rgba(245,240,232,0.75);font-size:1rem;}
+    .contact-info p{font-size:1.1rem;line-height:1.9;color:rgba(240,246,251,0.75);margin-bottom:2rem;}
+    .contact-info-item{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;color:rgba(240,246,251,0.75);font-size:1rem;}
     .contact-info-item svg{width:20px;height:20px;fill:var(--gold);flex-shrink:0;}
-    .contact-info-item a{color:var(--gold);text-decoration:none;}.contact-info-item a:hover{text-decoration:underline;}
+    .contact-info-item a{color:var(--gold);text-decoration:none;}
+    .contact-info-item a:hover{text-decoration:underline;}
     .contact-form{display:flex;flex-direction:column;gap:1.2rem;}
     .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
     .form-group{display:flex;flex-direction:column;gap:0.5rem;}
     .form-group label{font-family:"Montserrat",sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);}
-    .form-group input,.form-group textarea,.form-group select{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.25);color:var(--cream);font-family:"Cormorant Garamond",serif;font-size:1.05rem;padding:0.85rem 1rem;outline:none;transition:border-color 0.3s;resize:none;}
+    .form-group input,.form-group textarea,.form-group select{background:rgba(255,255,255,0.04);border:1px solid rgba(117,178,221,0.25);color:var(--cream);font-family:"Cormorant Garamond",serif;font-size:1.05rem;padding:0.85rem 1rem;outline:none;transition:border-color 0.3s;resize:none;}
     .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--celeste);background:rgba(117,178,221,0.06);}
-    .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(245,240,232,0.3);}
-    .form-group select option{background:var(--deep-navy);color:var(--cream);}
-    .form-success{display:none;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.4);padding:1.5rem;text-align:center;}
+    .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(240,246,251,0.3);}
+    .form-group select option{background:#0a2240;color:#f0f6fb;}
+    .form-success{display:none;background:rgba(200,168,75,0.1);border:1px solid rgba(200,168,75,0.4);padding:1.5rem;text-align:center;}
     .form-success p{color:var(--gold);font-size:1.1rem;}
+
     footer{background:#061527;border-top:1px solid rgba(201,168,76,0.15);padding:3rem 5vw;text-align:center;}
     .footer-logo{font-family:"Playfair Display",serif;font-size:1.2rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;}
     .footer-text{font-size:0.85rem;color:rgba(245,240,232,0.35);font-family:"Montserrat",sans-serif;letter-spacing:0.05em;}
@@ -282,7 +286,7 @@
       .contact-item .contact-text{display:none;}.contact-item svg{width:22px;height:22px;}
       section{padding:60px 6vw;}
       #join{padding:60px 6vw !important;}#indoor{padding:60px 6vw !important;}
-      .carousel-section{padding:60px 6vw;}.map-section{padding:60px 6vw;}.contact-section{padding:60px 6vw;}
+      .carousel-section{padding:60px 6vw;}.map-section{padding:60px 6vw;}
       .section-title{font-size:clamp(1.7rem,7vw,2.4rem);}
       .about-grid{grid-template-columns:1fr;gap:2.5rem;}
       .about-stats{grid-template-columns:1fr 1fr;gap:1rem;}.stat-num{font-size:2.2rem;}.stat-card{padding:1.2rem 0.8rem;}
@@ -291,7 +295,10 @@
       .programs-grid{grid-template-columns:1fr;gap:1.5rem;}.program-card{padding:2rem 1.5rem;}
       .carousel-slide img{height:260px;}.carousel-btn{width:40px;height:40px;}
       .map-grid{grid-template-columns:1fr;gap:2rem;}.map-container iframe{height:300px;}
-      .contact-grid{grid-template-columns:1fr;gap:3rem;}.form-row{grid-template-columns:1fr;}
+      .contact-section{padding:60px 6vw;}
+      .contact-grid{grid-template-columns:1fr;gap:3rem;}
+      .form-row{grid-template-columns:1fr;}
+      
       footer{padding:2rem 6vw;}
     }
   </style>
@@ -303,6 +310,7 @@
     <a href="#join" onclick="closeMobileMenu()">Join Us</a>
     <a href="#donate" onclick="closeMobileMenu()">Donate</a>
     <a href="#indoor" onclick="closeMobileMenu()">Indoor Rowing</a>
+    <a href="#contact" onclick="closeMobileMenu()">Contact Us</a>
     <div class="mobile-menu-social">
       <a href="/cdn-cgi/l/email-protection#c8a1a6aea7eeebfefcf3acada4baa9b1baa7bfa1a6afaba4bdaae6aba7a5" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
       <a href="tel:+15551234567" aria-label="Phone"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
@@ -318,6 +326,7 @@
       <li><a href="#join">Join Us</a></li>
       <li><a href="#donate">Donate</a></li>
       <li><a href="#indoor">Indoor Rowing</a></li>
+      <li><a href="#contact">Contact Us</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -461,7 +470,10 @@
       <div class="donate-text reveal">
         <p>Your donation directly fuels our mission to make rowing accessible to all South Florida youth, maintain world-class equipment, and send our athletes to compete on the national stage.</p>
         <p>Every dollar raised goes toward building a stronger, more inclusive club &mdash; one stroke at a time.</p>
-        <a href="https://www.paypal.com/ncp/payment/99WVY2Z36ZKXC" target="_blank" class="btn-primary" style="display:inline-block;margin-top:1.5rem;">Donate Now</a>
+        <div style="margin-top:1.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+          <a href="https://www.paypal.com/ncp/payment/99WVY2Z36ZKXC" target="_blank" class="btn-primary">Donate Now</a>
+          <img src="paypal-logo.png" alt="PayPal" style="height:36px;width:auto;vertical-align:middle;">
+        </div>
       </div>
       <div class="donate-impact reveal">
         <h3 class="impact-title">Your Impact</h3>
@@ -561,14 +573,6 @@
             <div class="map-info-title">Training Hours</div>
             <div class="map-info-text">Mon &ndash; Fri: 5:30 AM &ndash; 8:00 PM<br/>Saturday: 6:00 AM &ndash; 2:00 PM<br/>Sunday: 7:00 AM &ndash; 12:00 PM</div>
           </div>
-          <div class="map-info-card reveal">
-            <div class="map-info-icon">&#x1F4DE;</div>
-            <div class="map-info-title">Contact</div>
-            <div class="map-info-text">
-              <a href="tel:+15551234567">(555) 123-4567</a><br/>
-              <a href="/cdn-cgi/l/email-protection#70191e161f565346444b14151c021109021f07191e17131c05125e131f1d">info&#64;delrayrowingclub.com</a>
-            </div>
-          </div>
         </div>
         <div class="map-container reveal">
           <iframe width="100%" height="460" style="border:0;display:block;" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
@@ -579,7 +583,9 @@
     </div>
   </div>
 
-  <div class="contact-section">
+
+  <!-- CONTACT FORM -->
+  <div class="contact-section" id="contact">
     <div class="contact-inner">
       <div class="section-header reveal">
         <span class="section-tag">Get In Touch</span>
@@ -599,7 +605,7 @@
           </div>
           <div class="contact-info-item">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            <a href="/cdn-cgi/l/email-protection#046d6a626b222732303f60616876657d766b736d6a63676871662a676b69">info&#64;delrayrowingclub.com</a>
+            <a href="mailto:info&#64;delrayrowingclub.com">info&#64;delrayrowingclub.com</a>
           </div>
         </div>
         <div class="reveal">
@@ -663,7 +669,7 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">
+  <script type="text/javascript">
 (function(){
   function toggleMenu(){
     var m=document.getElementById("mobileMenu"),b=document.getElementById("hamburger");
@@ -714,32 +720,27 @@
     }
 
     // Carousel
-    var ci=0, ct=3, ca=null;
+    var ci=0,ct=3,ca=null;
     var track=document.getElementById("carouselTrack");
-
     function updateCarousel(){
       if(track) track.style.transform="translateX(-"+(ci*100)+"%)";
       document.querySelectorAll(".carousel-dot").forEach(function(d,i){
         d.classList.toggle("active",i===ci);
       });
     }
-
     function moveCarousel(dir){
       ci=(ci+dir+ct)%ct;
       updateCarousel();
       resetAuto();
     }
-
     function resetAuto(){
       if(ca) clearInterval(ca);
       ca=setInterval(function(){moveCarousel(1);},5000);
     }
-
     var btnPrev=document.getElementById("btnPrev");
     var btnNext=document.getElementById("btnNext");
     if(btnPrev) btnPrev.addEventListener("click",function(){moveCarousel(-1);});
     if(btnNext) btnNext.addEventListener("click",function(){moveCarousel(1);});
-
     document.querySelectorAll(".carousel-dot").forEach(function(dot){
       dot.addEventListener("click",function(){
         ci=parseInt(this.getAttribute("data-slide"));
@@ -747,7 +748,6 @@
         resetAuto();
       });
     });
-
     resetAuto();
 
     // Contact form
@@ -773,17 +773,7 @@
 
   });
 })();
-</script><script type="text/javascript">
-    function toggleMenu(){var m=document.getElementById("mobileMenu"),b=document.getElementById("hamburger"),o=m.classList.toggle("open");b.classList.toggle("open");document.body.style.overflow=o?"hidden":"";}
-    function closeMobileMenu(){document.getElementById("mobileMenu").classList.remove("open");document.getElementById("hamburger").classList.remove("open");document.body.style.overflow="";}
-    var starsEl=document.getElementById("stars");
-    for(var i=0;i<80;i++){var s=document.createElement("div");s.className="star";s.style.left=(Math.random()*100)+"%";s.style.top=(Math.random()*70)+"%";s.style.setProperty("--d",(2+Math.random()*4)+"s");s.style.setProperty("--o",(0.2+Math.random()*0.6));s.style.animationDelay=(Math.random()*4)+"s";s.style.width=s.style.height=(1+Math.random()*2)+"px";starsEl.appendChild(s);}
-    var reveals=document.querySelectorAll(".reveal");
-    reveals.forEach(function(r){r.classList.add("animate");});
-    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add("visible");},i*80);});},{threshold:0.12});
-    reveals.forEach(function(r){obs.observe(r);});
-    var ci=0,ct=3,ca;
-    function updateCarousel(){document.getElementById("carouselTrack").style.transform="translateX(-"+(ci*100)+"%)";document.querySelectorAll(".carousel-dot").forEach(function(d,i){d.classList.toggle("active",i===ci);});}
-    function moveCarousel(d){ci=(ci+d+ct)%ct;updateCarousel();resetAuto();}
-    function goToSlide(i){ci=i;updateCarousel();resetAuto();}
-    function resetAuto(){clearInterval(ca);ca=se
+  </script>
+
+</body>
+</html>
