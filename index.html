@@ -309,11 +309,11 @@
 
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#about" onclick="closeMobileMenu()">About</a>
-    <a href="#join" onclick="closeMobileMenu()">Join Us</a>
-    <a href="#donate" onclick="closeMobileMenu()">Donate</a>
-    <a href="#indoor" onclick="closeMobileMenu()">Indoor Rowing</a>
-    <a href="#contact" onclick="closeMobileMenu()">Contact Us</a>
+    <a href="#about" onclick="closeMobileMenu()" data-en="About" data-es="Sobre Nosotros">About</a>
+    <a href="#join" onclick="closeMobileMenu()" data-en="Join Us" data-es="Únete">Join Us</a>
+    <a href="#donate" onclick="closeMobileMenu()" data-en="Donate" data-es="Donar">Donate</a>
+    <a href="#indoor" onclick="closeMobileMenu()" data-en="Indoor Rowing" data-es="Remo Indoor">Indoor Rowing</a>
+    <a href="#contact" onclick="closeMobileMenu()" data-en="Contact Us" data-es="Contacto">Contact Us</a>
     <div class="mobile-menu-social">
       <a href="/cdn-cgi/l/email-protection#c8a1a6aea7eeebfefcf3acada4baa9b1baa7bfa1a6afaba4bdaae6aba7a5" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
       <a href="tel:+5493412299911" aria-label="Phone"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
@@ -334,6 +334,7 @@
       <li><a href="#indoor">Indoor Rowing</a></li>
       <li><a href="#contact">Contact Us</a></li>
     </ul>
+    <button onclick="toggleLang()" id="langBtn" style="background:none;border:1px solid rgba(200,168,75,0.5);color:var(--gold);font-family:'Plus Jakarta Sans',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;padding:0.3rem 0.7rem;cursor:pointer;margin-right:0.8rem;transition:all 0.3s;" onmouseover="this.style.background='rgba(200,168,75,0.1)'" onmouseout="this.style.background='none'">ES</button>
     <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -353,10 +354,10 @@
       <img src="escudoclub.svg" alt="Delray Beach Rowing Club Logo" class="hero-logo"/>
       <h1 class="hero-title">Delray Beach<br/><em>Rowing Club</em></h1>
       <p class="hero-subtitle">Delray Beach &middot; Est. 2023 &middot; Where Champions Are Born</p>
-      <p class="hero-tagline">Forging athletes, building community, and honoring the timeless tradition of rowing on the waters of South Florida.</p>
+      <p class="hero-tagline">data-en="Forging athletes, building community, and honoring the timeless tradition of rowing on the waters of South Florida." data-es="Forjando atletas, construyendo comunidad y honrando la tradición del remo en las aguas del sur de Florida." >Forging athletes, building community, and honoring the timeless tradition of rowing on the waters of South Florida.</p>
       <div class="hero-cta">
-        <a href="#join" class="btn-primary">Join the Club</a>
-        <a href="#about" class="btn-outline">Learn More</a>
+        <a href="#join" class="btn-primary" data-en="Join the Club" data-es="Únete al Club">Join the Club</a>
+        <a href="#about" class="btn-outline" data-en="Learn More" data-es="Saber Más">Learn More</a>
       </div>
     </div>
     <div class="hero-contact">
@@ -384,8 +385,8 @@
 
   <section id="about">
     <div class="section-header reveal">
-      <span class="section-tag">Our Story</span>
-      <h2 class="section-title">More Than a Sport &mdash; <em>A Way of Life</em></h2>
+      <span class="section-tag" data-en="Our Story" data-es="Nuestra Historia">Our Story</span>
+      <h2 class="section-title">data-en="More Than a Sport — A Way of Life" data-es="Más Que un Deporte — Un Estilo de Vida">More Than a Sport &mdash; <em>A Way of Life</em></h2>
       <div class="section-rule"></div>
     </div>
     <div class="about-grid">
@@ -393,13 +394,13 @@
         <p>Founded in <strong>2023</strong> on the sun-drenched shores of Delray Beach, our club was born from a shared passion for the water and the sport of rowing. We believe that the rhythm of the oar teaches discipline, the crew teaches brotherhood, and the river teaches patience.</p>
         <p>From <strong>competitive athletes</strong> chasing championship titles to <strong>first-time rowers</strong> discovering their potential, our club welcomes every level. We are rooted in the South Florida community and proud to represent the spirit of Del Rey on waters near and far.</p>
         <p>Our coaches are <strong>nationally certified</strong> with decades of experience, guiding athletes through technique, strength, and the unbreakable bond of team rowing.</p>
-        <a href="#join" class="btn-primary" style="display:inline-block;margin-top:1rem;">Become a Member</a>
+        <a href="#join" class="btn-primary" style="display:inline-block;margin-top:1rem;" data-en="Become a Member" data-es="Hazte Miembro">Become a Member</a>
       </div>
       <div class="about-stats reveal">
-        <div class="stat-card"><div class="stat-num">120+</div><div class="stat-label">Active Members</div></div>
-        <div class="stat-card"><div class="stat-num">18</div><div class="stat-label">Competition Boats</div></div>
-        <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">Expert Coaches</div></div>
-        <div class="stat-card"><div class="stat-num">2023</div><div class="stat-label">Year Founded</div></div>
+        <div class="stat-card"><div class="stat-num">120+</div><div class="stat-label" data-en="Active Members" data-es="Miembros Activos">Active Members</div></div>
+        <div class="stat-card"><div class="stat-num">18</div><div class="stat-label" data-en="Competition Boats" data-es="Botes de Competición">Competition Boats</div></div>
+        <div class="stat-card"><div class="stat-num">6</div><div class="stat-label" data-en="Expert Coaches" data-es="Entrenadores Expertos">Expert Coaches</div></div>
+        <div class="stat-card"><div class="stat-num">2023</div><div class="stat-label" data-en="Year Founded" data-es="Año de Fundación">Year Founded</div></div>
       </div>
     </div>
 
@@ -410,7 +411,7 @@
           <img src="fundador.jpg" alt="Dr. Rodrigo Natalio Banegas"/>
         </div>
         <div class="founder-text reveal">
-          <span class="founder-tag">Meet the Founder</span>
+          <span class="founder-tag" data-en="Meet the Founder" data-es="Conoce al Fundador">Meet the Founder</span>
           <h3 class="founder-name">Dr. Rodrigo Natalio Banegas</h3>
           <p class="founder-title">Orthopedic Surgeon &amp; Associate Professor</p>
           <p class="founder-bio">A distinguished orthopedic surgeon and Associate Professor in Orthopedics at the <strong>University of Colorado School of Medicine</strong>, Dr. Banegas brings a wealth of international experience and expertise to the field of orthopedic surgery.</p>
@@ -429,7 +430,7 @@
   <div id="join" style="padding:100px 5vw;border-top:1px solid rgba(201,168,76,0.15);border-bottom:1px solid rgba(201,168,76,0.15);">
     <div class="join-inner">
       <div class="section-header reveal">
-        <span class="section-tag">Membership</span>
+        <span class="section-tag" data-en="Membership" data-es="Membresía">Membership</span>
         <h2 class="section-title">Choose Your <em>Journey</em></h2>
         <div class="section-rule"></div>
         <p style="margin-top:1.5rem;color:rgba(245,240,232,0.6);font-size:1.05rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.8;">Whether you're a seasoned competitor or just discovering the oar, there's a place for you on our roster.</p>
@@ -442,7 +443,7 @@
           <ul class="mem-features">
             <li>Learn-to-row clinics</li><li>2 sessions per week</li><li>Equipment provided</li><li>Club events access</li>
           </ul>
-          <a href="/cdn-cgi/l/email-protection#3950575f561f1a0f0d025d5c554b58404b564e50575e5a554c5b175a5654" class="btn-outline" style="display:inline-block;">Get Started</a>
+          <a href="/cdn-cgi/l/email-protection#3950575f561f1a0f0d025d5c554b58404b564e50575e5a554c5b175a5654" class="btn-outline" style="display:inline-block;" data-en="Get Started" data-es="Comenzar">Get Started</a>
         </div>
         <div class="mem-card featured reveal">
           <div class="mem-icon">&#x1F3C6;</div>
@@ -451,7 +452,7 @@
           <ul class="mem-features">
             <li>Unlimited training sessions</li><li>Regatta entry support</li><li>Video stroke analysis</li><li>Gym &amp; erg access</li><li>Priority boat booking</li>
           </ul>
-          <a href="/cdn-cgi/l/email-protection#f1989f979ed7d2c7c5ca95949d839088839e86989f96929d8493df929e9c" class="btn-primary" style="display:inline-block;">Join Now</a>
+          <a href="/cdn-cgi/l/email-protection#f1989f979ed7d2c7c5ca95949d839088839e86989f96929d8493df929e9c" class="btn-primary" style="display:inline-block;" data-en="Join Now" data-es="Unirse Ahora">Join Now</a>
         </div>
         <div class="mem-card reveal">
           <div class="mem-icon">&#x2693;</div>
@@ -468,7 +469,7 @@
 
   <section id="donate">
     <div class="section-header reveal">
-      <span class="section-tag">Support the Club</span>
+      <span class="section-tag" data-en="Support the Club" data-es="Apoya el Club">Support the Club</span>
       <h2 class="section-title">Help Us <em>Row Forward</em></h2>
       <div class="section-rule"></div>
     </div>
@@ -477,7 +478,7 @@
         <p>Your donation directly fuels our mission to make rowing accessible to all South Florida youth, maintain world-class equipment, and send our athletes to compete on the national stage.</p>
         <p>Every dollar raised goes toward building a stronger, more inclusive club &mdash; one stroke at a time.</p>
         <div style="margin-top:1.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
-          <a href="https://www.paypal.com/ncp/payment/99WVY2Z36ZKXC" target="_blank" class="btn-primary">Donate Now</a>
+          <a href="https://www.paypal.com/ncp/payment/99WVY2Z36ZKXC" target="_blank" class="btn-primary" data-en="Donate Now" data-es="Donar Ahora">Donate Now</a>
           <img src="paypal-logo.png" alt="PayPal" style="height:36px;width:auto;vertical-align:middle;">
         </div>
       </div>
@@ -494,7 +495,7 @@
   <div id="indoor" style="padding:100px 5vw;border-top:1px solid rgba(201,168,76,0.15);">
     <div class="indoor-inner">
       <div class="section-header reveal">
-        <span class="section-tag">Erg Training</span>
+        <span class="section-tag" data-en="Erg Training" data-es="Entrenamiento Erg">Erg Training</span>
         <h2 class="section-title">Indoor <em>Rowing</em> Programs</h2>
         <div class="section-rule"></div>
         <p style="margin-top:1.5rem;color:rgba(245,240,232,0.6);font-size:1.05rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.8;">No water? No problem. Our indoor rowing facility is open year-round with state-of-the-art Concept2 ergometers and expert instruction.</p>
@@ -526,7 +527,7 @@
         </div>
       </div>
       <div style="text-align:center;margin-top:3rem;" class="reveal">
-        <a href="/cdn-cgi/l/email-protection#127b7c747d343124262976777e60736b607d657b7c75717e67703c717d7f2d616770787771662f5b7c767d7d60372022407d657b7c75" class="btn-primary">Reserve Your Erg</a>
+        <a href="/cdn-cgi/l/email-protection#127b7c747d343124262976777e60736b607d657b7c75717e67703c717d7f2d616770787771662f5b7c767d7d60372022407d657b7c75" class="btn-primary" data-en="Reserve Your Erg" data-es="Reserva tu Erg">Reserve Your Erg</a>
       </div>
     </div>
   </div>
@@ -534,7 +535,7 @@
   <div class="carousel-section">
     <div class="carousel-inner">
       <div class="section-header reveal">
-        <span class="section-tag">On The Water</span>
+        <span class="section-tag" data-en="On The Water" data-es="En el Agua">On The Water</span>
         <h2 class="section-title">Life at the <em>Club</em></h2>
         <div class="section-rule"></div>
       </div>
@@ -562,7 +563,7 @@
   <div class="map-section">
     <div class="map-inner">
       <div class="section-header reveal">
-        <span class="section-tag">Find Us</span>
+        <span class="section-tag" data-en="Find Us" data-es="Encuéntranos">Find Us</span>
         <h2 class="section-title">Come <em>Row With Us</em></h2>
         <div class="section-rule"></div>
       </div>
@@ -572,11 +573,11 @@
             <div class="map-info-icon">&#x1F4CD;</div>
             <div class="map-info-title">Address</div>
             <div class="map-info-text">950 NW 9th St<br/>Delray Beach, FL 33444<br/>United States</div>
-            <a href="https://maps.google.com/?q=950+NW+9th+St,+Delray+Beach,+FL+33444" target="_blank" class="btn-primary" style="display:inline-block;margin-top:1.2rem;">Get Directions</a>
+            <a href="https://maps.google.com/?q=950+NW+9th+St,+Delray+Beach,+FL+33444" target="_blank" class="btn-primary" style="display:inline-block;margin-top:1.2rem;" data-en="Get Directions" data-es="Cómo Llegar">Get Directions</a>
           </div>
           <div class="map-info-card reveal">
             <div class="map-info-icon">&#x1F550;</div>
-            <div class="map-info-title">Training Hours</div>
+            <div class="map-info-title" data-en="Training Hours" data-es="Horarios de Entrenamiento">Training Hours</div>
             <div class="map-info-text">Mon &ndash; Fri: 5:30 AM &ndash; 8:00 PM<br/>Saturday: 6:00 AM &ndash; 2:00 PM<br/>Sunday: 7:00 AM &ndash; 12:00 PM</div>
           </div>
         </div>
@@ -594,7 +595,7 @@
   <div class="contact-section" id="contact">
     <div class="contact-inner">
       <div class="section-header reveal">
-        <span class="section-tag">Get In Touch</span>
+        <span class="section-tag" data-en="Get In Touch" data-es="Contáctanos">Get In Touch</span>
         <h2 class="section-title">Contact <em>Us</em></h2>
         <div class="section-rule"></div>
       </div>
@@ -644,7 +645,7 @@
               <label for="message">Message</label>
               <textarea id="message" name="message" rows="5" placeholder="Tell us how we can help you..." required></textarea>
             </div>
-            <button type="submit" class="btn-primary" style="width:100%;text-align:center;padding:1rem;">Send Message</button>
+            <button type="submit" class="btn-primary" style="width:100%;text-align:center;padding:1rem;" data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
           </form>
           <div class="form-success" id="formSuccess">
             <p>&#x2714; Message sent! We'll get back to you shortly.</p>
@@ -789,8 +790,8 @@
   <!-- COOKIE BANNER -->
   <div class="cookie-bar">
     <p>&#x1F36A; <strong>This site uses cookies.</strong> We use cookies to improve your experience on our site.</p>
-    <label for="cookieCheck">Accept</label>
-    <label for="cookieCheck">Decline</label>
+    <label for="cookieCheck" data-en="Accept" data-es="Aceptar">Accept</label>
+    <label for="cookieCheck" data-en="Decline" data-es="Rechazar">Decline</label>
   </div>
 
 
@@ -806,5 +807,16 @@
       <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.114 1.528 5.836L.057 23.571l5.901-1.547A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.007-1.373l-.36-.214-3.5.918.933-3.41-.234-.37A9.818 9.818 0 0 1 2.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/>
     </svg>
   </a>
+
+  <script>
+    var currentLang = 'en';
+    function toggleLang(){
+      currentLang = currentLang === 'en' ? 'es' : 'en';
+      document.getElementById('langBtn').textContent = currentLang === 'en' ? 'ES' : 'EN';
+      document.querySelectorAll('[data-en]').forEach(function(el){
+        el.textContent = currentLang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-es');
+      });
+    }
+  </script>
 </body>
 </html>
