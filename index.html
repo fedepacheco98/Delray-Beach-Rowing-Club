@@ -5,7 +5,226 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Delray Beach Rowing Club</title>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;0,6..72,900;1,6..72,400;1,6..72,700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    :root{
+    --navy:#1a3a5c;
+    --deep-navy:#0a2240;
+    --gold:#c8a84b;
+    --gold-light:#d4bc7a;
+    --crimson:#1a5276;
+    --cream:#f0f6fb;
+    --white:#ffffff;
+    --celeste:#75b2dd;
+    --celeste-dark:#2e86c1;
+  }
+    *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+    body{font-family:"Plus Jakarta Sans",sans-serif;background:var(--deep-navy);color:var(--cream);overflow-x:hidden;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;height:72px;background:rgba(7,18,40,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.25);}
+    .nav-brand{font-family:"Newsreader",serif;font-size:1.1rem;font-weight:700;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap;display:flex;align-items:center;}
+    .nav-links{display:flex;gap:2.5rem;list-style:none;}
+    .nav-links a{font-family:"Plus Jakarta Sans",sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--cream);text-decoration:none;position:relative;transition:color 0.3s;}
+    .nav-links a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width 0.3s ease;}
+    .nav-links a:hover{color:var(--gold);}.nav-links a:hover::after{width:100%;}
+    .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;padding:4px;}
+    .nav-hamburger span{display:block;width:24px;height:2px;background:var(--gold);border-radius:2px;transition:all 0.35s ease;transform-origin:center;}
+    .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+    .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .mobile-menu{position:fixed;inset:0;z-index:90;background:rgba(7,18,40,0.98);backdrop-filter:blur(16px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;pointer-events:none;transition:opacity 0.4s ease;}
+    .mobile-menu.open{opacity:1;pointer-events:all;}
+    .mobile-menu a{font-family:"Newsreader",serif;font-size:2rem;font-weight:700;color:var(--cream);text-decoration:none;transform:translateY(20px);opacity:0;transition:color 0.3s,transform 0.4s ease,opacity 0.4s ease;}
+    .mobile-menu.open a{transform:translateY(0);opacity:1;}
+    .mobile-menu.open a:nth-child(1){transition-delay:0.08s;}.mobile-menu.open a:nth-child(2){transition-delay:0.16s;}
+    .mobile-menu.open a:nth-child(3){transition-delay:0.24s;}.mobile-menu.open a:nth-child(4){transition-delay:0.32s;}
+    .mobile-menu.open a:nth-child(5){transition-delay:0.40s;}
+    .mobile-menu a:hover{color:var(--gold);}
+    .mobile-menu-social{display:flex;gap:2rem;margin-top:0.5rem;opacity:0;transform:translateY(20px);transition:opacity 0.4s ease 0.4s,transform 0.4s ease 0.4s;}
+    .mobile-menu.open .mobile-menu-social{opacity:1;transform:translateY(0);}
+    .mobile-menu-social a svg{width:28px;height:28px;fill:rgba(117,178,221,0.8);transition:fill 0.3s;display:block;}
+    .mobile-menu-social a:hover svg{fill:var(--gold);}
+    .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:100px 5vw 60px;}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,rgba(117,178,221,0.25) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 50% 0%,rgba(10,34,64,0.9) 0%,transparent 60%),linear-gradient(180deg,#0a2240 0%,#1a3a5c 40%,#0d2d4a 100%);z-index:0;}
+    .waves{position:absolute;bottom:0;left:0;right:0;height:200px;overflow:hidden;z-index:1;}
+    .wave-svg{position:absolute;bottom:0;left:0;width:100%;height:200px;}
+    .wave-path1{animation:wave1 10s linear infinite;}
+    .wave-path2{animation:wave2 14s linear infinite;}
+    .wave-path3{animation:wave3 8s linear infinite;}
+    @keyframes wave1{0%{d:path("M0,120 C320,180 640,60 960,120 C1280,180 1440,100 1440,120 L1440,200 L0,200 Z")} 50%{d:path("M0,100 C320,40 640,180 960,100 C1280,40 1440,130 1440,100 L1440,200 L0,200 Z")} 100%{d:path("M0,120 C320,180 640,60 960,120 C1280,180 1440,100 1440,120 L1440,200 L0,200 Z")}}
+    @keyframes wave2{0%{d:path("M0,140 C360,80 720,170 1080,140 C1260,125 1380,145 1440,140 L1440,200 L0,200 Z")} 50%{d:path("M0,150 C360,170 720,110 1080,150 C1260,165 1380,140 1440,150 L1440,200 L0,200 Z")} 100%{d:path("M0,140 C360,80 720,170 1080,140 C1260,125 1380,145 1440,140 L1440,200 L0,200 Z")}}
+    @keyframes wave3{0%{d:path("M0,160 C240,130 480,175 720,160 C960,145 1200,170 1440,160 L1440,200 L0,200 Z")} 50%{d:path("M0,155 C240,175 480,140 720,155 C960,170 1200,145 1440,155 L1440,200 L0,200 Z")} 100%{d:path("M0,160 C240,130 480,175 720,160 C960,145 1200,170 1440,160 L1440,200 L0,200 Z")}}
+    .stars{position:absolute;inset:0;z-index:0;}
+    .star{position:absolute;background:white;border-radius:50%;animation:twinkle var(--d,3s) ease-in-out infinite alternate;opacity:var(--o,0.5);}
+    @keyframes twinkle{from{opacity:var(--o,0.5)}to{opacity:0.1}}
+    .hero-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;}
+    .hero-logo{width:clamp(180px,28vw,320px);height:auto;filter:drop-shadow(0 8px 40px rgba(201,168,76,0.4));animation:floatLogo 6s ease-in-out infinite,fadeInUp 1s ease 0.4s both;margin-bottom:2rem;}
+    @keyframes floatLogo{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    .hero-title{font-family:"Newsreader",serif;font-size:clamp(2.4rem,5.5vw,5rem);font-weight:900;color:var(--white);line-height:1.05;animation:fadeInUp 1s ease 0.6s both;text-shadow:0 4px 30px rgba(0,0,0,0.5);}
+    .hero-title em{font-style:italic;color:var(--gold);}
+    .hero-subtitle{font-family:"Plus Jakarta Sans",sans-serif;font-size:0.75rem;font-weight:300;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold-light);margin-top:1rem;animation:fadeInUp 1s ease 0.8s both;}
+    .hero-tagline{font-size:1.25rem;font-weight:300;color:rgba(245,240,232,0.7);margin-top:1.5rem;max-width:500px;line-height:1.7;animation:fadeInUp 1s ease 1s both;}
+    .hero-cta{display:flex;gap:1rem;margin-top:2.5rem;animation:fadeInUp 1s ease 1.2s both;flex-wrap:wrap;justify-content:center;}
+    .btn-primary{display:inline-block;padding:0.9rem 2.4rem;background:linear-gradient(135deg,var(--gold) 0%,#a07830 100%);color:var(--deep-navy);font-family:"Plus Jakarta Sans",sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:all 0.3s ease;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(201,168,76,0.4);filter:brightness(1.1);}
+    .btn-outline{display:inline-block;padding:0.9rem 2.4rem;background:transparent;color:var(--cream);font-family:"Plus Jakarta Sans",sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(201,168,76,0.5);cursor:pointer;transition:all 0.3s ease;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);}
+    .btn-outline:hover{border-color:var(--gold);background:rgba(201,168,76,0.1);transform:translateY(-3px);}
+    .hero-contact{position:relative;z-index:2;display:flex;gap:2rem;margin-top:3.5rem;align-items:center;animation:fadeInUp 1s ease 1.4s both;}
+    .contact-item{display:flex;align-items:center;gap:0.6rem;color:rgba(245,240,232,0.65);text-decoration:none;font-family:"Plus Jakarta Sans",sans-serif;font-size:0.7rem;letter-spacing:0.08em;transition:color 0.3s;}
+    .contact-item:hover{color:var(--gold);}
+    .contact-item svg{width:20px;height:20px;fill:currentColor;transition:transform 0.3s;}
+    .contact-item:hover svg{transform:scale(1.2);}
+    .contact-sep{width:1px;height:24px;background:rgba(201,168,76,0.25);}
+    section{padding:100px 5vw;max-width:1200px;margin:0 auto;}
+    .section-header{text-align:center;margin-bottom:4rem;}
+    .section-tag{font-family:"Plus Jakarta Sans",sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1rem;}
+    .section-title{font-family:"Newsreader",serif;font-size:clamp(2rem,4vw,3.2rem);color:var(--white);font-weight:700;}
+    .section-title em{color:var(--gold);font-style:italic;}
+    .section-rule{width:80px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.5rem auto 0;}
+    #about{max-width:1200px;}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+    .about-text p{font-size:1.15rem;line-height:1.9;color:rgba(245,240,232,0.8);margin-bottom:1.5rem;}
+    .about-text p strong{color:var(--gold);}
+    .about-stats{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+    .stat-card{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);padding:2rem 1.5rem;text-align:center;position:relative;overflow:hidden;transition:all 0.3s;}
+    .stat-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--celeste-dark),var(--gold));transform:scaleX(0);transition:transform 0.4s;}
+    .stat-card:hover{background:rgba(201,168,76,0.1);}.stat-card:hover::before{transform:scaleX(1);}
+    .stat-num{font-family:"Newsreader",serif;font-size:3rem;font-weight:900;color:var(--gold);line-height:1;}
+    .stat-label{font-family:"Plus Jakarta Sans",sans-serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.6);margin-top:0.5rem;}
+    .join-inner{max-width:1200px;margin:0 auto;}
+    .membership-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:1rem;}
+    .mem-card{border:1px solid rgba(201,168,76,0.2);padding:3rem 2rem;text-align:center;position:relative;overflow:hidden;transition:all 0.4s;background:rgba(255,255,255,0.02);}
+    .mem-card.featured{border-color:var(--gold);background:rgba(201,168,76,0.06);}
+    .mem-card.featured::before{content:"";position:absolute;top:16px;right:-28px;background:var(--gold);color:var(--deep-navy);font-family:"Plus Jakarta Sans",sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 36px;transform:rotate(40deg);}
+    .mem-card:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:0 20px 50px rgba(0,0,0,0.4);}
+    .mem-icon{font-size:2.5rem;margin-bottom:1.5rem;}
+    .mem-title{font-family:"Newsreader",serif;font-size:1.5rem;color:var(--white);margin-bottom:0.5rem;}
+    .mem-price{font-family:"Plus Jakarta Sans",sans-serif;font-size:2.5rem;font-weight:700;color:var(--gold);margin:1rem 0;}
+    .mem-price span{font-size:1rem;font-weight:300;color:rgba(245,240,232,0.5);}
+    .mem-features{list-style:none;margin:1.5rem 0 2rem;}
+    .mem-features li{font-size:0.95rem;color:rgba(245,240,232,0.7);padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+    .mem-features li::before{content:"\2726 ";color:var(--gold);font-size:0.6rem;}
+    #donate{max-width:1200px;}
+    .donate-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+    .donate-text p{font-size:1.1rem;line-height:1.9;color:rgba(245,240,232,0.75);margin-bottom:1.5rem;}
+    .donate-impact{background:rgba(117,178,221,0.06);border:1px solid rgba(117,178,221,0.2);padding:2.5rem;}
+    .impact-title{font-family:"Newsreader",serif;font-size:1.3rem;color:var(--gold);margin-bottom:1.5rem;}
+    .impact-item{display:flex;gap:1rem;margin-bottom:1.5rem;align-items:flex-start;}
+    .impact-dot{width:8px;height:8px;min-width:8px;background:var(--gold);margin-top:8px;}
+    .impact-item p{font-size:1rem;color:rgba(245,240,232,0.75);line-height:1.7;}
+    .indoor-inner{max-width:1200px;margin:0 auto;}
+    .programs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;}
+    .program-card{background:rgba(255,255,255,0.02);border:1px solid rgba(201,168,76,0.15);padding:2.5rem;position:relative;overflow:hidden;transition:all 0.4s;}
+    .program-card::after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--celeste-dark),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
+    .program-card:hover{border-color:rgba(201,168,76,0.4);background:rgba(201,168,76,0.04);transform:translateY(-4px);}
+    .program-card:hover::after{transform:scaleX(1);}
+    .program-icon{font-size:2.5rem;margin-bottom:1rem;}
+    .program-title{font-family:"Newsreader",serif;font-size:1.4rem;color:var(--white);margin-bottom:0.8rem;}
+    .program-text{font-size:1rem;color:rgba(245,240,232,0.65);line-height:1.8;}
+    .program-tag{display:inline-block;margin-top:1rem;font-family:"Plus Jakarta Sans",sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,0.35);padding:4px 12px;}
+    .carousel-section{padding:100px 5vw;border-top:1px solid rgba(201,168,76,0.15);}
+    .carousel-inner{max-width:1200px;margin:0 auto;}
+    .carousel-wrapper{position:relative;overflow:hidden;border:1px solid rgba(117,178,221,0.35);box-shadow:0 20px 60px rgba(0,0,0,0.5);}
+    .carousel-track{display:flex;transition:transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);}
+    .carousel-slide{min-width:100%;position:relative;overflow:hidden;}
+    .carousel-slide img{width:100%;height:520px;object-fit:cover;display:block;filter:brightness(0.9);transition:filter 0.4s;}
+    .carousel-slide:hover img{filter:brightness(1);}
+    .carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(7,18,40,0.7);border:1px solid rgba(201,168,76,0.5);width:52px;height:52px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s;z-index:10;backdrop-filter:blur(4px);}
+    .carousel-btn:hover{background:rgba(201,168,76,0.2);border-color:var(--gold);}
+    .carousel-btn-prev{left:1rem;}.carousel-btn-next{right:1rem;}
+    .carousel-btn svg{width:22px;height:22px;fill:var(--gold);}
+    .carousel-dots{display:flex;justify-content:center;gap:0.75rem;margin-top:1.5rem;}
+    .carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(201,168,76,0.3);border:none;cursor:pointer;transition:all 0.3s;padding:0;}
+    .carousel-dot.active{background:var(--gold);transform:scale(1.3);}
+    .map-section{padding:100px 5vw;border-top:1px solid rgba(201,168,76,0.15);}
+    .map-inner{max-width:1200px;margin:0 auto;}
+    .map-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:4rem;align-items:start;margin-top:1rem;}
+    .map-info{display:flex;flex-direction:column;gap:2rem;}
+    .map-info-card{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.2);padding:2rem 1.8rem;position:relative;overflow:hidden;transition:border-color 0.3s;}
+    .map-info-card:hover{border-color:rgba(201,168,76,0.5);}
+    .map-info-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--celeste-dark),var(--gold));}
+    .map-info-icon{font-size:1.5rem;margin-bottom:0.8rem;}
+    .map-info-title{font-family:"Plus Jakarta Sans",sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;}
+    .map-info-text{font-size:1.05rem;color:rgba(245,240,232,0.8);line-height:1.7;}
+    .map-info-text a{color:var(--gold);text-decoration:none;}.map-info-text a:hover{text-decoration:underline;}
+    .map-container{border:1px solid rgba(117,178,221,0.35);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5);}
+    .map-container iframe{display:block;width:100%;height:460px;border:none;}
+    .contact-section{padding:100px 5vw;border-top:1px solid rgba(117,178,221,0.15);}
+    .contact-inner{max-width:1200px;margin:0 auto;}
+    .contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start;margin-top:1rem;}
+    .contact-info p{font-size:1.1rem;line-height:1.9;color:rgba(240,246,251,0.75);margin-bottom:2rem;}
+    .contact-info-item{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;color:rgba(240,246,251,0.75);font-size:1rem;}
+    .contact-info-item svg{width:20px;height:20px;fill:var(--gold);flex-shrink:0;}
+    .contact-info-item a{color:var(--gold);text-decoration:none;}
+    .contact-info-item a:hover{text-decoration:underline;}
+    .contact-form{display:flex;flex-direction:column;gap:1.2rem;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+    .form-group{display:flex;flex-direction:column;gap:0.5rem;}
+    .form-group label{font-family:"Plus Jakarta Sans",sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);}
+    .form-group input,.form-group textarea,.form-group select{background:rgba(255,255,255,0.04);border:1px solid rgba(117,178,221,0.25);color:var(--cream);font-family:"Plus Jakarta Sans",sans-serif;font-size:1.05rem;padding:0.85rem 1rem;outline:none;transition:border-color 0.3s;resize:none;}
+    .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--celeste);background:rgba(117,178,221,0.06);}
+    .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(240,246,251,0.3);}
+    .form-group select option{background:#0a2240;color:#f0f6fb;}
+    .form-success{display:none;background:rgba(200,168,75,0.1);border:1px solid rgba(200,168,75,0.4);padding:1.5rem;text-align:center;}
+    .form-success p{color:var(--gold);font-size:1.1rem;}
+    footer{background:#061527;border-top:1px solid rgba(201,168,76,0.15);padding:3rem 5vw;text-align:center;}
+    .footer-logo{font-family:"Newsreader",serif;font-size:1.2rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;}
+    .footer-text{font-size:0.85rem;color:rgba(245,240,232,0.35);font-family:"Plus Jakarta Sans",sans-serif;letter-spacing:0.05em;}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    .founder-section{margin-top:5rem;padding-top:4rem;border-top:1px solid rgba(117,178,221,0.2);}
+    .founder-grid{display:grid;grid-template-columns:380px 1fr;gap:4rem;align-items:start;}
+    .founder-photo{position:relative;}
+    .founder-photo::before{content:"";position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;border:1px solid rgba(200,168,75,0.3);z-index:0;}
+    .founder-photo img{position:relative;z-index:1;width:100%;height:480px;object-fit:cover;object-position:top;display:block;}
+    .founder-tag{font-family:"Plus Jakarta Sans",sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--celeste);display:block;margin-bottom:0.8rem;}
+    .founder-name{font-family:"Newsreader",serif;font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:0.5rem;}
+    .founder-title-role{font-family:"Plus Jakarta Sans",sans-serif;font-size:0.68rem;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(117,178,221,0.15);}
+    .founder-bio{font-size:1.08rem;line-height:1.9;color:rgba(240,246,251,0.78);}
+    .founder-bio strong{color:var(--celeste);}
+    .founder-flag{display:flex;align-items:center;gap:1.2rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(117,178,221,0.15);}
+    .flag-item{display:flex;align-items:center;gap:0.6rem;font-family:"Plus Jakarta Sans",sans-serif;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(240,246,251,0.55);}
+    .flag-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+    .flag-dot.arg{background:linear-gradient(180deg,#74acdf 33%,#fff 33%,#fff 66%,#74acdf 66%);}
+    .flag-dot.usa{background:linear-gradient(180deg,#B22234 33%,#fff 33%,#fff 66%,#3C3B6E 66%);}
+    .flag-sep{width:1px;height:20px;background:rgba(117,178,221,0.2);}
+    .reveal{opacity:1;transform:translateY(0);transition:opacity 0.8s ease,transform 0.8s ease;}
+    .reveal.animate{opacity:0;transform:translateY(40px);}
+    .reveal.animate.visible{opacity:1;transform:translateY(0);}
+    #cookieCheck{display:none;}
+    #cookieCheck:checked ~ .cookie-bar{display:none;}
+    .cookie-bar{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0a2240;border-top:2px solid #c8a84b;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:0 -4px 30px rgba(0,0,0,0.5);}
+    .cookie-bar p{font-family:"Plus Jakarta Sans",sans-serif;font-size:0.8rem;color:rgba(240,246,251,0.75);flex:1;margin:0;}
+    .cookie-bar p strong{color:#c8a84b;}
+    .cookie-bar label{padding:0.65rem 1.5rem;background:#c8a84b;color:#071228;font-family:"Plus Jakarta Sans",sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap;}
+    .cookie-bar label:last-child{background:transparent;color:rgba(240,246,251,0.5);border:1px solid rgba(240,246,251,0.3);}
+    .cookie-bar label:last-child:hover{color:#f0f6fb;border-color:rgba(240,246,251,0.6);}
+    .wa-btn{position:fixed;bottom:2rem;right:2rem;z-index:9998;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.5);transition:transform 0.3s,box-shadow 0.3s;}
+    .wa-btn:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,0.7);}
+    .wa-btn svg{width:30px;height:30px;fill:white;}
+    @media(max-width:900px){.founder-grid{grid-template-columns:1fr;gap:2.5rem;}.founder-photo::before{display:none;}.founder-photo img{height:380px;}}
+    @media(max-width:768px){
+      .nav-links{display:none;}.nav-hamburger{display:flex;}.nav-brand{font-size:0.85rem;}
+      .hero{padding:90px 6vw 80px;}.hero-logo{width:clamp(140px,55vw,220px);}
+      .hero-title{font-size:clamp(2rem,9vw,3rem);}.hero-tagline{font-size:1rem;}
+      .hero-contact{flex-wrap:wrap;justify-content:center;gap:0.75rem;margin-top:2rem;}
+      .contact-sep{display:none;}
+      .contact-item{width:48px;height:48px;justify-content:center;border:1px solid rgba(117,178,221,0.35);border-radius:50%;gap:0;}
+      .contact-item .contact-text{display:none;}.contact-item svg{width:22px;height:22px;}
+      section{padding:60px 6vw;}
+      #join{padding:60px 6vw !important;}#indoor{padding:60px 6vw !important;}
+      .carousel-section{padding:60px 6vw;}.map-section{padding:60px 6vw;}
+      .section-title{font-size:clamp(1.7rem,7vw,2.4rem);}
+      .about-grid{grid-template-columns:1fr;gap:2.5rem;}
+      .about-stats{grid-template-columns:1fr 1fr;gap:1rem;}.stat-num{font-size:2.2rem;}.stat-card{padding:1.2rem 0.8rem;}
+      .membership-cards{grid-template-columns:1fr;gap:1.5rem;}.mem-card{padding:2rem 1.5rem;}.mem-card.featured::before{display:none;}
+      .donate-grid{grid-template-columns:1fr;gap:2rem;}.donate-impact{padding:1.5rem;}
+      .programs-grid{grid-template-columns:1fr;gap:1.5rem;}.program-card{padding:2rem 1.5rem;}
+      .carousel-slide img{height:260px;}.carousel-btn{width:40px;height:40px;}
+      .map-grid{grid-template-columns:1fr;gap:2rem;}.map-container iframe{height:300px;}
+      .contact-section{padding:60px 6vw;}
+      .contact-grid{grid-template-columns:1fr;gap:3rem;}
+      .form-row{grid-template-columns:1fr;}
+      footer{padding:2rem 6vw;}
+    }
+  </style>
 </head>
 <body>
 
@@ -17,13 +236,15 @@
     <a href="#contact" onclick="closeMobileMenu()" data-en="Contact Us" data-es="Contacto">Contact Us</a>
     <div class="mobile-menu-social">
       <a href="mailto:info@delrayrowingclub.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+      <a href="tel:+5493412299911" aria-label="Phone"><svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
       <a href="https://instagram.com" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
     </div>
   </div>
 
   <nav>
     <div class="nav-brand">
-      <img src="escudoclub.svg" alt="Logo" style="height:38px;width:auto;vertical-align:middle;margin-right:0.6rem;">
+      <img src="escudoclub.svg" alt="Logo" style="height:38px;width:auto;object-fit:contain;vertical-align:middle;margin-right:0.6rem;">
       Delray Beach Rowing Club
     </div>
     <ul class="nav-links">
@@ -33,7 +254,7 @@
       <li><a href="#indoor" data-en="Indoor Rowing" data-es="Remo Indoor">Indoor Rowing</a></li>
       <li><a href="#contact" data-en="Contact Us" data-es="Contacto">Contact Us</a></li>
     </ul>
-    <button onclick="toggleLang()" id="langBtn" class="lang-btn">ES</button>
+    <button onclick="toggleLang()" id="langBtn" style="background:none;border:1px solid rgba(200,168,75,0.5);color:var(--gold);font-family:'Plus Jakarta Sans',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;padding:0.3rem 0.7rem;cursor:pointer;margin-right:0.8rem;transition:all 0.3s;" onmouseover="this.style.background='rgba(200,168,75,0.1)'" onmouseout="this.style.background='none'">ES</button>
     <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -50,14 +271,35 @@
       </svg>
     </div>
     <div class="hero-content">
-      <img src="escudoclub.svg" alt="Club Logo" class="hero-logo"/>
+      <img src="escudoclub.svg" alt="Delray Beach Rowing Club Logo" class="hero-logo"/>
       <h1 class="hero-title">Delray Beach<br/><em>Rowing Club</em></h1>
       <p class="hero-subtitle" data-en="Delray Beach · Est. 2023 · Where Champions Are Born" data-es="Delray Beach · Est. 2023 · Donde Nacen los Campeones">Delray Beach · Est. 2023 · Where Champions Are Born</p>
-      <p class="hero-tagline" data-en="Forging athletes, building community, and honoring the timeless tradition of rowing." data-es="Forjando atletas, construyendo comunidad y honrando la tradición del remo.">Forging athletes, building community, and honoring the timeless tradition of rowing.</p>
+      <p class="hero-tagline" data-en="Forging athletes, building community, and honoring the timeless tradition of rowing on the waters of South Florida." data-es="Forjando atletas, construyendo comunidad y honrando la tradición del remo en las aguas del sur de Florida.">Forging athletes, building community, and honoring the timeless tradition of rowing on the waters of South Florida.</p>
       <div class="hero-cta">
         <a href="#join" class="btn-primary" data-en="Join the Club" data-es="Únete al Club">Join the Club</a>
         <a href="#about" class="btn-outline" data-en="Learn More" data-es="Saber Más">Learn More</a>
       </div>
+    </div>
+    <div class="hero-contact">
+      <a href="mailto:info@delrayrowingclub.com" class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <span class="contact-text">info@delrayrowingclub.com</span>
+      </a>
+      <div class="contact-sep"></div>
+      <a href="tel:+5493412299911" class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <span class="contact-text">+54 9 341 229-9911</span>
+      </a>
+      <div class="contact-sep"></div>
+      <a href="https://facebook.com" target="_blank" class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+        <span class="contact-text">Facebook</span>
+      </a>
+      <div class="contact-sep"></div>
+      <a href="https://instagram.com" target="_blank" class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        <span class="contact-text">Instagram</span>
+      </a>
     </div>
   </div>
 
@@ -69,42 +311,435 @@
     </div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p data-en="Founded in <strong>2023</strong>, our club was born from a shared passion for the water." data-es="Fundado en <strong>2023</strong>, nuestro club nació de una pasión compartida por el agua.">Founded in <strong>2023</strong>, our club was born from a shared passion for the water.</p>
-        <div class="about-stats">
-          <div class="stat-card"><div class="stat-num">120+</div><div class="stat-label" data-en="Members" data-es="Miembros">Members</div></div>
-          <div class="stat-card"><div class="stat-num">2023</div><div class="stat-label" data-en="Founded" data-es="Fundado">Founded</div></div>
-        </div>
+        <p data-en='Founded in <strong>2023</strong> on the sun-drenched shores of Delray Beach, our club was born from a shared passion for the water and the sport of rowing. We believe that the rhythm of the oar teaches discipline, the crew teaches brotherhood, and the river teaches patience.' data-es='Fundado en <strong>2023</strong> en las soleadas costas de Delray Beach, nuestro club nació de una pasión compartida por el agua y el deporte del remo. Creemos que el ritmo del remo enseña disciplina, la tripulación enseña hermandad, y el río enseña paciencia.'>Founded in <strong>2023</strong> on the sun-drenched shores of Delray Beach, our club was born from a shared passion for the water and the sport of rowing. We believe that the rhythm of the oar teaches discipline, the crew teaches brotherhood, and the river teaches patience.</p>
+        <p data-en='From <strong>competitive athletes</strong> chasing championship titles to <strong>first-time rowers</strong> discovering their potential, our club welcomes every level. We are rooted in the South Florida community and proud to represent the spirit of Del Rey on waters near and far.' data-es='Desde <strong>atletas competitivos</strong> que persiguen títulos hasta <strong>remeros por primera vez</strong> que descubren su potencial, nuestro club da la bienvenida a todos los niveles. Estamos arraigados en la comunidad del sur de Florida y orgullosos de representar el espíritu de Del Rey.'>From <strong>competitive athletes</strong> chasing championship titles to <strong>first-time rowers</strong> discovering their potential, our club welcomes every level. We are rooted in the South Florida community and proud to represent the spirit of Del Rey on waters near and far.</p>
+        <p data-en='Our coaches are <strong>nationally certified</strong> with decades of experience, guiding athletes through technique, strength, and the unbreakable bond of team rowing.' data-es='Nuestros entrenadores están <strong>certificados a nivel nacional</strong> con décadas de experiencia, guiando a los atletas en técnica, fuerza y el vínculo inquebrantable del remo en equipo.'>Our coaches are <strong>nationally certified</strong> with decades of experience, guiding athletes through technique, strength, and the unbreakable bond of team rowing.</p>
+        <a href="#join" class="btn-primary" style="display:inline-block;margin-top:1rem;" data-en="Become a Member" data-es="Hazte Miembro">Become a Member</a>
       </div>
-      <div class="founder-photo reveal">
-        <img src="fundador.jpg" alt="Founder"/>
+      <div class="about-stats reveal">
+        <div class="stat-card"><div class="stat-num">120+</div><div class="stat-label" data-en="Active Members" data-es="Miembros Activos">Active Members</div></div>
+        <div class="stat-card"><div class="stat-num">18</div><div class="stat-label" data-en="Competition Boats" data-es="Botes de Competición">Competition Boats</div></div>
+        <div class="stat-card"><div class="stat-num">6</div><div class="stat-label" data-en="Expert Coaches" data-es="Entrenadores Expertos">Expert Coaches</div></div>
+        <div class="stat-card"><div class="stat-num">2023</div><div class="stat-label" data-en="Year Founded" data-es="Año de Fundación">Year Founded</div></div>
+      </div>
+    </div>
+
+    <div class="founder-section reveal">
+      <div class="founder-grid">
+        <div class="founder-photo reveal">
+          <img src="fundador.jpg" alt="Dr. Rodrigo Natalio Banegas"/>
+        </div>
+        <div class="founder-text reveal">
+          <span class="founder-tag" data-en="Meet the Founder" data-es="Conoce al Fundador">Meet the Founder</span>
+          <h3 class="founder-name">Dr. Rodrigo Natalio Banegas</h3>
+          <p class="founder-title-role" data-en="Orthopedic Surgeon &amp; Associate Professor" data-es="Cirujano Ortopédico y Profesor Asociado">Orthopedic Surgeon &amp; Associate Professor</p>
+          <p class="founder-bio" data-en='A distinguished orthopedic surgeon and Associate Professor in Orthopedics at the <strong>University of Colorado School of Medicine</strong>, Dr. Banegas brings a wealth of international experience and expertise to the field of orthopedic surgery.' data-es='Distinguido cirujano ortopédico y Profesor Asociado en Ortopedia en la <strong>Universidad de Colorado School of Medicine</strong>, el Dr. Banegas aporta una gran experiencia internacional al campo de la cirugía ortopédica.'>A distinguished orthopedic surgeon and Associate Professor in Orthopedics at the <strong>University of Colorado School of Medicine</strong>, Dr. Banegas brings a wealth of international experience and expertise to the field of orthopedic surgery.</p>
+          <p class="founder-bio" style="margin-top:1rem;" data-en='Born in <strong>Rosario, Argentina</strong>, Dr. Banegas has seamlessly blended his South American roots with his American citizenship, becoming a valuable contributor to the medical community — and now, to the rowing community of South Florida.' data-es='Nacido en <strong>Rosario, Argentina</strong>, el Dr. Banegas ha fusionado sus raíces sudamericanas con su ciudadanía estadounidense, convirtiéndose en un valioso miembro de la comunidad médica — y ahora, de la comunidad remera del sur de Florida.'>Born in <strong>Rosario, Argentina</strong>, Dr. Banegas has seamlessly blended his South American roots with his American citizenship, becoming a valuable contributor to the medical community — and now, to the rowing community of South Florida.</p>
+          <div class="founder-flag">
+            <div class="flag-item"><div class="flag-dot arg"></div><span>Rosario, Argentina</span></div>
+            <div class="flag-sep"></div>
+            <div class="flag-item"><div class="flag-dot usa"></div><span>Delray Beach, Florida</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="contact">
+  <div id="join" style="padding:100px 5vw;border-top:1px solid rgba(201,168,76,0.15);border-bottom:1px solid rgba(201,168,76,0.15);">
+    <div class="join-inner">
+      <div class="section-header reveal">
+        <span class="section-tag" data-en="Membership" data-es="Membresía">Membership</span>
+        <h2 class="section-title"><span data-en="Choose Your " data-es="Elige Tu ">Choose Your </span><em data-en="Journey" data-es="Camino">Journey</em></h2>
+        <div class="section-rule"></div>
+        <p style="margin-top:1.5rem;color:rgba(245,240,232,0.6);font-size:1.05rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.8;" data-en="Whether you're a seasoned competitor or just discovering the oar, there's a place for you on our roster." data-es="Ya seas un competidor experimentado o estés descubriendo el remo, hay un lugar para ti en nuestro equipo.">Whether you're a seasoned competitor or just discovering the oar, there's a place for you on our roster.</p>
+      </div>
+      <div class="membership-cards">
+        <div class="mem-card reveal">
+          <div class="mem-icon">&#x1F6A3;</div>
+          <div class="mem-title" data-en="Novice" data-es="Principiante">Novice</div>
+          <div class="mem-price">$49<span data-en="/month" data-es="/mes">/month</span></div>
+          <ul class="mem-features">
+            <li data-en="Learn-to-row clinics" data-es="Clínicas de aprendizaje de remo">Learn-to-row clinics</li>
+            <li data-en="2 sessions per week" data-es="2 sesiones por semana">2 sessions per week</li>
+            <li data-en="Equipment provided" data-es="Equipamiento incluido">Equipment provided</li>
+            <li data-en="Club events access" data-es="Acceso a eventos del club">Club events access</li>
+          </ul>
+          <a href="mailto:info@delrayrowingclub.com" class="btn-outline" style="display:inline-block;" data-en="Get Started" data-es="Comenzar">Get Started</a>
+        </div>
+        <div class="mem-card featured reveal">
+          <div class="mem-icon">&#x1F3C6;</div>
+          <div class="mem-title" data-en="Competitive" data-es="Competitivo">Competitive</div>
+          <div class="mem-price">$89<span data-en="/month" data-es="/mes">/month</span></div>
+          <ul class="mem-features">
+            <li data-en="Unlimited training sessions" data-es="Sesiones de entrenamiento ilimitadas">Unlimited training sessions</li>
+            <li data-en="Regatta entry support" data-es="Apoyo en inscripción a regatas">Regatta entry support</li>
+            <li data-en="Video stroke analysis" data-es="Análisis de remada en video">Video stroke analysis</li>
+            <li data-en="Gym &amp; erg access" data-es="Acceso a gimnasio y erg">Gym &amp; erg access</li>
+            <li data-en="Priority boat booking" data-es="Reserva prioritaria de bote">Priority boat booking</li>
+          </ul>
+          <a href="mailto:info@delrayrowingclub.com" class="btn-primary" style="display:inline-block;" data-en="Join Now" data-es="Unirse Ahora">Join Now</a>
+        </div>
+        <div class="mem-card reveal">
+          <div class="mem-icon">&#x2693;</div>
+          <div class="mem-title" data-en="Masters" data-es="Másters">Masters</div>
+          <div class="mem-price">$69<span data-en="/month" data-es="/mes">/month</span></div>
+          <ul class="mem-features">
+            <li data-en="Masters-specific coaching" data-es="Entrenamiento específico para másters">Masters-specific coaching</li>
+            <li data-en="Flexible scheduling" data-es="Horarios flexibles">Flexible scheduling</li>
+            <li data-en="Social &amp; touring rows" data-es="Salidas sociales y de paseo">Social &amp; touring rows</li>
+            <li data-en="Masters regattas" data-es="Regatas de másters">Masters regattas</li>
+          </ul>
+          <a href="mailto:info@delrayrowingclub.com" class="btn-outline" style="display:inline-block;" data-en="Get Started" data-es="Comenzar">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="donate">
     <div class="section-header reveal">
-      <h2 class="section-title" data-en="Contact Us" data-es="Contacto">Contact Us</h2>
+      <span class="section-tag" data-en="Support the Club" data-es="Apoya el Club">Support the Club</span>
+      <h2 class="section-title"><span data-en="Help Us " data-es="Ayúdanos a ">Help Us </span><em data-en="Row Forward" data-es="Remar Adelante">Row Forward</em></h2>
       <div class="section-rule"></div>
     </div>
-    <div class="contact-inner">
-      <form class="contact-form" id="contactForm" action="https://formspree.io/f/TU_ENDPOINT" method="POST">
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <textarea name="message" rows="4" id="message" placeholder="Message" required></textarea>
-        <button type="submit" class="btn-primary">Send</button>
-      </form>
+    <div class="donate-grid">
+      <div class="donate-text reveal">
+        <p data-en="Your donation directly fuels our mission to make rowing accessible to all South Florida youth, maintain world-class equipment, and send our athletes to compete on the national stage." data-es="Tu donación impulsa directamente nuestra misión de hacer el remo accesible para todos los jóvenes del sur de Florida, mantener equipos de primer nivel y enviar a nuestros atletas a competir en el escenario nacional.">Your donation directly fuels our mission to make rowing accessible to all South Florida youth, maintain world-class equipment, and send our athletes to compete on the national stage.</p>
+        <p data-en="Every dollar raised goes toward building a stronger, more inclusive club — one stroke at a time." data-es="Cada dólar recaudado va hacia la construcción de un club más fuerte e inclusivo — una remada a la vez.">Every dollar raised goes toward building a stronger, more inclusive club — one stroke at a time.</p>
+        <div style="margin-top:1.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+          <a href="https://www.paypal.com/ncp/payment/99WVY2Z36ZKXC" target="_blank" class="btn-primary" data-en="Donate Now" data-es="Donar Ahora">Donate Now</a>
+          <img src="paypal-logo.png" alt="PayPal" style="height:36px;width:auto;vertical-align:middle;">
+        </div>
+      </div>
+      <div class="donate-impact reveal">
+        <h3 class="impact-title" data-en="Your Impact" data-es="Tu Impacto">Your Impact</h3>
+        <div class="impact-item"><div class="impact-dot"></div><p><strong style="color:var(--gold)">$25</strong> — <span data-en="Covers one youth athlete's training supplies for a full month." data-es="Cubre los materiales de entrenamiento de un atleta juvenil durante un mes completo.">Covers one youth athlete's training supplies for a full month.</span></p></div>
+        <div class="impact-item"><div class="impact-dot"></div><p><strong style="color:var(--gold)">$50</strong> — <span data-en="Funds one hour of professional coaching for the junior squad." data-es="Financia una hora de entrenamiento profesional para el equipo juvenil.">Funds one hour of professional coaching for the junior squad.</span></p></div>
+        <div class="impact-item"><div class="impact-dot"></div><p><strong style="color:var(--gold)">$100</strong> — <span data-en="Contributes to regatta entry fees for a competitive crew." data-es="Contribuye a las inscripciones de regata para una tripulación competitiva.">Contributes to regatta entry fees for a competitive crew.</span></p></div>
+        <div class="impact-item"><div class="impact-dot"></div><p><strong style="color:var(--gold)">$500</strong> — <span data-en="Helps fund the maintenance and repair of our racing shells." data-es="Ayuda a financiar el mantenimiento y reparación de nuestros barcos de regata.">Helps fund the maintenance and repair of our racing shells.</span></p></div>
+      </div>
     </div>
   </section>
+
+  <div id="indoor" style="padding:100px 5vw;border-top:1px solid rgba(201,168,76,0.15);">
+    <div class="indoor-inner">
+      <div class="section-header reveal">
+        <span class="section-tag" data-en="Erg Training" data-es="Entrenamiento Erg">Erg Training</span>
+        <h2 class="section-title"><span data-en="Indoor " data-es="Programas de ">Indoor </span><em data-en="Rowing" data-es="Remo Indoor">Rowing</em><span data-en=" Programs" data-es=""> Programs</span></h2>
+        <div class="section-rule"></div>
+        <p style="margin-top:1.5rem;color:rgba(245,240,232,0.6);font-size:1.05rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.8;" data-en="No water? No problem. Our indoor rowing facility is open year-round with state-of-the-art Concept2 ergometers and expert instruction." data-es="¿Sin agua? Sin problema. Nuestra instalación de remo indoor está abierta todo el año con ergómetros Concept2 de última generación e instrucción experta.">No water? No problem. Our indoor rowing facility is open year-round with state-of-the-art Concept2 ergometers and expert instruction.</p>
+      </div>
+      <div class="programs-grid">
+        <div class="program-card reveal">
+          <div class="program-icon">&#x1F3CB;&#xFE0F;</div>
+          <div class="program-title" data-en="Fitness Rowing" data-es="Remo Fitness">Fitness Rowing</div>
+          <p class="program-text" data-en="A full-body cardio experience designed for all fitness levels. Build strength, endurance, and technique in a motivating group environment without ever touching the water." data-es="Una experiencia cardio de cuerpo completo diseñada para todos los niveles. Desarrolla fuerza, resistencia y técnica en un entorno grupal motivador sin tocar el agua.">A full-body cardio experience designed for all fitness levels. Build strength, endurance, and technique in a motivating group environment without ever touching the water.</p>
+          <span class="program-tag" data-en="All Levels" data-es="Todos los Niveles">All Levels</span>
+        </div>
+        <div class="program-card reveal">
+          <div class="program-icon">&#x23F1;&#xFE0F;</div>
+          <div class="program-title" data-en="Erg Intervals" data-es="Intervalos en Erg">Erg Intervals</div>
+          <p class="program-text" data-en="High-intensity interval training on the ergometer. Structured workouts targeting lactate threshold and VO2 max — the backbone of any competitive rowing program." data-es="Entrenamiento de intervalos de alta intensidad en el ergómetro. Entrenamientos estructurados que apuntan al umbral de lactato y VO2 máx — la columna vertebral de cualquier programa de remo competitivo.">High-intensity interval training on the ergometer. Structured workouts targeting lactate threshold and VO2 max — the backbone of any competitive rowing program.</p>
+          <span class="program-tag" data-en="Intermediate / Advanced" data-es="Intermedio / Avanzado">Intermediate / Advanced</span>
+        </div>
+        <div class="program-card reveal">
+          <div class="program-icon">&#x1F9D2;</div>
+          <div class="program-title" data-en="Junior Development" data-es="Desarrollo Juvenil">Junior Development</div>
+          <p class="program-text" data-en="Introduce young athletes aged 12–18 to the fundamentals of rowing technique, team culture, and athletic discipline. A pathway to competitive on-water training." data-es="Introduce a jóvenes atletas de 12 a 18 años a los fundamentos de la técnica de remo, la cultura de equipo y la disciplina atlética. Un camino hacia el entrenamiento competitivo en el agua.">Introduce young athletes aged 12–18 to the fundamentals of rowing technique, team culture, and athletic discipline. A pathway to competitive on-water training.</p>
+          <span class="program-tag" data-en="Ages 12–18" data-es="Edades 12–18">Ages 12–18</span>
+        </div>
+        <div class="program-card reveal">
+          <div class="program-icon">&#x1F947;</div>
+          <div class="program-title" data-en="Race Prep Clinics" data-es="Clínicas de Preparación para Carrera">Race Prep Clinics</div>
+          <p class="program-text" data-en="Intensive, coach-led sessions focused on pace strategy, race simulation, and mental preparation. Get ready to perform at your peak on regatta day." data-es="Sesiones intensivas lideradas por entrenadores enfocadas en estrategia de ritmo, simulación de carrera y preparación mental. Prepárate para rendir al máximo el día de la regata.">Intensive, coach-led sessions focused on pace strategy, race simulation, and mental preparation. Get ready to perform at your peak on regatta day.</p>
+          <span class="program-tag" data-en="Competitive Athletes" data-es="Atletas Competitivos">Competitive Athletes</span>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:3rem;" class="reveal">
+        <a href="mailto:info@delrayrowingclub.com" class="btn-primary" data-en="Reserve Your Erg" data-es="Reserva tu Erg">Reserve Your Erg</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-section">
+    <div class="carousel-inner">
+      <div class="section-header reveal">
+        <span class="section-tag" data-en="On The Water" data-es="En el Agua">On The Water</span>
+        <h2 class="section-title"><span data-en="Life at the " data-es="La Vida en el ">Life at the </span><em data-en="Club" data-es="Club">Club</em></h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="carousel-wrapper reveal">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide"><img src="remo1.avif" alt="Rowing competition"/></div>
+          <div class="carousel-slide"><img src="remo2.avif" alt="Rowing heats"/></div>
+          <div class="carousel-slide"><img src="remo3.avif" alt="Women quad heat"/></div>
+        </div>
+        <button class="carousel-btn carousel-btn-prev" id="btnPrev" aria-label="Previous">
+          <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </button>
+        <button class="carousel-btn carousel-btn-next" id="btnNext" aria-label="Next">
+          <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </button>
+      </div>
+      <div class="carousel-dots">
+        <button class="carousel-dot active" data-slide="0"></button>
+        <button class="carousel-dot" data-slide="1"></button>
+        <button class="carousel-dot" data-slide="2"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="map-section">
+    <div class="map-inner">
+      <div class="section-header reveal">
+        <span class="section-tag" data-en="Find Us" data-es="Encuéntranos">Find Us</span>
+        <h2 class="section-title"><span data-en="Come " data-es="Ven a ">Come </span><em data-en="Row With Us" data-es="Remar Con Nosotros">Row With Us</em></h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="map-grid">
+        <div class="map-info">
+          <div class="map-info-card reveal">
+            <div class="map-info-icon">&#x1F4CD;</div>
+            <div class="map-info-title" data-en="Address" data-es="Dirección">Address</div>
+            <div class="map-info-text">950 NW 9th St<br/>Delray Beach, FL 33444<br/>United States</div>
+            <a href="https://maps.google.com/?q=950+NW+9th+St,+Delray+Beach,+FL+33444" target="_blank" class="btn-primary" style="display:inline-block;margin-top:1.2rem;" data-en="Get Directions" data-es="Cómo Llegar">Get Directions</a>
+          </div>
+          <div class="map-info-card reveal">
+            <div class="map-info-icon">&#x1F550;</div>
+            <div class="map-info-title" data-en="Training Hours" data-es="Horarios de Entrenamiento">Training Hours</div>
+            <div class="map-info-text" data-en="Mon – Fri: 5:30 AM – 8:00 PM<br/>Saturday: 6:00 AM – 2:00 PM<br/>Sunday: 7:00 AM – 12:00 PM" data-es="Lun – Vie: 5:30 AM – 8:00 PM<br/>Sábado: 6:00 AM – 2:00 PM<br/>Domingo: 7:00 AM – 12:00 PM">Mon – Fri: 5:30 AM – 8:00 PM<br/>Saturday: 6:00 AM – 2:00 PM<br/>Sunday: 7:00 AM – 12:00 PM</div>
+          </div>
+        </div>
+        <div class="map-container reveal">
+          <iframe width="100%" height="460" style="border:0;display:block;" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=950+NW+9th+St,+Delray+Beach,+FL+33444&t=&z=16&ie=UTF8&iwloc=&output=embed">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="section-header reveal">
+        <span class="section-tag" data-en="Get In Touch" data-es="Contáctanos">Get In Touch</span>
+        <h2 class="section-title"><span data-en="Contact " data-es="Contáctate ">Contact </span><em data-en="Us" data-es="Con Nosotros">Us</em></h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <p data-en="Have questions about memberships, programs, or events? We'd love to hear from you. Fill out the form and we'll get back to you as soon as possible." data-es="¿Tienes preguntas sobre membresías, programas o eventos? Nos encantaría saber de ti. Completa el formulario y te responderemos lo antes posible.">Have questions about memberships, programs, or events? We'd love to hear from you. Fill out the form and we'll get back to you as soon as possible.</p>
+          <div class="contact-info-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>950 NW 9th St, Delray Beach, FL 33444</span>
+          </div>
+          <div class="contact-info-item">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.25 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <a href="tel:+5493412299911">+54 9 341 229-9911</a>
+          </div>
+          <div class="contact-info-item">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <a href="mailto:info@delrayrowingclub.com">info@delrayrowingclub.com</a>
+          </div>
+        </div>
+        <div class="reveal">
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/TU_ENDPOINT_AQUI" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname" data-en="First Name" data-es="Nombre">First Name</label>
+                <input type="text" id="fname" name="first_name" placeholder="John" required/>
+              </div>
+              <div class="form-group">
+                <label for="lname" data-en="Last Name" data-es="Apellido">Last Name</label>
+                <input type="text" id="lname" name="last_name" placeholder="Doe" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="femail" data-en="Email" data-es="Correo Electrónico">Email</label>
+              <input type="email" id="femail" name="email" placeholder="john@example.com" required/>
+            </div>
+            <div class="form-group">
+              <label for="subject" data-en="Subject" data-es="Asunto">Subject</label>
+              <select id="subject" name="subject">
+                <option value="" data-en="Select a topic..." data-es="Selecciona un tema...">Select a topic...</option>
+                <option value="Membership" data-en="Membership" data-es="Membresía">Membership</option>
+                <option value="Indoor Rowing" data-en="Indoor Rowing" data-es="Remo Indoor">Indoor Rowing</option>
+                <option value="Donation" data-en="Donation" data-es="Donación">Donation</option>
+                <option value="General Inquiry" data-en="General Inquiry" data-es="Consulta General">General Inquiry</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message" data-en="Message" data-es="Mensaje">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell us how we can help you..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width:100%;text-align:center;padding:1rem;" data-en="Send Message" data-es="Enviar Mensaje">Send Message</button>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <p data-en="✔ Message sent! We'll get back to you shortly." data-es="✔ ¡Mensaje enviado! Te responderemos en breve.">✔ Message sent! We'll get back to you shortly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <div class="footer-logo">Delray Beach Rowing Club</div>
-    <p class="footer-text">© 2026 Delray Beach · Est. 2023</p>
+    <p class="footer-text" data-en="Delray Beach · Est. 2023 · All rights reserved © 2025" data-es="Delray Beach · Est. 2023 · Todos los derechos reservados © 2025">Delray Beach · Est. 2023 · All rights reserved © 2025</p>
+    <p class="footer-text" style="margin-top:0.6rem;" data-en="Delray Beach Rowing Club is a registered 501(c)(3) nonprofit." data-es="Delray Beach Rowing Club es una organización sin fines de lucro registrada 501(c)(3).">Delray Beach Rowing Club is a registered 501(c)(3) nonprofit.</p>
+    <p class="footer-text" style="margin-top:0.3rem;">FDACS Reg. #CH-71184 &nbsp;|&nbsp; EIN: 85-1617747</p>
+    <div style="display:flex;justify-content:center;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap;">
+      <a href="mailto:info@delrayrowingclub.com" class="contact-item" style="font-size:0.65rem;">
+        <svg style="width:16px;height:16px;fill:rgba(117,178,221,0.7);" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <span class="contact-text" data-en="Email" data-es="Correo">Email</span>
+      </a>
+      <a href="https://facebook.com" target="_blank" class="contact-item" style="font-size:0.65rem;">
+        <svg style="width:16px;height:16px;fill:rgba(117,178,221,0.7);" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+        <span class="contact-text">Facebook</span>
+      </a>
+      <a href="https://instagram.com" target="_blank" class="contact-item" style="font-size:0.65rem;">
+        <svg style="width:16px;height:16px;fill:rgba(117,178,221,0.7);" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        <span class="contact-text">Instagram</span>
+      </a>
+    </div>
   </footer>
 
-  <a class="wa-btn" href="https://wa.me/5493412299911" target="_blank">
-    <svg viewBox="0 0 24 24"><path fill="white" d="M12.031 6.172c-2.135 0-3.848 1.712-3.848 3.848 0 .828.266 1.594.714 2.219l-.462 1.694 1.737-.453c.584.381 1.278.597 2.022.597 2.135 0 3.848-1.712 3.848-3.848s-1.713-3.848-3.411-3.848zM12 21.818c-5.419 0-9.818-4.399-9.818-9.818s4.399-9.818 9.818-9.818 9.818 4.399 9.818 9.818-4.399 9.818-9.818 9.818z"/></svg>
+  <input type="checkbox" id="cookieCheck">
+  <div class="cookie-bar">
+    <p><span data-en="🍪 This site uses cookies. We use cookies to improve your experience on our site." data-es="🍪 Este sitio usa cookies. Las usamos para mejorar tu experiencia.">🍪 <strong>This site uses cookies.</strong> We use cookies to improve your experience on our site.</span></p>
+    <label for="cookieCheck" data-en="Accept" data-es="Aceptar">Accept</label>
+    <label for="cookieCheck" data-en="Decline" data-es="Rechazar">Decline</label>
+  </div>
+
+  <a class="wa-btn" href="https://wa.me/5493412299911" target="_blank" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.114 1.528 5.836L.057 23.571l5.901-1.547A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.007-1.373l-.36-.214-3.5.918.933-3.41-.234-.37A9.818 9.818 0 0 1 2.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/>
+    </svg>
   </a>
 
-  <script src="script.js"></script>
+  <script>
+  var currentLang = 'en';
+
+  function applyLang(lang) {
+    document.querySelectorAll('[data-en]').forEach(function(el) {
+      var val = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-es');
+      if (!val) return;
+      // Use innerHTML for elements that may contain HTML tags (p, span, div)
+      var tag = el.tagName.toLowerCase();
+      if (tag === 'p' || tag === 'div' || tag === 'span') {
+        el.innerHTML = val;
+      } else {
+        el.textContent = val;
+      }
+    });
+    // Placeholders
+    var msgArea = document.getElementById('message');
+    if (msgArea) {
+      msgArea.placeholder = lang === 'en'
+        ? 'Tell us how we can help you...'
+        : 'Cuéntanos cómo podemos ayudarte...';
+    }
+    document.getElementById('langBtn').textContent = lang === 'en' ? 'ES' : 'EN';
+    document.documentElement.lang = lang;
+  }
+
+  function toggleLang() {
+    currentLang = currentLang === 'en' ? 'es' : 'en';
+    applyLang(currentLang);
+  }
+
+  function toggleMenu(){
+    var m=document.getElementById("mobileMenu"),b=document.getElementById("hamburger");
+    var o=m.classList.toggle("open");
+    b.classList.toggle("open");
+    document.body.style.overflow=o?"hidden":"";
+  }
+  function closeMobileMenu(){
+    document.getElementById("mobileMenu").classList.remove("open");
+    document.getElementById("hamburger").classList.remove("open");
+    document.body.style.overflow="";
+  }
+
+  document.addEventListener("DOMContentLoaded",function(){
+    var starsEl=document.getElementById("stars");
+    if(starsEl){
+      for(var i=0;i<80;i++){
+        var s=document.createElement("div");
+        s.className="star";
+        s.style.left=(Math.random()*100)+"%";
+        s.style.top=(Math.random()*70)+"%";
+        s.style.setProperty("--d",(2+Math.random()*4)+"s");
+        s.style.setProperty("--o",(0.2+Math.random()*0.6));
+        s.style.animationDelay=(Math.random()*4)+"s";
+        s.style.width=s.style.height=(1+Math.random()*2)+"px";
+        starsEl.appendChild(s);
+      }
+    }
+
+    var reveals=document.querySelectorAll(".reveal");
+    reveals.forEach(function(r){r.classList.add("animate");});
+    if(window.IntersectionObserver){
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e,i){
+          if(e.isIntersecting){
+            setTimeout(function(){e.target.classList.add("visible");},i*80);
+          }
+        });
+      },{threshold:0.12});
+      reveals.forEach(function(r){obs.observe(r);});
+    } else {
+      reveals.forEach(function(r){r.classList.add("visible");});
+    }
+
+    var ci=0,ct=3,ca=null;
+    var track=document.getElementById("carouselTrack");
+    function updateCarousel(){
+      if(track) track.style.transform="translateX(-"+(ci*100)+"%)";
+      document.querySelectorAll(".carousel-dot").forEach(function(d,i){
+        d.classList.toggle("active",i===ci);
+      });
+    }
+    function moveCarousel(dir){
+      ci=(ci+dir+ct)%ct;
+      updateCarousel();
+      resetAuto();
+    }
+    function resetAuto(){
+      if(ca) clearInterval(ca);
+      ca=setInterval(function(){moveCarousel(1);},5000);
+    }
+    var btnPrev=document.getElementById("btnPrev");
+    var btnNext=document.getElementById("btnNext");
+    if(btnPrev) btnPrev.addEventListener("click",function(){moveCarousel(-1);});
+    if(btnNext) btnNext.addEventListener("click",function(){moveCarousel(1);});
+    document.querySelectorAll(".carousel-dot").forEach(function(dot){
+      dot.addEventListener("click",function(){
+        ci=parseInt(this.getAttribute("data-slide"));
+        updateCarousel();
+        resetAuto();
+      });
+    });
+    resetAuto();
+
+    var form=document.getElementById("contactForm");
+    if(form){
+      form.addEventListener("submit",function(e){
+        e.preventDefault();
+        var data=new FormData(form);
+        fetch(form.action,{method:"POST",body:data,headers:{"Accept":"application/json"}})
+        .then(function(r){
+          if(r.ok){
+            form.style.display="none";
+            var s=document.getElementById("formSuccess");
+            if(s) s.style.display="block";
+          } else {
+            alert(currentLang === 'en' ? "Error sending. Please try again." : "Error al enviar. Por favor intenta de nuevo.");
+          }
+        }).catch(function(){
+          alert(currentLang === 'en' ? "Error sending. Please try again." : "Error al enviar. Por favor intenta de nuevo.");
+        });
+      });
+    }
+  });
+  </script>
 </body>
 </html>
