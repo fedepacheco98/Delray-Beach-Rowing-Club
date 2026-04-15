@@ -14,7 +14,6 @@
     <a href="#about" onclick="closeMobileMenu()" data-en="About" data-es="Sobre Nosotros">About</a>
     <a href="#join" onclick="closeMobileMenu()" data-en="Join Us" data-es="Únete">Join Us</a>
     <a href="#donate" onclick="closeMobileMenu()" data-en="Donate" data-es="Donar">Donate</a>
-    <a href="#indoor" onclick="closeMobileMenu()" data-en="Indoor Rowing" data-es="Remo Indoor">Indoor Rowing</a>
     <a href="#contact" onclick="closeMobileMenu()" data-en="Contact Us" data-es="Contacto">Contact Us</a>
     <div class="mobile-menu-social">
       <a href="mailto:info@delrayrowingclub.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
@@ -34,7 +33,6 @@
       <li><a href="#about" data-en="About" data-es="Sobre Nosotros">About</a></li>
       <li><a href="#join" data-en="Join Us" data-es="Únete">Join Us</a></li>
       <li><a href="#donate" data-en="Donate" data-es="Donar">Donate</a></li>
-      <li><a href="#indoor" data-en="Indoor Rowing" data-es="Remo Indoor">Indoor Rowing</a></li>
       <li><a href="#contact" data-en="Contact Us" data-es="Contacto">Contact Us</a></li>
     </ul>
     <button onclick="toggleLang()" id="langBtn" style="background:none;border:1px solid rgba(200,168,75,0.5);color:var(--gold);font-family:'Plus Jakarta Sans',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;padding:0.3rem 0.7rem;cursor:pointer;margin-right:1.2rem;flex-shrink:0;transition:all 0.3s;" onmouseover="this.style.background='rgba(200,168,75,0.1)'" onmouseout="this.style.background='none'">ES</button>
@@ -108,111 +106,14 @@
         <div class="stat-card"><div class="stat-num">2023</div><div class="stat-label" data-en="Year Founded" data-es="Año de Fundación">Year Founded</div></div>
       </div>
     </div>
-    <!-- FOUNDER -->
-    <div class="founder-section reveal">
-      <div class="founder-grid">
-        <div class="founder-photo reveal">
-          <img src="fundador.jpg" alt="Dr. Rodrigo Natalio Banegas"/>
-        </div>
-        <div class="founder-text reveal">
-          <span class="founder-tag" data-en="Meet the Founder" data-es="Conoce al Fundador">Meet the Founder</span>
-          <h3 class="founder-name">Dr. Rodrigo Natalio Banegas</h3>
-          <p class="founder-title-role" data-en="Orthopedic Surgeon &amp; Associate Professor" data-es="Cirujano Ortopédico y Profesor Asociado">Orthopedic Surgeon &amp; Associate Professor</p>
-          <p class="founder-bio" data-en='A distinguished orthopedic surgeon and Associate Professor in Orthopedics at the <strong>University of Colorado School of Medicine</strong>, Dr. Banegas brings a wealth of international experience and expertise to the field of orthopedic surgery.' data-es='Distinguido cirujano ortopédico y Profesor Asociado en Ortopedia en la <strong>Universidad de Colorado School of Medicine</strong>, el Dr. Banegas aporta una gran experiencia internacional al campo de la cirugía ortopédica.'>A distinguished orthopedic surgeon and Associate Professor in Orthopedics at the <strong>University of Colorado School of Medicine</strong>, Dr. Banegas brings a wealth of international experience and expertise to the field of orthopedic surgery.</p>
-          <p class="founder-bio" style="margin-top:1rem;" data-en='Born in <strong>Rosario, Argentina</strong>, Dr. Banegas has seamlessly blended his South American roots with his American citizenship, becoming a valuable contributor to the medical community — and now, to the rowing community of South Florida.' data-es='Nacido en <strong>Rosario, Argentina</strong>, el Dr. Banegas ha fusionado sus raíces sudamericanas con su ciudadanía estadounidense, convirtiéndose en un valioso miembro de la comunidad médica — y ahora, de la comunidad remera del sur de Florida.'>Born in <strong>Rosario, Argentina</strong>, Dr. Banegas has seamlessly blended his South American roots with his American citizenship, becoming a valuable contributor to the medical community — and now, to the rowing community of South Florida.</p>
-          <div class="founder-flag">
-            <div class="flag-item"><div class="flag-dot arg"></div><span>Rosario, Argentina</span></div>
-            <div class="flag-sep"></div>
-            <div class="flag-item"><div class="flag-dot usa"></div><span>Delray Beach, Florida</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 
-  <!-- ── JOIN ── -->
+  <!-- ── JOIN — Programs (replaces membership tiers) ── -->
   <div id="join" style="padding:100px 5vw;border-top:1px solid rgba(201,168,76,0.15);border-bottom:1px solid rgba(201,168,76,0.15);">
-    <div class="join-inner">
-      <div class="section-header reveal">
-        <span class="section-tag" data-en="Membership" data-es="Membresía">Membership</span>
-        <h2 class="section-title"><span data-en="Choose Your " data-es="Elige Tu ">Choose Your </span><em data-en="Journey" data-es="Camino">Journey</em></h2>
-        <div class="section-rule"></div>
-        <p style="margin-top:1.5rem;color:rgba(245,240,232,0.6);font-size:1.05rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.8;" data-en="Whether you're a seasoned competitor or just discovering the oar, there's a place for you on our roster." data-es="Ya seas un competidor experimentado o estés descubriendo el remo, hay un lugar para ti en nuestro equipo.">Whether you're a seasoned competitor or just discovering the oar, there's a place for you on our roster.</p>
-      </div>
-      <div class="membership-cards">
-        <div class="mem-card reveal">
-          <div class="mem-icon">&#x1F6A3;</div>
-          <div class="mem-title" data-en="Novice" data-es="Principiante">Novice</div>
-          <div class="mem-price">$49<span data-en="/month" data-es="/mes">/month</span></div>
-          <ul class="mem-features">
-            <li data-en="Learn-to-row clinics" data-es="Clínicas de aprendizaje de remo">Learn-to-row clinics</li>
-            <li data-en="2 sessions per week" data-es="2 sesiones por semana">2 sessions per week</li>
-            <li data-en="Equipment provided" data-es="Equipamiento incluido">Equipment provided</li>
-            <li data-en="Club events access" data-es="Acceso a eventos del club">Club events access</li>
-          </ul>
-          <a href="mailto:info@delrayrowingclub.com" class="btn-outline" style="display:inline-block;" data-en="Get Started" data-es="Comenzar">Get Started</a>
-        </div>
-        <div class="mem-card featured reveal">
-          <div class="mem-icon">&#x1F3C6;</div>
-          <div class="mem-title" data-en="Competitive" data-es="Competitivo">Competitive</div>
-          <div class="mem-price">$89<span data-en="/month" data-es="/mes">/month</span></div>
-          <ul class="mem-features">
-            <li data-en="Unlimited training sessions" data-es="Sesiones de entrenamiento ilimitadas">Unlimited training sessions</li>
-            <li data-en="Regatta entry support" data-es="Apoyo en inscripción a regatas">Regatta entry support</li>
-            <li data-en="Video stroke analysis" data-es="Análisis de remada en video">Video stroke analysis</li>
-            <li data-en="Gym &amp; erg access" data-es="Acceso a gimnasio y erg">Gym &amp; erg access</li>
-            <li data-en="Priority boat booking" data-es="Reserva prioritaria de bote">Priority boat booking</li>
-          </ul>
-          <a href="mailto:info@delrayrowingclub.com" class="btn-primary" style="display:inline-block;" data-en="Join Now" data-es="Unirse Ahora">Join Now</a>
-        </div>
-        <div class="mem-card reveal">
-          <div class="mem-icon">&#x2693;</div>
-          <div class="mem-title" data-en="Masters" data-es="Másters">Masters</div>
-          <div class="mem-price">$69<span data-en="/month" data-es="/mes">/month</span></div>
-          <ul class="mem-features">
-            <li data-en="Masters-specific coaching" data-es="Entrenamiento específico para másters">Masters-specific coaching</li>
-            <li data-en="Flexible scheduling" data-es="Horarios flexibles">Flexible scheduling</li>
-            <li data-en="Social &amp; touring rows" data-es="Salidas sociales y de paseo">Social &amp; touring rows</li>
-            <li data-en="Masters regattas" data-es="Regatas de másters">Masters regattas</li>
-          </ul>
-          <a href="mailto:info@delrayrowingclub.com" class="btn-outline" style="display:inline-block;" data-en="Get Started" data-es="Comenzar">Get Started</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── DONATE ── -->
-  <section id="donate">
-    <div class="section-header reveal">
-      <span class="section-tag" data-en="Support the Club" data-es="Apoya el Club">Support the Club</span>
-      <h2 class="section-title"><span data-en="Help Us " data-es="Ayúdanos a ">Help Us </span><em data-en="Row Forward" data-es="Remar Adelante">Row Forward</em></h2>
-      <div class="section-rule"></div>
-    </div>
-    <div class="donate-grid">
-      <div class="donate-text reveal">
-        <p data-en="Your donation directly fuels our mission to make rowing accessible to all South Florida youth, maintain world-class equipment, and send our athletes to compete on the national stage." data-es="Tu donación impulsa directamente nuestra misión de hacer el remo accesible para todos los jóvenes del sur de Florida, mantener equipos de primer nivel y enviar a nuestros atletas a competir en el escenario nacional.">Your donation directly fuels our mission to make rowing accessible to all South Florida youth, maintain world-class equipment, and send our athletes to compete on the national stage.</p>
-        <p data-en="Every dollar raised goes toward building a stronger, more inclusive club — one stroke at a time." data-es="Cada dólar recaudado va hacia la construcción de un club más fuerte e inclusivo — una remada a la vez.">Every dollar raised goes toward building a stronger, more inclusive club — one stroke at a time.</p>
-        <div style="margin-top:1.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
-          <a href="https://www.paypal.com/ncp/payment/99WVY2Z36ZKXC" target="_blank" class="btn-primary" data-en="Donate Now" data-es="Donar Ahora">Donate Now</a>
-          <img src="paypal-logo.png" alt="PayPal" style="height:36px;width:auto;vertical-align:middle;">
-        </div>
-      </div>
-      <div class="donate-impact reveal">
-        <h3 class="impact-title" data-en="Your Impact" data-es="Tu Impacto">Your Impact</h3>
-        <div class="impact-item"><div class="impact-dot"></div><p><strong style="color:var(--gold)">$25</strong> — <span data-en="Covers one youth athlete's training supplies for a full month." data-es="Cubre los materiales de entrenamiento de un atleta juvenil durante un mes completo.">Covers one youth athlete's training supplies for a full month.</span></p></div>
-        <div class="impact-item"><div class="impact-dot"></div><p><strong style="color:var(--gold)">$50</strong> — <span data-en="Funds one hour of professional coaching for the junior squad." data-es="Financia una hora de entrenamiento profesional para el equipo juvenil.">Funds one hour of professional coaching for the junior squad.</span></p></div>
-        <div class="impact-item"><div class="impact-dot"></div><p><strong style="color:var(--gold)">$100</strong> — <span data-en="Contributes to regatta entry fees for a competitive crew." data-es="Contribuye a las inscripciones de regata para una tripulación competitiva.">Contributes to regatta entry fees for a competitive crew.</span></p></div>
-        <div class="impact-item"><div class="impact-dot"></div><p><strong style="color:var(--gold)">$500</strong> — <span data-en="Helps fund the maintenance and repair of our racing shells." data-es="Ayuda a financiar el mantenimiento y reparación de nuestros barcos de regata.">Helps fund the maintenance and repair of our racing shells.</span></p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── INDOOR ── -->
-  <div id="indoor" style="padding:100px 5vw;border-top:1px solid rgba(201,168,76,0.15);">
     <div class="indoor-inner">
       <div class="section-header reveal">
         <span class="section-tag" data-en="Erg Training" data-es="Entrenamiento Erg">Erg Training</span>
-        <h2 class="section-title"><span data-en="Indoor " data-es="Programas de ">Indoor </span><em data-en="Rowing" data-es="Remo Indoor">Rowing</em><span data-en=" Programs" data-es=""> Programs</span></h2>
+        <h2 class="section-title"><span data-en="Our " data-es="Nuestros ">Our </span><em data-en="Programs" data-es="Programas">Programs</em></h2>
         <div class="section-rule"></div>
         <p style="margin-top:1.5rem;color:rgba(245,240,232,0.6);font-size:1.05rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.8;" data-en="No water? No problem. Our indoor rowing facility is open year-round with state-of-the-art Concept2 ergometers and expert instruction." data-es="¿Sin agua? Sin problema. Nuestra instalación de remo indoor está abierta todo el año con ergómetros Concept2 de última generación e instrucción experta.">No water? No problem. Our indoor rowing facility is open year-round with state-of-the-art Concept2 ergometers and expert instruction.</p>
       </div>
@@ -248,6 +149,32 @@
     </div>
   </div>
 
+  <!-- ── DONATE ── -->
+  <section id="donate">
+    <div class="section-header reveal">
+      <span class="section-tag" data-en="Support the Club" data-es="Apoya el Club">Support the Club</span>
+      <h2 class="section-title"><span data-en="Help Us " data-es="Ayúdanos a ">Help Us </span><em data-en="Row Forward" data-es="Remar Adelante">Row Forward</em></h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="donate-grid">
+      <div class="donate-text reveal">
+        <p data-en="Your donation directly fuels our mission to make rowing accessible to all South Florida youth, maintain world-class equipment, and send our athletes to compete on the national stage." data-es="Tu donación impulsa directamente nuestra misión de hacer el remo accesible para todos los jóvenes del sur de Florida, mantener equipos de primer nivel y enviar a nuestros atletas a competir en el escenario nacional.">Your donation directly fuels our mission to make rowing accessible to all South Florida youth, maintain world-class equipment, and send our athletes to compete on the national stage.</p>
+        <p data-en="Every dollar raised goes toward building a stronger, more inclusive club — one stroke at a time." data-es="Cada dólar recaudado va hacia la construcción de un club más fuerte e inclusivo — una remada a la vez.">Every dollar raised goes toward building a stronger, more inclusive club — one stroke at a time.</p>
+        <div style="margin-top:1.5rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+          <a href="https://www.paypal.com/ncp/payment/99WVY2Z36ZKXC" target="_blank" class="btn-primary" data-en="Donate Now" data-es="Donar Ahora">Donate Now</a>
+          <img src="paypal-logo.png" alt="PayPal" style="height:36px;width:auto;vertical-align:middle;">
+        </div>
+      </div>
+      <div class="donate-impact reveal">
+        <h3 class="impact-title" data-en="Your Impact" data-es="Tu Impacto">Your Impact</h3>
+        <div class="impact-item"><div class="impact-dot"></div><p><strong style="color:var(--gold)">$25</strong> — <span data-en="Covers one youth athlete's training supplies for a full month." data-es="Cubre los materiales de entrenamiento de un atleta juvenil durante un mes completo.">Covers one youth athlete's training supplies for a full month.</span></p></div>
+        <div class="impact-item"><div class="impact-dot"></div><p><strong style="color:var(--gold)">$50</strong> — <span data-en="Funds one hour of professional coaching for the junior squad." data-es="Financia una hora de entrenamiento profesional para el equipo juvenil.">Funds one hour of professional coaching for the junior squad.</span></p></div>
+        <div class="impact-item"><div class="impact-dot"></div><p><strong style="color:var(--gold)">$100</strong> — <span data-en="Contributes to regatta entry fees for a competitive crew." data-es="Contribuye a las inscripciones de regata para una tripulación competitiva.">Contributes to regatta entry fees for a competitive crew.</span></p></div>
+        <div class="impact-item"><div class="impact-dot"></div><p><strong style="color:var(--gold)">$500</strong> — <span data-en="Helps fund the maintenance and repair of our racing shells." data-es="Ayuda a financiar el mantenimiento y reparación de nuestros barcos de regata.">Helps fund the maintenance and repair of our racing shells.</span></p></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── CAROUSEL ── -->
   <div class="carousel-section">
     <div class="carousel-inner">
@@ -276,6 +203,29 @@
       </div>
     </div>
   </div>
+
+  <!-- ── FOUNDER (moved here, after carousel) ── -->
+  <section id="founder" style="padding:80px 5vw;border-top:1px solid rgba(201,168,76,0.15);">
+    <div class="founder-section reveal">
+      <div class="founder-grid">
+        <div class="founder-photo reveal">
+          <img src="fundador.jpg" alt="Dr. Rodrigo Natalio Banegas"/>
+        </div>
+        <div class="founder-text reveal">
+          <span class="founder-tag" data-en="Meet the Founder" data-es="Conoce al Fundador">Meet the Founder</span>
+          <h3 class="founder-name">Dr. Rodrigo Natalio Banegas</h3>
+          <p class="founder-title-role" data-en="Orthopedic Surgeon &amp; Associate Professor" data-es="Cirujano Ortopédico y Profesor Asociado">Orthopedic Surgeon &amp; Associate Professor</p>
+          <p class="founder-bio" data-en='A distinguished orthopedic surgeon and Associate Professor in Orthopedics at the <strong>University of Colorado School of Medicine</strong>, Dr. Banegas brings a wealth of international experience and expertise to the field of orthopedic surgery.' data-es='Distinguido cirujano ortopédico y Profesor Asociado en Ortopedia en la <strong>Universidad de Colorado School of Medicine</strong>, el Dr. Banegas aporta una gran experiencia internacional al campo de la cirugía ortopédica.'>A distinguished orthopedic surgeon and Associate Professor in Orthopedics at the <strong>University of Colorado School of Medicine</strong>, Dr. Banegas brings a wealth of international experience and expertise to the field of orthopedic surgery.</p>
+          <p class="founder-bio" style="margin-top:1rem;" data-en='Born in <strong>Rosario, Argentina</strong>, Dr. Banegas has seamlessly blended his South American roots with his American citizenship, becoming a valuable contributor to the medical community — and now, to the rowing community of South Florida.' data-es='Nacido en <strong>Rosario, Argentina</strong>, el Dr. Banegas ha fusionado sus raíces sudamericanas con su ciudadanía estadounidense, convirtiéndose en un valioso miembro de la comunidad médica — y ahora, de la comunidad remera del sur de Florida.'>Born in <strong>Rosario, Argentina</strong>, Dr. Banegas has seamlessly blended his South American roots with his American citizenship, becoming a valuable contributor to the medical community — and now, to the rowing community of South Florida.</p>
+          <div class="founder-flag">
+            <div class="flag-item"><div class="flag-dot arg"></div><span>Rosario, Argentina</span></div>
+            <div class="flag-sep"></div>
+            <div class="flag-item"><div class="flag-dot usa"></div><span>Delray Beach, Florida</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ── MAP ── -->
   <div class="map-section">
@@ -352,8 +302,7 @@
               <label for="subject" data-en="Subject" data-es="Asunto">Subject</label>
               <select id="subject" name="subject">
                 <option value="" data-en="Select a topic..." data-es="Selecciona un tema...">Select a topic...</option>
-                <option value="Membership" data-en="Membership" data-es="Membresía">Membership</option>
-                <option value="Indoor Rowing" data-en="Indoor Rowing" data-es="Remo Indoor">Indoor Rowing</option>
+                <option value="Programs" data-en="Programs" data-es="Programas">Programs</option>
                 <option value="Donation" data-en="Donation" data-es="Donación">Donation</option>
                 <option value="General Inquiry" data-en="General Inquiry" data-es="Consulta General">General Inquiry</option>
               </select>
