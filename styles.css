@@ -248,6 +248,7 @@ footer { background: #061527; border-top: 1px solid rgba(201,168,76,0.15); paddi
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
   .nav-brand { font-size: 0.85rem; }
+  #langBtn { margin-right: 0.5rem; padding: 0.25rem 0.55rem; font-size: 0.65rem; }
   .hero { padding: 90px 6vw 80px; }
   .hero-logo { width: clamp(140px, 55vw, 220px); }
   .hero-title { font-size: clamp(2rem, 9vw, 3rem); }
