@@ -61,8 +61,11 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
 .hero-logo { width: clamp(180px, 28vw, 320px); height: auto; filter: drop-shadow(0 8px 40px rgba(201,168,76,0.4)); animation: floatLogo 6s ease-in-out infinite, fadeInUp 1s ease 0.4s both; margin-bottom: 2rem; }
 @keyframes floatLogo { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
-.hero-title { font-family: "Newsreader", serif; font-size: clamp(2.4rem, 5.5vw, 5rem); font-weight: 900; color: var(--white); line-height: 1.05; animation: fadeInUp 1s ease 0.6s both; text-shadow: 0 4px 30px rgba(0,0,0,0.5); }
-.hero-title em { font-style: italic; color: var(--gold); }
+
+/* ── HERO TITLE — Plus Jakarta Sans, matching nav style ── */
+.hero-title { font-family: "Plus Jakarta Sans", sans-serif; font-size: clamp(2.4rem, 5.5vw, 5rem); font-weight: 700; color: var(--white); line-height: 1.05; letter-spacing: 0.04em; animation: fadeInUp 1s ease 0.6s both; text-shadow: 0 4px 30px rgba(0,0,0,0.5); }
+.hero-title em { font-style: normal; color: var(--gold); }
+
 .hero-subtitle { font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.75rem; font-weight: 300; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold-light); margin-top: 1rem; animation: fadeInUp 1s ease 0.8s both; }
 .hero-tagline { font-size: 1.25rem; font-weight: 300; color: rgba(245,240,232,0.7); margin-top: 1.5rem; max-width: 500px; line-height: 1.7; animation: fadeInUp 1s ease 1s both; }
 .hero-cta { display: flex; gap: 1rem; margin-top: 2.5rem; animation: fadeInUp 1s ease 1.2s both; flex-wrap: wrap; justify-content: center; }
@@ -103,7 +106,7 @@ section { padding: 100px 5vw; max-width: 1200px; margin: 0 auto; }
 .stat-label { font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.6); margin-top: 0.5rem; }
 
 /* ── FOUNDER ── */
-.founder-section { margin-top: 5rem; padding-top: 4rem; border-top: 1px solid rgba(117,178,221,0.2); }
+.founder-section { margin-top: 5rem; padding-top: 4rem; border-top: none; }
 .founder-grid { display: grid; grid-template-columns: 380px 1fr; gap: 4rem; align-items: start; }
 .founder-photo { position: relative; }
 .founder-photo::before { content: ""; position: absolute; top: 12px; left: 12px; right: -12px; bottom: -12px; border: 1px solid rgba(200,168,75,0.3); z-index: 0; }
@@ -230,6 +233,10 @@ footer { background: #061527; border-top: 1px solid rgba(201,168,76,0.15); paddi
 .wa-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.7); }
 .wa-btn svg { width: 30px; height: 30px; fill: white; }
 
+/* ── LANG BUTTON (floating, above WhatsApp) ── */
+.lang-btn { position: fixed; bottom: calc(2rem + 56px + 1rem); right: 2rem; z-index: 9998; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #1a3a5c, #0a2240); border: 1.5px solid rgba(200,168,75,0.55); box-shadow: 0 4px 18px rgba(0,0,0,0.45); cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; color: var(--gold); transition: transform 0.3s, box-shadow 0.3s; }
+.lang-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(0,0,0,0.55); }
+
 /* ── REVEAL ANIMATION ── */
 .reveal { opacity: 1; transform: translateY(0); transition: opacity 0.8s ease, transform 0.8s ease; }
 .reveal.animate { opacity: 0; transform: translateY(40px); }
@@ -248,7 +255,6 @@ footer { background: #061527; border-top: 1px solid rgba(201,168,76,0.15); paddi
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
   .nav-brand { font-size: 0.85rem; }
-  #langBtn { margin-right: 0.5rem; padding: 0.25rem 0.55rem; font-size: 0.65rem; }
   .hero { padding: 90px 6vw 80px; }
   .hero-logo { width: clamp(140px, 55vw, 220px); }
   .hero-title { font-size: clamp(2rem, 9vw, 3rem); }
