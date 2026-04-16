@@ -35,7 +35,6 @@
       <li><a href="#donate" data-en="Donate" data-es="Donar">Donate</a></li>
       <li><a href="#contact" data-en="Contact Us" data-es="Contacto">Contact Us</a></li>
     </ul>
-    <button onclick="toggleLang()" id="langBtn" style="background:none;border:1px solid rgba(200,168,75,0.5);color:var(--gold);font-family:'Plus Jakarta Sans',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;padding:0.3rem 0.7rem;cursor:pointer;margin-right:1.2rem;flex-shrink:0;transition:all 0.3s;" onmouseover="this.style.background='rgba(200,168,75,0.1)'" onmouseout="this.style.background='none'">ES</button>
     <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -54,7 +53,7 @@
     </div>
     <div class="hero-content">
       <img src="escudoclub.svg" alt="Delray Beach Rowing Club Logo" class="hero-logo"/>
-      <h1 class="hero-title">Delray Beach<br/><em>Rowing Club</em></h1>
+      <h1 class="hero-title">Delray Beach<br/>Rowing Club</h1>
       <p class="hero-subtitle" data-en="Delray Beach · Est. 2023 · Where Champions Are Born" data-es="Delray Beach · Est. 2023 · Donde Nacen los Campeones">Delray Beach · Est. 2023 · Where Champions Are Born</p>
       <p class="hero-tagline" data-en="Forging athletes, building community, and honoring the timeless tradition of rowing on the waters of South Florida." data-es="Forjando atletas, construyendo comunidad y honrando la tradición del remo en las aguas del sur de Florida.">Forging athletes, building community, and honoring the timeless tradition of rowing on the waters of South Florida.</p>
       <div class="hero-cta">
@@ -205,7 +204,7 @@
   </div>
 
   <!-- ── FOUNDER (moved here, after carousel) ── -->
-  <section id="founder" style="padding:80px 5vw;border-top:1px solid rgba(201,168,76,0.15);">
+  <section id="founder" style="padding:80px 5vw;">
     <div class="founder-section reveal">
       <div class="founder-grid">
         <div class="founder-photo reveal">
@@ -350,6 +349,9 @@
     <label for="cookieCheck" data-en="Accept" data-es="Aceptar">Accept</label>
     <label for="cookieCheck" data-en="Decline" data-es="Rechazar">Decline</label>
   </div>
+
+  <!-- ── LANG TOGGLE (floating) ── -->
+  <button id="langBtn" class="lang-btn" onclick="toggleLang()" aria-label="Toggle language">ES</button>
 
   <!-- ── WHATSAPP ── -->
   <a class="wa-btn" href="https://wa.me/5493412299911" target="_blank" aria-label="Chat on WhatsApp">
