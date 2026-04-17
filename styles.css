@@ -148,6 +148,25 @@ section { padding: 100px 5vw; max-width: 1200px; margin: 0 auto; }
 .impact-dot { width: 8px; height: 8px; min-width: 8px; background: var(--gold); margin-top: 8px; }
 .impact-item p { font-size: 1rem; color: rgba(245,240,232,0.75); line-height: 1.7; }
 
+/* ── ABOUT — Mission / Vision / Values ── */
+.about-mv-label { font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.7rem; }
+.about-mv-block { padding-bottom: 1.8rem; border-bottom: 1px solid rgba(117,178,221,0.12); margin-bottom: 1.8rem; }
+.about-mv-block:last-of-type { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.about-mv-block p { font-size: 1.1rem; line-height: 1.9; color: rgba(245,240,232,0.8); }
+.about-mv-block p strong { color: var(--gold); }
+.about-right { display: flex; flex-direction: column; gap: 0; }
+.values-block { background: rgba(201,168,76,0.05); border: 1px solid rgba(201,168,76,0.2); padding: 2rem 2rem 1.5rem; }
+.values-title { font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+.values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 1.5rem; }
+.value-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.95rem; color: rgba(245,240,232,0.75); }
+.value-dot { width: 6px; height: 6px; min-width: 6px; background: var(--gold); border-radius: 50%; }
+
+/* ── PROGRAMS — 3-column grid for 6 programs ── */
+.programs-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.program-card-adaptive { border-color: rgba(117,178,221,0.3); }
+.program-card-adaptive:hover { border-color: var(--celeste); }
+.program-card-adaptive .program-tag { color: var(--celeste); border-color: rgba(117,178,221,0.4); }
+
 /* ── INDOOR ── */
 .indoor-inner { max-width: 1200px; margin: 0 auto; }
 .programs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
@@ -245,6 +264,13 @@ footer { background: #061527; border-top: 1px solid rgba(201,168,76,0.15); paddi
 /* ── ANIMATIONS ── */
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px) } to { opacity: 1; transform: translateY(0) } }
 
+/* ── TABLET ── */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .programs-grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { gap: 3rem; }
+  .values-grid { grid-template-columns: 1fr 1fr; }
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .founder-grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -280,6 +306,7 @@ footer { background: #061527; border-top: 1px solid rgba(201,168,76,0.15); paddi
   .donate-grid { grid-template-columns: 1fr; gap: 2rem; }
   .donate-impact { padding: 1.5rem; }
   .programs-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .programs-grid-3 { grid-template-columns: 1fr; }
   .program-card { padding: 2rem 1.5rem; }
   .carousel-slide img { height: 260px; }
   .carousel-btn { width: 40px; height: 40px; }
