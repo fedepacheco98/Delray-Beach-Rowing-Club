@@ -17,6 +17,7 @@ body { font-family: "Plus Jakarta Sans", sans-serif; background: var(--deep-navy
 /* ── NAV ── */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 72px; background: rgba(20,48,100,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.25); }
 .nav-brand { font-family: "Newsreader", serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; display: flex; align-items: center; }
+.nav-brand img { filter: drop-shadow(0 0 8px rgba(201,168,76,0.6)) drop-shadow(0 0 18px rgba(117,178,221,0.35)); }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 .nav-links a { font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream); text-decoration: none; position: relative; transition: color 0.3s; }
 .nav-links a::after { content: ""; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s ease; }
@@ -59,12 +60,11 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .star { position: absolute; background: white; border-radius: 50%; animation: twinkle var(--d, 3s) ease-in-out infinite alternate; opacity: var(--o, 0.5); }
 @keyframes twinkle { from { opacity: var(--o, 0.5) } to { opacity: 0.1 } }
 .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; }
-.hero-logo { width: clamp(180px, 28vw, 320px); height: auto; filter: drop-shadow(0 8px 40px rgba(201,168,76,0.4)); animation: floatLogo 6s ease-in-out infinite, fadeInUp 1s ease 0.4s both; margin-bottom: 2rem; }
+.hero-logo { width: clamp(180px, 28vw, 320px); height: auto; filter: drop-shadow(0 0 60px rgba(201,168,76,0.7)) drop-shadow(0 0 120px rgba(117,178,221,0.4)); animation: floatLogo 6s ease-in-out infinite, fadeInUp 1s ease 0.4s both; margin-bottom: 2rem; }
 @keyframes floatLogo { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
 
-/* ── HERO TITLE — Plus Jakarta Sans, matching nav style ── */
-.hero-title { font-family: "Plus Jakarta Sans", sans-serif; font-size: clamp(2.4rem, 5.5vw, 5rem); font-weight: 700; color: var(--white); line-height: 1.05; letter-spacing: 0.04em; animation: fadeInUp 1s ease 0.6s both; text-shadow: 0 4px 30px rgba(0,0,0,0.5); }
-.hero-title em { font-style: normal; color: var(--gold); }
+/* ── HERO TITLE — Newsreader, matching nav brand ── */
+.hero-title { font-family: "Newsreader", serif; font-size: clamp(2.4rem, 5.5vw, 5rem); font-weight: 700; color: var(--white); line-height: 1.05; letter-spacing: 0.08em; text-transform: uppercase; animation: fadeInUp 1s ease 0.6s both; text-shadow: 0 4px 30px rgba(0,0,0,0.5); }
 
 .hero-subtitle { font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.75rem; font-weight: 300; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold-light); margin-top: 1rem; animation: fadeInUp 1s ease 0.8s both; }
 .hero-tagline { font-size: 1.25rem; font-weight: 300; color: rgba(245,240,232,0.7); margin-top: 1.5rem; max-width: 500px; line-height: 1.7; animation: fadeInUp 1s ease 1s both; }
@@ -121,7 +121,7 @@ section { padding: 100px 5vw; max-width: 1200px; margin: 0 auto; }
 .flag-item { display: flex; align-items: center; gap: 0.6rem; font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(240,246,251,0.55); }
 .flag-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 .flag-dot.arg { background: linear-gradient(180deg, #74acdf 33%, #fff 33%, #fff 66%, #74acdf 66%); }
-.flag-dot.usa { background: linear-gradient(180deg, #B22234 33%, #fff 33%, #fff 66%, #3C3B6E 66%); }
+.flag-dot.usa { background: linear-gradient(180deg, #B22234 0%, #B22234 30%, #fff 30%, #fff 50%, #3C3B6E 50%, #3C3B6E 70%, #fff 70%, #B22234 70%); border: 1px solid rgba(255,255,255,0.2); }
 .flag-sep { width: 1px; height: 20px; background: rgba(117,178,221,0.2); }
 
 /* ── MEMBERSHIP ── */
@@ -141,6 +141,9 @@ section { padding: 100px 5vw; max-width: 1200px; margin: 0 auto; }
 
 /* ── DONATE ── */
 #donate { max-width: 1200px; }
+.donate-solo { max-width: 680px; margin: 0 auto; text-align: center; }
+.donate-solo p { font-size: 1.1rem; line-height: 1.9; color: rgba(245,240,232,0.75); margin-bottom: 1.5rem; }
+.donate-solo > div { justify-content: center; }
 .donate-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
 .donate-text p { font-size: 1.1rem; line-height: 1.9; color: rgba(245,240,232,0.75); margin-bottom: 1.5rem; }
 .donate-impact { background: rgba(117,178,221,0.06); border: 1px solid rgba(117,178,221,0.2); padding: 2.5rem; }
