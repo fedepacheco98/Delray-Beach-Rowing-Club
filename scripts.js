@@ -18,7 +18,12 @@ function applyLang(lang) {
       ? 'Tell us how we can help you...'
       : 'Cuéntanos cómo podemos ayudarte...';
   }
-  document.getElementById('langBtn').textContent = lang === 'en' ? 'ES' : 'EN';
+  // Show the flag of the OTHER language (the one you'd switch TO)
+  var btn = document.getElementById('langBtn');
+  if (btn) {
+    btn.textContent = lang === 'en' ? '🇪🇸' : '🇺🇸';
+    btn.title = lang === 'en' ? 'Switch to Spanish' : 'Switch to English';
+  }
   document.documentElement.lang = lang;
 }
 
