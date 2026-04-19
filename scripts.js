@@ -19,11 +19,19 @@ function applyLang(lang) {
       : 'Cuéntanos cómo podemos ayudarte...';
   }
   // Show the flag of the OTHER language (the one you'd switch TO)
-  var btn = document.getElementById('langBtn');
-  if (btn) {
-    btn.textContent = lang === 'en' ? '🇪🇸' : '🇺🇸';
-    btn.title = lang === 'en' ? 'Switch to Spanish' : 'Switch to English';
+  var flagES = document.getElementById('langFlagES');
+  var flagUS = document.getElementById('langFlagUS');
+  if (flagES && flagUS) {
+    if (lang === 'en') {
+      flagES.style.display = 'flex';
+      flagUS.style.display = 'none';
+    } else {
+      flagES.style.display = 'none';
+      flagUS.style.display = 'flex';
+    }
   }
+  var btn = document.getElementById('langBtn');
+  if (btn) btn.title = lang === 'en' ? 'Switch to Spanish' : 'Switch to English';
   document.documentElement.lang = lang;
 }
 
