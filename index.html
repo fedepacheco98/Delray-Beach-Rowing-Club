@@ -69,6 +69,20 @@
     </button>
   </nav>
 
+  <!-- ── LANG STRIP (below nav) ── -->
+  <div class="lang-strip">
+    <button id="langBtn" class="lang-strip-btn" onclick="toggleLang()" aria-label="Toggle language" title="Switch to Spanish">
+      <span id="langFlagES" style="display:flex;align-items:center;gap:0.5rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" width="24" height="16" style="border-radius:2px;display:block;flex-shrink:0;"><rect width="60" height="40" fill="#c60b1e"/><rect y="10" width="60" height="20" fill="#ffc400"/></svg>
+        <span class="lang-strip-label" data-en="Español" data-es="Español">Español</span>
+      </span>
+      <span id="langFlagUS" style="display:none;align-items:center;gap:0.5rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" width="24" height="16" style="border-radius:2px;display:block;flex-shrink:0;"><rect width="60" height="40" fill="#fff"/><rect y="0" width="60" height="6.15" fill="#B22234"/><rect y="12.3" width="60" height="6.15" fill="#B22234"/><rect y="24.6" width="60" height="6.15" fill="#B22234"/><rect y="36.9" width="60" height="3.1" fill="#B22234"/><rect width="24" height="21.5" fill="#3C3B6E"/></svg>
+        <span class="lang-strip-label" data-en="English" data-es="English">English</span>
+      </span>
+    </button>
+  </div>
+
   <!-- ── HERO ── -->
   <div class="hero">
     <div class="hero-bg"></div>
@@ -224,9 +238,9 @@
       </div>
       <div class="carousel-wrapper reveal">
         <div class="carousel-track" id="carouselTrack">
-          <div class="carousel-slide"><img src="aerea.avif" alt="Rowing competition"/></div>
-          <div class="carousel-slide"><img src="club1.jpeg" alt="Rowing heats"/></div>
-          <div class="carousel-slide"><img src="club2.jpeg" alt="Women quad heat"/></div>
+          <div class="carousel-slide"><img src="remo1.avif" alt="Rowing competition"/></div>
+          <div class="carousel-slide"><img src="remo2.avif" alt="Rowing heats"/></div>
+          <div class="carousel-slide"><img src="remo3.avif" alt="Women quad heat"/></div>
         </div>
         <button class="carousel-btn carousel-btn-prev" id="btnPrev" aria-label="Previous">
           <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
@@ -299,6 +313,52 @@
           <h3 class="founder-name">Federico Pacheco</h3>
           <p class="founder-title-role" data-en="Web &amp; Social Media Manager" data-es="Manager de Web y Redes Sociales">Web &amp; Social Media Manager</p>
           <p class="founder-bio" data-en="Federico is the digital voice of the Delray Beach Rowing Club. He manages our online presence, website, and social media channels — connecting our community, sharing our story, and helping grow the club's reach across South Florida and beyond." data-es="Federico es la voz digital del Delray Beach Rowing Club. Gestiona nuestra presencia online, el sitio web y las redes sociales — conectando a nuestra comunidad, compartiendo nuestra historia y ayudando a expandir el alcance del club en el sur de Florida y más allá.">Federico is the digital voice of the Delray Beach Rowing Club. He manages our online presence, website, and social media channels — connecting our community, sharing our story, and helping grow the club's reach across South Florida and beyond.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dan Kiggins -->
+    <div class="founder-section reveal" style="margin-top:4rem;padding-top:3rem;border-top:1px solid rgba(201,168,76,0.12);">
+      <div class="founder-grid founder-grid-reverse">
+        <div class="founder-text reveal">
+          <span class="founder-tag" data-en="Co-Founder" data-es="Co-Fundador">Co-Founder</span>
+          <h3 class="founder-name">Daniel Kiggins</h3>
+          <p class="founder-title-role" data-en="Retired 777 Captain, American Airlines · NASA Subject Matter Expert · U.S. Air Force Veteran" data-es="Capitán 777 Retirado, American Airlines · Experto Asesor NASA · Veterano de la Fuerza Aérea de EE.UU.">Retired 777 Captain, American Airlines · NASA Subject Matter Expert · U.S. Air Force Veteran</p>
+          <p class="founder-bio" data-en='Daniel Kiggins recently retired from American Airlines as a 777 Captain after a distinguished forty-year career, and currently serves <strong>NASA as a subject matter expert</strong> on the development of commercial aviation technologies. His aviation story is as remarkable as his rowing one: after beginning his college career at <strong>St. John&apos;s University in New York on a rowing scholarship</strong>, he left university at 19 to enlist in the <strong>New York Air National Guard</strong>, becoming one of the youngest pilots in the U.S. Air Force.' data-es='Daniel Kiggins se retiró recientemente de American Airlines como Capitán de 777 tras una distinguida carrera de cuarenta años, y actualmente sirve a la <strong>NASA como experto asesor</strong> en el desarrollo de tecnologías de aviación comercial. Comenzó en la <strong>Universidad St. John&apos;s de Nueva York con una beca de remo</strong>, luego se enlistó a los 19 años en la <strong>Guardia Aérea Nacional de Nueva York</strong>, convirtiéndose en uno de los pilotos más jóvenes de la Fuerza Aérea de EE.UU.'>Daniel Kiggins recently retired from American Airlines as a 777 Captain after a distinguished forty-year career, and currently serves <strong>NASA as a subject matter expert</strong> on the development of commercial aviation technologies. His aviation story is as remarkable as his rowing one: after beginning his college career at <strong>St. John's University in New York on a rowing scholarship</strong>, he left university at 19 to enlist in the <strong>New York Air National Guard</strong>, becoming one of the youngest pilots in the U.S. Air Force.</p>
+          <p class="founder-bio" style="margin-top:1rem;" data-en='He went on to earn degrees at the <strong>University of Tennessee</strong>, <strong>Carson-Newman College</strong>, and <strong>Embry-Riddle Aeronautical University</strong> — each accompanied by a rowing scholarship. For years he was a proud member of the <strong>Bachelor&apos;s Barge Club on Boathouse Row in Philadelphia</strong>, one of the oldest rowing clubs in the nation, before relocating to South Florida.' data-es='Continuó sus estudios en la <strong>Universidad de Tennessee</strong>, el <strong>Carson-Newman College</strong> y la <strong>Embry-Riddle Aeronautical University</strong>, siempre con becas de remo. Durante años fue miembro del <strong>Bachelor&apos;s Barge Club en Boathouse Row, Filadelfia</strong>, uno de los clubes de remo más antiguos del país, antes de mudarse al sur de Florida.'>He went on to earn degrees at the <strong>University of Tennessee</strong>, <strong>Carson-Newman College</strong>, and <strong>Embry-Riddle Aeronautical University</strong> — each accompanied by a rowing scholarship. For years he was a proud member of the <strong>Bachelor's Barge Club on Boathouse Row in Philadelphia</strong>, one of the oldest rowing clubs in the nation, before relocating to South Florida.</p>
+          <p class="founder-bio" style="margin-top:1rem;" data-en='Daniel and Rodrigo share a deep conviction: that rowing is a vehicle for community impact, academic opportunity, and the values of teamwork and discipline. As a veteran, Daniel has personally connected the club to the local veteran community. He strongly believes rowing can open doors for underserved youth in Delray Beach — providing a pathway to <strong>scholarships and grants</strong> that allow the next generation to share in the American dream.' data-es='Daniel y Rodrigo comparten una profunda convicción: que el remo es un vehículo de impacto comunitario, oportunidad académica y valores de equipo. Como veterano, Daniel ha conectado personalmente al club con la comunidad de veteranos. Cree firmemente que el remo puede abrir puertas para los jóvenes de Delray Beach, ofreciendo un camino hacia <strong>becas y subvenciones</strong> que permitan a la próxima generación compartir el sueño americano.'>Daniel and Rodrigo share a deep conviction: that rowing is a vehicle for community impact, academic opportunity, and the values of teamwork and discipline. As a veteran, Daniel has personally connected the club to the local veteran community. He strongly believes rowing can open doors for underserved youth in Delray Beach — providing a pathway to <strong>scholarships and grants</strong> that allow the next generation to share in the American dream.</p>
+          <div class="founder-flag">
+            <div class="flag-item"><div class="flag-dot usa"></div><span>South Florida</span></div>
+          </div>
+        </div>
+        <div class="founder-photo reveal">
+          <img src="dan.jpg" alt="Daniel Kiggins" onerror="this.parentElement.style.background='rgba(201,168,76,0.06)';this.style.display='none'"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- Board of Directors -->
+    <div class="board-section reveal" style="margin-top:4rem;padding-top:3rem;border-top:1px solid rgba(201,168,76,0.12);">
+      <div class="section-header" style="margin-bottom:2rem;text-align:left;">
+        <span class="section-tag" data-en="Board of Directors" data-es="Junta Directiva">Board of Directors</span>
+        <div class="section-rule" style="margin:0.8rem 0 0;"></div>
+      </div>
+      <div class="board-grid">
+        <div class="board-card reveal">
+          <div class="board-name">Douglas Davis</div>
+          <div class="board-role" data-en="Officer" data-es="Oficial">Officer</div>
+        </div>
+        <div class="board-card reveal">
+          <div class="board-name">Luis Baraldi</div>
+          <div class="board-role" data-en="Officer" data-es="Oficial">Officer</div>
+        </div>
+        <div class="board-card reveal">
+          <div class="board-name">Sophia Palombo</div>
+          <div class="board-role" data-en="Membership Officer" data-es="Oficial de Membresías">Membership Officer</div>
+        </div>
+        <div class="board-card reveal">
+          <div class="board-name">Shelby Frenette</div>
+          <div class="board-role" data-en="Community Outreach Officer" data-es="Oficial de Alcance Comunitario">Community Outreach Officer</div>
         </div>
       </div>
     </div>
@@ -427,28 +487,6 @@
     <label for="cookieCheck" data-en="Accept" data-es="Aceptar">Accept</label>
     <label for="cookieCheck" data-en="Decline" data-es="Rechazar">Decline</label>
   </div>
-
-  <!-- ── LANG TOGGLE (floating) ── -->
-  <button id="langBtn" class="lang-btn" onclick="toggleLang()" aria-label="Toggle language" title="Switch to Spanish">
-    <span id="langFlagES" style="display:flex;align-items:center;justify-content:center;">
-      <!-- Spain flag SVG -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" width="32" height="22" style="border-radius:3px;display:block;">
-        <rect width="60" height="40" fill="#c60b1e"/>
-        <rect y="10" width="60" height="20" fill="#ffc400"/>
-      </svg>
-    </span>
-    <span id="langFlagUS" style="display:none;align-items:center;justify-content:center;">
-      <!-- USA flag SVG -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" width="32" height="22" style="border-radius:3px;display:block;">
-        <rect width="60" height="40" fill="#fff"/>
-        <rect y="0"  width="60" height="6.15" fill="#B22234"/>
-        <rect y="12.3"  width="60" height="6.15" fill="#B22234"/>
-        <rect y="24.6"  width="60" height="6.15" fill="#B22234"/>
-        <rect y="36.9"  width="60" height="3.1"  fill="#B22234"/>
-        <rect width="24" height="21.5" fill="#3C3B6E"/>
-      </svg>
-    </span>
-  </button>
 
   <!-- ── WHATSAPP ── -->
   <a class="wa-btn" href="https://wa.me/17202901982" target="_blank" aria-label="Chat on WhatsApp">
