@@ -337,3 +337,11 @@ footer { background: #142060; border-top: 1px solid rgba(201,168,76,0.15); paddi
   .form-row { grid-template-columns: 1fr; }
   footer { padding: 2rem 6vw; }
 }
+
+/* ── COACH ANNOUNCEMENT ── */
+.coach-announcement { max-width: 720px; margin: 0 auto; text-align: center; background: rgba(201,168,76,0.04); border: 1px solid rgba(201,168,76,0.2); padding: 3rem 2.5rem; position: relative; }
+.coach-announcement::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.coach-announce-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; opacity: 0.6; }
+.coach-announce-text { font-size: 1.05rem; line-height: 1.9; color: rgba(245,240,232,0.78); margin-top: 1rem; display: block; }
+.coach-announce-text strong { color: var(--gold); }
+.coach-announce-text em { color: var(--celeste); font-style: italic; }
