@@ -18,19 +18,21 @@ function applyLang(lang) {
       ? 'Tell us how we can help you...'
       : 'Cuéntanos cómo podemos ayudarte...';
   }
-  // US flag = currently English (switch TO Spanish) → show ES flag
-  // ES flag = currently Spanish (switch TO English) → show US flag
+  // US flag = page is EN → button shows "Español" (switch to ES)
+  // ES flag = page is ES → button shows "English" (switch to EN)
   var flagES = document.getElementById('langFlagES');
   var flagUS = document.getElementById('langFlagUS');
+  var labelUS = document.getElementById('langLabelUS');
+  var labelES = document.getElementById('langLabelES');
   if (flagES && flagUS) {
     if (lang === 'en') {
-      // Page is English → show "Español" option (US flag with Español label)
       flagUS.style.display = 'flex';
       flagES.style.display = 'none';
+      if (labelUS) labelUS.textContent = 'Español';
     } else {
-      // Page is Spanish → show "English" option (ES flag with English label)
       flagUS.style.display = 'none';
       flagES.style.display = 'flex';
+      if (labelES) labelES.textContent = 'English';
     }
   }
   var btn = document.getElementById('langBtn');
