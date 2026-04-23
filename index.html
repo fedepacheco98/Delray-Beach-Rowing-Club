@@ -76,11 +76,11 @@
     <button id="langBtn" class="lang-strip-btn" onclick="toggleLang()" aria-label="Toggle language" title="Switch to Spanish">
       <span id="langFlagUS" style="display:flex;align-items:center;gap:0.5rem;">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" width="24" height="16" style="border-radius:2px;display:block;flex-shrink:0;"><rect width="60" height="40" fill="#fff"/><rect y="0" width="60" height="6.15" fill="#B22234"/><rect y="12.3" width="60" height="6.15" fill="#B22234"/><rect y="24.6" width="60" height="6.15" fill="#B22234"/><rect y="36.9" width="60" height="3.1" fill="#B22234"/><rect width="24" height="21.5" fill="#3C3B6E"/></svg>
-        <span class="lang-strip-label" data-en="Español" data-es="English">Español</span>
+        <span class="lang-strip-label" id="langLabelUS">Español</span>
       </span>
       <span id="langFlagES" style="display:none;align-items:center;gap:0.5rem;">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" width="24" height="16" style="border-radius:2px;display:block;flex-shrink:0;"><rect width="60" height="40" fill="#c60b1e"/><rect y="10" width="60" height="20" fill="#ffc400"/></svg>
-        <span class="lang-strip-label" data-en="English" data-es="Español">English</span>
+        <span class="lang-strip-label" id="langLabelES">English</span>
       </span>
     </button>
   </div>
@@ -240,9 +240,9 @@
       </div>
       <div class="carousel-wrapper reveal">
         <div class="carousel-track" id="carouselTrack">
-          <div class="carousel-slide"><img src="aerea.avif" alt="Rowing competition"/></div>
-          <div class="carousel-slide"><img src="club1.jpeg" alt="Rowing heats"/></div>
-          <div class="carousel-slide"><img src="club2.jpeg" alt="Women quad heat"/></div>
+          <div class="carousel-slide"><img src="remo1.avif" alt="Rowing competition"/></div>
+          <div class="carousel-slide"><img src="remo2.avif" alt="Rowing heats"/></div>
+          <div class="carousel-slide"><img src="remo3.avif" alt="Women quad heat"/></div>
         </div>
         <button class="carousel-btn carousel-btn-prev" id="btnPrev" aria-label="Previous">
           <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
@@ -323,7 +323,7 @@
     <div class="founder-section reveal" style="margin-top:4rem;padding-top:3rem;border-top:1px solid rgba(201,168,76,0.12);">
       <div class="founder-grid">
         <div class="founder-photo reveal">
-          <img src="federico.jpeg" alt="Federico Pacheco" onerror="this.parentElement.style.background='rgba(201,168,76,0.06)';this.parentElement.style.display='flex';this.parentElement.style.alignItems='center';this.parentElement.style.justifyContent='center';this.outerHTML='<div style=\'font-size:4rem;opacity:0.3;\'>🚣</div>'"/>
+          <img src="federico.jpg" alt="Federico Pacheco" onerror="this.parentElement.style.background='rgba(201,168,76,0.06)';this.parentElement.style.display='flex';this.parentElement.style.alignItems='center';this.parentElement.style.justifyContent='center';this.outerHTML='<div style=\'font-size:4rem;opacity:0.3;\'>🚣</div>'"/>
         </div>
         <div class="founder-text reveal">
           <span class="founder-tag" data-en="Web &amp; Social Media" data-es="Web y Redes Sociales">Web &amp; Social Media</span>
