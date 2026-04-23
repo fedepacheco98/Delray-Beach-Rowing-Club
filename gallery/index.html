@@ -26,12 +26,14 @@
     body { font-family: "Plus Jakarta Sans", sans-serif; background: var(--deep-navy); color: var(--cream); overflow-x: hidden; }
 
     /* ── NAV ── */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 72px; background: rgba(20,48,100,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.25); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 0 5vw; height: 72px; background: rgba(20,48,100,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,168,76,0.25); }
     .nav-brand { font-family: "Newsreader", serif; font-size: 1.05rem; font-weight: 700; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; display: flex; align-items: center; text-decoration: none; }
     .nav-brand img { height: 36px; width: auto; margin-right: 0.6rem; filter: drop-shadow(0 0 8px rgba(201,168,76,0.5)); }
-    .nav-back { font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245,240,232,0.7); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.3s; }
-    .nav-back:hover { color: var(--gold); }
-    .nav-back svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* ── FLOATING BACK BUTTON ── */
+    .back-btn { position: fixed; bottom: 2rem; left: 2rem; z-index: 9998; display: flex; align-items: center; gap: 0.6rem; padding: 0.75rem 1.3rem; background: linear-gradient(135deg, #2a5298, #1a3a6e); border: 1.5px solid rgba(200,168,75,0.55); box-shadow: 0 4px 18px rgba(0,0,0,0.5); color: var(--gold); font-family: "Plus Jakarta Sans", sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: transform 0.3s, box-shadow 0.3s; clip-path: polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%); }
+    .back-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.6); color: var(--gold-light); }
+    .back-btn svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
 
     /* ── HERO ── */
     .gallery-hero { padding: 120px 5vw 60px; text-align: center; position: relative; overflow: hidden; }
@@ -126,10 +128,6 @@
     <a href="/" class="nav-brand">
       <img src="../escudoclub.svg" alt="Logo">
       Delray Beach Rowing Club
-    </a>
-    <a href="/" class="nav-back">
-      <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-      Back to Home
     </a>
   </nav>
 
@@ -230,6 +228,12 @@
     <button class="lightbox-next" id="lbNext"><svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></button>
     <div class="lightbox-caption" id="lbCaption"></div>
   </div>
+
+  <!-- ── FLOATING BACK BUTTON ── -->
+  <a href="/" class="back-btn">
+    <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+    Back to Home
+  </a>
 
   <!-- ── FOOTER ── -->
   <footer>
